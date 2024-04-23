@@ -25,3 +25,14 @@ p{
     text-wrap: balance;
   }
 }
+
+@keyframes logoBounce {
+  0%, 100% {
+    transform: translateY(-55%) translateX(-50%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-40%) translateX(-50%);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
