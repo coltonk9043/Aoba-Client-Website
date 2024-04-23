@@ -6,11 +6,11 @@ import React from 'react'
 
 export const TitleBar = () => {
 
-    const [mobile, setMobile] = React.useState<boolean>(window == undefined ? false : window.innerWidth < 768)
+    const [mobile, setMobile] = React.useState<boolean>(typeof window == "undefined" ? false : window.innerWidth < 768)
     const [expanded, setExpanded] = React.useState<boolean>(false);
 
     React.useEffect(() => {
-        if(window !== undefined){
+        if(typeof window !== "undefined"){
             const event = window.matchMedia("(max-width: 768px)")
             const handler = (e : MediaQueryListEvent) => { setMobile(e.matches); setExpanded(false); }
             event.addEventListener("change", handler);
