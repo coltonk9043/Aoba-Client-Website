@@ -1,5 +1,3 @@
-'use client'
-
 export type DownloadPaneProps = {
     version : string,
     changelog: string,

@@ -9,7 +9,7 @@ export default function Home() {
 
       {/** Aoba Logo */}
       <div className="relative" style={{height: 500}}>
-        <Image className="absolute" style={{top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client"/>
+        <Image className="absolute w-[75%] max-w-[400px]" style={{top: "50%", left: "50%", transform: "translate(-50%, -50%)" }} src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client"/>
       </div>
       
       {/** Feature Panel */}
