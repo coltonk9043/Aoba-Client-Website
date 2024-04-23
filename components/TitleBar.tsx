@@ -6,7 +6,7 @@ import React from 'react'
 
 export const TitleBar = () => {
 
-    const [mobile, setMobile] = React.useState<boolean>(window.innerWidth < 768)
+    const [mobile, setMobile] = React.useState<boolean>(window == undefined ? false : window.innerWidth < 768)
     const [expanded, setExpanded] = React.useState<boolean>(false);
 
     React.useEffect(() => {
