@@ -10,10 +10,12 @@ export const TitleBar = () => {
     const [expanded, setExpanded] = React.useState<boolean>(false);
 
     React.useEffect(() => {
-        const event = window.matchMedia("(max-width: 768px)")
-        const handler = (e : MediaQueryListEvent) => { setMobile(e.matches); setExpanded(false); }
-        event.addEventListener("change", handler);
-        return () => { event.removeEventListener("change", handler); }
+        if(window !== undefined){
+            const event = window.matchMedia("(max-width: 768px)")
+            const handler = (e : MediaQueryListEvent) => { setMobile(e.matches); setExpanded(false); }
+            event.addEventListener("change", handler);
+            return () => { event.removeEventListener("change", handler); }
+        }
     }, [])
 
     const HandleMenuClick = () => {
