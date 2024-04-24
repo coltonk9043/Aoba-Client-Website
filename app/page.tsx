@@ -22,7 +22,7 @@ export default function Home() {
   const generateHacksSummary = () => {
     return hacks.map((e) => {
       return (
-        <p className="text-center">{e}</p>
+        <p key={e} className="text-center">{e}</p>
       )
     })
   }
