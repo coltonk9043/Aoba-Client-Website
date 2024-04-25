@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Aoba Minecraft Hacked Client",
-  description: "Aoba Hacked Client website and downloads for several versions.",
+  title: "Aoba Hacked Client for Minecraft",
+  description: "Aoba Hacked Client webpage for Minecraft. Download links to Aoba Hacked Client 1.20.4.",
 };
 
 export default function RootLayout({
