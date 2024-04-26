@@ -86,10 +86,10 @@ export const DownloadPane = (release : Release) => {
 
     const generateImages = () => {
         let images = release.body.match(/([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm);
-        return images?.map((e : string) => {
+        return images?.map((e : string, index: number) => {
             if(e.startsWith("https://github.com/coltonk9043/Aoba-MC-Hacked-Client/assets")){
                 return (
-                    <img className="rounded-lg" src={e} alt="screenshot"/>
+                    <img key={release.tag_name + index} className="rounded-lg" src={e} alt="screenshot"/>
                 )
             }else
                 return undefined;
