@@ -35,7 +35,7 @@ export const TitleBar = () => {
                         <Link className='p-5 hover:bg-purple-300' href="/download/">Download</Link>
                         <Link className='p-5 hover:bg-purple-300' href="/wiki/">Wiki</Link>
                         <Link className='p-5 hover:bg-purple-300' href="/contact/">Contact</Link>
-                        <Link className='p-5 hover:bg-purple-300' href="/">Donate</Link>
+                        <Link className='p-5 hover:bg-purple-300' href="/">Support Us</Link>
                     </div>
                     <a className='ml-2 mr-2 hover:bg-purple-300 w-50px h-50px' href="https://discord.gg/HyZ3uGrwgs">
                         <Image src="/discord.png" width={50} height={50} alt="Aoba Fan Club (Unofficial)"/>
