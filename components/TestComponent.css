@@ -1,0 +1,29 @@
+nav {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: black;
+    color: #fff;
+    font-weight: 500;
+    font-size: 2rem;
+    transition: 0.4s;
+    text-align: center;
+}
+
+.nav-open {
+    width: 100%;
+    transform: translate(-250px, 0);
+}
+
+.link {
+    align-content: center;
+    width: 100%;
+}
+
+.link:hover {
+    background-color: rgb(216 180 254);
+}

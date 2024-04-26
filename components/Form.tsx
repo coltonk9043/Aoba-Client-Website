@@ -28,14 +28,14 @@ const Form = () => {
         </button>
       </form>
       <h2 className="pt-32">Or you can reach us through our social medias:</h2>
-      <div className="flex flex-wrap">
-        <a className="m-auto mt-0 mb-0 hover:text-purple-300 duration-300" href="/">
+      <div className="flex flex-wrap md:justify-center">
+        <a className="m-auto mt-0 mb-0 hover:text-purple-300 duration-300 md:ml-10 md:mr-10" href="/">
           <FaTwitterSquare className="size-16" />
         </a>
-        <a className="m-auto mt-0 mb-0 hover:text-purple-300 duration-300" href="/">
+        <a className="m-auto mt-0 mb-0 hover:text-purple-300 duration-300 md:ml-10 md:mr-10" href="/">
           <FaGithubSquare className="size-16" />
         </a>
-        <a className="m-auto mt-0 mb-0 hover:text-purple-300 duration-300" href="/">
+        <a className="m-auto mt-0 mb-0 hover:text-purple-300 duration-300 md:ml-10 md:mr-10" href="/">
           <IoLogoDiscord className="size-16" />
         </a>
       </div>

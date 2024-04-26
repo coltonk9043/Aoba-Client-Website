@@ -3,13 +3,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import "./TestComponent.css";
 
 const TestComponent = () => {
-    const [nav, setNav] = useState(true);
+  const [nav, setNav] = useState(true);
 
-    const onClickHandler = () => {
-        setNav(prevNav => !prevNav);
-    }
+  const onClickHandler = () => {
+    setNav((prevNav) => !prevNav);
+  };
 
   return (
     <>
@@ -18,34 +19,39 @@ const TestComponent = () => {
           <Link className="m-2 hover:bg-purple-300 w-50px h-50px" href="/">
             <Image src="/aoba.png" width={50} height={50} alt="Aoba Logo" />
           </Link>
-          <div className="m-2 hover:cursor-pointer" onClick={() => {onClickHandler()}}>
+          <div
+            className="m-2 hover:cursor-pointer"
+            onClick={() => {
+              onClickHandler();
+            }}
+          >
             <Image width={50} height={50} src="/menu.svg" alt="Menu" />
           </div>
         </div>
       </div>
       <div>
-        <div className={nav ? "fixed right-0 overflow-x-hidden duration-500 ease-in bg-black w-0" : "fixed right-0 overflow-x-hidden duration-500 ease-in bg-black w-full"}>
-          <div className="w-full p-5 hover:bg-purple-300">
-            <Link className="w-full" href="/download/">
+        <nav className={nav ? "" : "nav-open"}>
+          <div className="link mt-[64px]">
+            <Link className="w-full text-2xl p-5" href="/download/">
               Download
             </Link>
           </div>
-          <div className="w-full p-5 hover:bg-purple-300">
-            <Link className="w-full" href="/wiki/">
+          <div className="link">
+            <Link className="w-full text-2xl p-5" href="/wiki/">
               Wiki
             </Link>
           </div>
-          <div className="w-full p-5 hover:bg-purple-300">
-            <Link className="w-full" href="/contact/">
+          <div className="link">
+            <Link className="w-full text-2xl p-5" href="/contact/">
               Contact
             </Link>
           </div>
-          <div className="w-full p-5 hover:bg-purple-300">
-            <Link className="w-full" href="/">
+          <div className="link">
+            <Link className="w-full text-2xl p-5" href="/">
               Donate
             </Link>
           </div>
-        </div>
+        </nav>
       </div>
     </>
   );
