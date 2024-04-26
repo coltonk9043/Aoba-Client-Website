@@ -1,5 +1,4 @@
 import { TitleBar } from "@/components/TitleBar";
-import Image from 'next/image'
 
 type Release = {
     url: string,
@@ -58,7 +57,7 @@ type Uploader = {
     site_admin: boolean,
 }
 
-export const DownloadPane = (release : Release) => {
+const DownloadPane = (release : Release) => {
     const generateReleaseType = () => {
         if(release.prerelease){
             return(<p className="m-2 border border-red-500 text-red-500 rounded-md pr-2 pl-2">Prerelease</p>)
