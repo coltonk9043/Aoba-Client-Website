@@ -1,23 +1,145 @@
-import { DownloadPane } from "@/components/DownloadPane";
 import { TitleBar } from "@/components/TitleBar";
 
-export default function Page() {
+type Release = {
+    url: string,
+    assets_url: string,
+    upload_url: string,
+    html_url: string,
+    id: number,
+    author: Uploader,
+    node_id: string,
+    tag_name: string,
+    draft: boolean,
+    prerelease: boolean,
+    created_at: string,
+    published_at: string,
+    assets: ReleaseAsset[],
+    tarball_url: string,
+    zipball_url: string,
+    body: string,
+    mentions_count: number,
+}
+
+type ReleaseAsset = {
+    url: string,
+    id: number,
+    node_id: string,
+    name: string,
+    label: string | undefined,
+    uploader: Uploader,
+    content_type: string,
+    state: string,
+    size: number,
+    download_count: number,
+    created_at: string,
+    updated_at: string,
+    browser_download_url: string,
+}
+
+type Uploader = {
+    login: string,
+    id: number,
+    node_id: string,
+    avatar_url: string,
+    gravatar_id: string,
+    url: string,
+    html_url: string,
+    followers_url: string,
+    following_url: string,
+    gists_url: string,
+    starred_url: string,
+    subscriptions_url: string,
+    organizations_url: string,
+    repos_url: string,
+    events_url: string,
+    received_events_url: string,
+    type: string,
+    site_admin: boolean,
+}
+
+const DownloadPane = (release : Release) => {
+    const generateReleaseType = () => {
+        if(release.prerelease){
+            return(<p className="m-2 border border-red-500 text-red-500 rounded-md pr-2 pl-2">Prerelease</p>)
+        }else{
+            return (<p className="m-2 border border-green-500 text-green-500 rounded-md pr-2 pl-2">Release</p>)
+        }
+    }
+
+    const generateDownloads = () => {
+        return release.assets.map((e : ReleaseAsset) => {
+            let nameSplit = e.name.split("-");
+            let minecraftVersion = nameSplit[nameSplit.length - 1].replace(".jar", "")
+            return (
+                <>
+                    <div className="col-span-3 border-b border-zinc-600"/>
+                    <p className="text-center mt-2">{minecraftVersion}</p>
+                    <p className="italic text-center mt-2">{e.name}</p>
+                    <a className="bg-blue-400 rounded-md pr-2 pl-2 m-2 text-center" href={e.browser_download_url}>
+                        <p>Download</p>
+                    </a>
+                </>
+            )
+        });
+    }
+
+    const generateImages = () => {
+        let images = release.body.match(/([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm);
+        return images?.map((e : string, index: number) => {
+            if(e.startsWith("https://github.com/coltonk9043/Aoba-MC-Hacked-Client/assets")){
+                return (
+                    <img key={release.tag_name + index} className="rounded-lg" src={e} alt="screenshot"/>
+                )
+            }else
+                return undefined;
+        });
+    }
+
+    return (
+        <div className="border border-zinc-500 bg-zinc-700 rounded-lg mt-5 mb-5 p-3">
+            <div className="flex border-b border-zinc-500">
+                <h2 className="grow">Aoba {release.tag_name}</h2>
+                {generateReleaseType()}
+            </div>
+
+            <div className="grid grid-cols-3 border border-zinc-600 rounded-lg mt-5 mb-t p-5" style={{gridTemplateColumns: "auto auto 105px"}}>
+                <p className="font-bold text-center">Version / File</p>
+                <p className="font-bold text-center">Filename</p>
+                <br/>
+
+                {generateDownloads()}
+            </div>
+
+            <p className="text-gray-400">Full changelog available on <a className="text-blue-400 font-semibold" href={release.html_url}>GitHub</a></p>
+
+            <h2>Images</h2>
+            {generateImages()}
+        </div>
+    )
+}
+
+export default async function Page() {
+
+    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-MC-Hacked-Client/releases", { next: {revalidate: 3600}})
+    .then((e) => { return e.json(); })
+    .then((json) => { return json })
+
+    const generateDownloads = () => {
+        if(Array.isArray(githubData)){
+            return githubData.map((e : Release) => {
+                return DownloadPane(e);
+            })
+        }
+        return undefined;
+    }
+
     return (
         <main>
             <TitleBar/>
-            <div className="m-auto w-3/4 mt-10 mb-10">
-                <h1 className="border-b border-zinc-500">MC 1.20.4</h1>
-                <DownloadPane version={"1.4"} changelog={""} link={"https://github.com/coltonk9043/Aoba-MC-Hacked-Client/releases/download/v1.4.0/Aoba-1.4.0-1.20.4.jar"}/>
-                <h1 className="border-b border-zinc-500">MC 1.20.3</h1>
-                <DownloadPane version={"1.4"} changelog={""} link={"https://github.com/coltonk9043/Aoba-MC-Hacked-Client/releases/download/v1.4.0/Aoba-1.4.0-1.20.3.jar"}/>
-                <h1 className="border-b border-zinc-500">MC 1.20.2</h1>
-                <DownloadPane version={"1.4"} changelog={""} link={"https://github.com/coltonk9043/Aoba-MC-Hacked-Client/releases/download/v1.4.0/Aoba-1.4.0-1.20.2.jar"}/>
-                <h1 className="border-b border-zinc-500">MC 1.20.1</h1>
-                <DownloadPane version={"1.3.2"} changelog={""} link={"https://github.com/coltonk9043/Aoba-MC-Hacked-Client/releases/download/v1.3.2/Aoba-1.20.1.jar"}/>
-                <h1 className="border-b border-zinc-500">MC 1.20</h1>
-                <DownloadPane version={"1.3.2"} changelog={""} link={"https://github.com/coltonk9043/Aoba-MC-Hacked-Client/releases/download/v1.3.2/Aoba-1.20.jar"}/>
-                <h1 className="border-b border-zinc-500">MC 1.19.4</h1>
-                <DownloadPane version={"1.3"} changelog={""} link={"https://github.com/coltonk9043/Aoba-MC-Hacked-Client/releases/download/v1.3a/Aoba-1.19.4.jar"}/>
+            <div className="m-5 w-auto max-w-[850px] sm:m-auto sm:mt-10 sm:mb-10 sm:w-3/4">
+                <h1>Aoba Hacked Client for Minecraft Downloads</h1>
+                <p className="text-gray-400">Below are all available versions of Aoba, ranging from 1.19.4 to 1.20.x</p>
+                {generateDownloads()}
             </div>
         </main>
     )
