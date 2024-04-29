@@ -1,65 +1,130 @@
-'use client'
+"use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import "./TitleBar.css";
 
-export const TitleBar = () => {
-    const [mobile, setMobile] = React.useState<boolean>(typeof window == "undefined" ? false : window.innerWidth < 768)
-    const [expanded, setExpanded] = React.useState<boolean>(false);
+const TitleBar = () => {
+  const [mobile, setMobile] = useState<boolean>(
+    typeof window == "undefined" ? false : window.innerWidth < 768
+  );
 
-    React.useEffect(() => {
-        if(typeof window !== "undefined"){
-            const event = window.matchMedia("(max-width: 768px)")
-            const handler = (e : MediaQueryListEvent) => { setMobile(e.matches); setExpanded(false); }
-            event.addEventListener("change", handler);
-            return () => { event.removeEventListener("change", handler); }
-        }
-    }, [])
-
-    const HandleMenuClick = () => {
-        let curState = expanded;
-        setExpanded(!curState);
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const event = window.matchMedia("(max-width: 768px)");
+      const handler = (e: MediaQueryListEvent) => {
+        setMobile(e.matches);
+      };
+      event.addEventListener("change", handler);
+      return () => {
+        event.removeEventListener("change", handler);
+      };
     }
+  }, []);
 
-    return (
+  const [nav, setNav] = useState(true);
+
+  const onClickHandler = () => {
+    setNav((prevNav) => !prevNav);
+  };
+
+  return (
+    <>
+      <div className="desktop">
         <div className="z-50 sticky top-0 bg-zinc-800 border-zinc-500 border-1 border-b">
-            <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
-                <Link className='m-2 hover:bg-purple-300 w-50px h-50px' href="/">
-                    <Image src="/aoba.png" width={50} height={50} alt="Aoba Logo"/>
-                </Link>
-                
-                {!mobile && 
-                <>
-                    <div className='flex grow shrink justify-center h-full'>
-                        <Link className='p-5 hover:bg-purple-300' href="/download/">Download</Link>
-                        <Link className='p-5 hover:bg-purple-300' href="/wiki/">Wiki</Link>
-                        <Link className='p-5 hover:bg-purple-300' href="/contact/">Contact</Link>
-                        <Link className='p-5 hover:bg-purple-300' href="/">Support Us</Link>
-                    </div>
-                    <a className='ml-2 mr-2 hover:bg-purple-300 w-50px h-50px' href="https://discord.gg/HyZ3uGrwgs">
-                        <Image src="/discord.png" width={50} height={50} alt="Aoba Fan Club (Unofficial)"/>
-                    </a>
-                    <a className='ml-2 mr-2 hover:bg-purple-300 w-50px h-50px' href="https://github.com/coltonk9043/Aoba-MC-Hacked-Client">
-                        <Image src="/github.png" width={50} height={50} alt="GitHub Logo"/>
-                    </a>
-                </>}
+          <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
+            <Link className="m-2 hover:bg-purple-300 w-50px h-50px" href="/">
+              <Image src="/aoba.png" width={50} height={50} alt="Aoba Logo" />
+            </Link>
 
-                {mobile && 
-                    <div className='m-2 hover:cursor-pointer' onClick={() => {HandleMenuClick()}}>
-                        <Image width={50} height={50} src="/menu.svg" alt='Menu'/>
-                    </div>
-                }
-            </div>
-
-            {(mobile && expanded) && 
-                <div>
-                    <div className='w-full p-5 hover:bg-purple-300'><Link className='w-full' href="/download/">Download</Link></div>
-                    <div className='w-full p-5 hover:bg-purple-300'><Link className='w-full' href="/wiki/">Wiki</Link></div>
-                    <div className='w-full p-5 hover:bg-purple-300'><Link className='w-full' href="/contact/">Contact</Link></div>
-                    <div className='w-full p-5 hover:bg-purple-300'><Link className='w-full' href="/">Donate</Link></div>
+            {!mobile && (
+              <>
+                <div className="flex grow shrink justify-center h-full">
+                  <Link className="p-5 hover:bg-purple-300" href="/download/">
+                    Download
+                  </Link>
+                  <Link className="p-5 hover:bg-purple-300" href="/wiki/">
+                    Wiki
+                  </Link>
+                  <Link className="p-5 hover:bg-purple-300" href="/contact/">
+                    Contact
+                  </Link>
+                  <Link className="p-5 hover:bg-purple-300" href="/">
+                    Support Us
+                  </Link>
                 </div>
-            }
+                <a
+                  className="ml-2 mr-2 hover:bg-purple-300 w-50px h-50px"
+                  href="https://discord.gg/HyZ3uGrwgs"
+                >
+                  <Image
+                    src="/discord.png"
+                    width={50}
+                    height={50}
+                    alt="Aoba Fan Club (Unofficial)"
+                  />
+                </a>
+                <a
+                  className="ml-2 mr-2 hover:bg-purple-300 w-50px h-50px"
+                  href="https://github.com/coltonk9043/Aoba-MC-Hacked-Client"
+                >
+                  <Image
+                    src="/github.png"
+                    width={50}
+                    height={50}
+                    alt="GitHub Logo"
+                  />
+                </a>
+              </>
+            )}
+          </div>
         </div>
-    )
-}
+      </div>
+
+      <div className="mobile">
+        <div className="z-50 sticky top-0 bg-zinc-800 border-zinc-500 border-1 border-b">
+          <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
+            <Link className="m-2 hover:bg-purple-300 w-50px h-50px" href="/">
+              <Image src="/aoba.png" width={50} height={50} alt="Aoba Logo" />
+            </Link>
+            <div
+              className="m-2 hover:cursor-pointer"
+              onClick={() => {
+                onClickHandler();
+              }}
+            >
+              <Image width={50} height={50} src="/menu.svg" alt="Menu" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <nav className={nav ? "" : "nav-open"}>
+            <div className="link mt-[64px]">
+              <Link className="w-full text-2xl p-5" href="/download/">
+                Download
+              </Link>
+            </div>
+            <div className="link">
+              <Link className="w-full text-2xl p-5" href="/wiki/">
+                Wiki
+              </Link>
+            </div>
+            <div className="link">
+              <Link className="w-full text-2xl p-5" href="/contact/">
+                Contact
+              </Link>
+            </div>
+            <div className="link">
+              <Link className="w-full text-2xl p-5" href="/">
+                Donate
+              </Link>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default TitleBar;

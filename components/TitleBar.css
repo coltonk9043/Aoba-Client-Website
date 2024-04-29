@@ -1,3 +1,13 @@
+.desktop {
+    display: none;
+}
+
+.mobile {
+    display: inline;
+    position: relative;
+    z-index: 5;
+}
+
 nav {
     position: fixed;
     display: flex;
@@ -26,4 +36,22 @@ nav {
 
 .link:hover {
     background-color: rgb(216 180 254);
+}
+
+@media only screen and (min-width: 769px) {
+    nav {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .desktop {
+        display: inline;
+    }
+
+    .mobile {
+        display: none;
+    }
 }
