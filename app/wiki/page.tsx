@@ -1,9 +1,10 @@
-import { TitleBar } from "@/components/TitleBar";
+import TitleBar from "@/components/TitleBar";
+
 
 export default function Page() {
     return (
         <main>
-            <TitleBar/>
+            <TitleBar />
 
             <h1 className="text-center m-[100px]">COMING SOON!</h1>
         </main>

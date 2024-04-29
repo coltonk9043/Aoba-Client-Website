@@ -1,11 +1,10 @@
-import { TitleBar } from "@/components/TitleBar";
 import Form from "@/components/Form";
-import TestComponent from "@/components/TestComponent";
+import TitleBar from "@/components/TitleBar";
 
 export default function Page() {
     return (
         <main>
-            <TestComponent />
+            <TitleBar />
            <Form />
         </main>
     )
