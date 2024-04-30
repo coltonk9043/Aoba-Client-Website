@@ -34,8 +34,17 @@ const TitleBar = () => {
       <div className="desktop">
         <div className="z-50 sticky top-0 bg-zinc-800 border-zinc-500 border-1 border-b">
           <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
-            <Link className="m-2 hover:bg-purple-300 w-50px h-50px" href="/">
-              <Image src="/aoba.png" width={50} height={50} alt="Aoba Logo" />
+            <Link
+              className="hover:bg-purple-300 w-[64px] h-[64px]"
+              href="/"
+            >
+              <Image
+                className="relative top-[15%] left-[10%]"
+                src="/aoba.png"
+                width={50}
+                height={50}
+                alt="Aoba Logo"
+              />
             </Link>
 
             {!mobile && (
@@ -55,10 +64,11 @@ const TitleBar = () => {
                   </Link>
                 </div>
                 <a
-                  className="ml-2 mr-2 hover:bg-purple-300 w-50px h-50px"
+                  className="hover:bg-purple-300 w-[64px] h-[64px]"
                   href="https://discord.gg/HyZ3uGrwgs"
                 >
                   <Image
+                    className="relative top-[13%] left-[10%]"
                     src="/discord.png"
                     width={50}
                     height={50}
@@ -66,10 +76,11 @@ const TitleBar = () => {
                   />
                 </a>
                 <a
-                  className="ml-2 mr-2 hover:bg-purple-300 w-50px h-50px"
+                  className="hover:bg-purple-300 w-[64px] h-[64px]"
                   href="https://github.com/coltonk9043/Aoba-MC-Hacked-Client"
                 >
                   <Image
+                    className="relative top-[13%] left-[10%]"
                     src="/github.png"
                     width={50}
                     height={50}
@@ -85,8 +96,11 @@ const TitleBar = () => {
       <div className="mobile">
         <div className="z-50 sticky top-0 bg-zinc-800 border-zinc-500 border-1 border-b">
           <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
-            <Link className="m-2 hover:bg-purple-300 w-50px h-50px" href="/">
-              <Image src="/aoba.png" width={50} height={50} alt="Aoba Logo" />
+            <Link
+              className="hover:bg-purple-300 w-[64px] h-[64px]"
+              href="/"
+            >
+              <Image className="relative top-[15%] left-[10%]" src="/aoba.png" width={50} height={50} alt="Aoba Logo" />
             </Link>
             <div
               className="m-2 hover:cursor-pointer"
