@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en" className={openSans.className}>
+      <head>
+        <link rel="icon" href="/icon.ico" sizes="any" />
+      </head>
       <body className="bg-zinc-900">{children}</body>
     </html>
   );
