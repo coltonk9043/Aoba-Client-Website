@@ -2,7 +2,7 @@
 import { TitleBar } from "@/components/TitleBar"
 import { WikiSideBar } from "@/components/WikiSideBar"
 
-export default async function Home({ children, posts }: { children: React.ReactNode, posts: string[] }) {
+export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
     return (
         <>
             <TitleBar/>

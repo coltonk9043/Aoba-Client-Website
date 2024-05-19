@@ -9,11 +9,7 @@ export const metadata: Metadata = {
   description: "Aoba Hacked Client webpage for Minecraft. Download links to Aoba Hacked Client 1.20.4.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
   return (
     <html lang="en" className={openSans.className}>
       <body className="bg-zinc-900">{children}</body>
