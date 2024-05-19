@@ -12,7 +12,7 @@ export async function WikiSideBar({ posts } : { posts?: string[]}) {
         .readdirSync("app\\wiki", { withFileTypes: true, recursive: true })
         .filter((file) => file.isDirectory())
         .map((folder) => folder.path.replace('/', '\\') + "\\" + folder.name)
-        .map((folder) => folder.replace("app\\", ""))
+        .map((folder) => folder.replace("app\\", "").replace("_", " "))
           
     console.log(pages)
     const tree = {name: "wiki", url_path: "wiki", children: []};
@@ -71,8 +71,8 @@ export async function WikiSideBar({ posts } : { posts?: string[]}) {
             }else{
                 return (
                     <>
-                        <p>{capitalizeFirstLetter(tree.name)}</p>
-                        <div className="ml-10">
+                        <p className="font-semibold text-xl">{capitalizeFirstLetter(tree.name)}</p>
+                        <div className="ml-[3rem]">
                             {mapChildren(tree.children)}
                         </div>
                     </>
@@ -86,7 +86,7 @@ export async function WikiSideBar({ posts } : { posts?: string[]}) {
       
 
     return(
-        <div className="p-5 bg-zinc-700 border-r border-zinc-500 w-auto">
+        <div className="p-5 bg-zinc-800 border-r border-zinc-500 w-auto">
             {GenerateTreeDOM(tree)}
         </div>
     )

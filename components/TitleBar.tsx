@@ -24,6 +24,9 @@ export const TitleBar = () => {
 
     return (
         <div className="z-50 sticky top-0 bg-zinc-800 border-zinc-500 border-1 border-b">
+            <div className='flex items-center justify-center w-full p-2 bg-yellow-300'>
+                <p className='text-black'>SITE UNDER CONSTRUCTION</p>
+            </div>
             <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
                 <Link className='m-2 hover:bg-purple-300 w-50px h-50px' href="/">
                     <Image src="/aoba.png" width={50} height={50} alt="Aoba Logo"/>

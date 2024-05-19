@@ -12,11 +12,7 @@ h2{
   font-size: 20pt;
 }
 
-a{
-  color: white;
-}
-
-p{
+p, a, li{
   color: white;
 }
 

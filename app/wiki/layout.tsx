@@ -9,7 +9,7 @@ export default async function Home({ children, posts }: { children: React.ReactN
             <div className="flex">
                 <WikiSideBar/>
                 <div className="flex-grow">
-                    <div className="m-auto max-w-[600px]">
+                    <div className="m-auto mt-10 mb-10 max-w-[600px]">
                         {children}
                     </div>
                 </div>
