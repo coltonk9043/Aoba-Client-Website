@@ -1,5 +1,6 @@
 import { FeaturePanel } from "@/components/FeaturePane";
-import { TitleBar } from "../components/TitleBar"
+import TitleBar from "@/components/TitleBar";
+
 import Image from 'next/image'
 
 export default function Home() {
@@ -29,11 +30,11 @@ export default function Home() {
 
   return (
     <main>
-      <TitleBar/>
+      <TitleBar />
 
       {/** Aoba Logo */}
       <div className="relative" style={{height: 500}}>
-        <Image className="absolute w-[75%] max-w-[400px]" style={{top: "50%", left: "50%", transform: "translate(-50%, -50%)", animation: "logoBounce 2s infinite" }} src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client"/>
+        <Image className="z-3 absolute w-[75%] max-w-[400px]" style={{top: "50%", left: "50%", transform: "translate(-50%, -50%)", animation: "logoBounce 2s infinite" }} src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client"/>
       </div>
       
       {/** Feature Panel */}
