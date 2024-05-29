@@ -29,15 +29,64 @@ export const TitleBar = () => {
     setNav((prevNav) => !prevNav);
   };
 
-  return (
-    <>
-      <div className="desktop">
+  if(mobile){
+    return(
+      <div className="mobile">
         <div className="z-50 sticky top-0 bg-zinc-800 border-zinc-500 border-1 border-b">
+          <div className='flex items-center justify-center w-full p-2 bg-yellow-300'>
+            <p className='text-black'>SITE UNDER CONSTRUCTION</p>
+          </div>
           <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
             <Link
               className="hover:bg-purple-300 w-[64px] h-[64px]"
               href="/"
             >
+              <Image className="relative top-[15%] left-[10%]" src="/aoba.png" width={50} height={50} alt="Aoba Logo" />
+            </Link>
+            <div className="m-2 hover:cursor-pointer"
+              onClick={() => {
+                onClickHandler();
+              }}
+            >
+              <Image width={50} height={50} src="/menu.svg" alt="Menu" />
+            </div>
+          </div>
+        </div>
+        <div>
+          <nav className={nav ? "" : "nav-open"}>
+            <div className="link mt-[64px]">
+              <Link className="w-full text-2xl p-5" href="/download/">
+                Download
+              </Link>
+            </div>
+            <div className="link">
+              <Link className="w-full text-2xl p-5" href="/wiki/">
+                Wiki
+              </Link>
+            </div>
+            <div className="link">
+              <Link className="w-full text-2xl p-5" href="/contact/">
+                Contact
+              </Link>
+            </div>
+            <div className="link">
+              <Link className="w-full text-2xl p-5" href="/">
+                Donate
+              </Link>
+            </div>
+          </nav>
+        </div>
+      </div>
+    )
+  }else{
+    return (
+      <div className="desktop">
+        <div className="z-50 sticky top-0 bg-zinc-800 border-zinc-500 border-1 border-b">
+          <div className='flex items-center justify-center w-full p-2 bg-yellow-300'>
+            <p className='text-black'>SITE UNDER CONSTRUCTION</p>
+          </div>
+          <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
+            <Link className="hover:bg-purple-300 w-[64px] h-[64px]" href="/">
               <Image
                 className="relative top-[15%] left-[10%]"
                 src="/aoba.png"
@@ -93,52 +142,8 @@ export const TitleBar = () => {
         </div>
       </div>
 
-      <div className="mobile">
-        <div className="z-50 sticky top-0 bg-zinc-800 border-zinc-500 border-1 border-b">
-          <div className="flex items-center justify-between w-full h-16 gap-0 sm:gap-3">
-            <Link
-              className="hover:bg-purple-300 w-[64px] h-[64px]"
-              href="/"
-            >
-              <Image className="relative top-[15%] left-[10%]" src="/aoba.png" width={50} height={50} alt="Aoba Logo" />
-            </Link>
-            <div
-              className="m-2 hover:cursor-pointer"
-              onClick={() => {
-                onClickHandler();
-              }}
-            >
-              <Image width={50} height={50} src="/menu.svg" alt="Menu" />
-            </div>
-          </div>
-        </div>
-        <div>
-          <nav className={nav ? "" : "nav-open"}>
-            <div className="link mt-[64px]">
-              <Link className="w-full text-2xl p-5" href="/download/">
-                Download
-              </Link>
-            </div>
-            <div className="link">
-              <Link className="w-full text-2xl p-5" href="/wiki/">
-                Wiki
-              </Link>
-            </div>
-            <div className="link">
-              <Link className="w-full text-2xl p-5" href="/contact/">
-                Contact
-              </Link>
-            </div>
-            <div className="link">
-              <Link className="w-full text-2xl p-5" href="/">
-                Donate
-              </Link>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </>
-  );
+    )
+  }
 };
 
 export default TitleBar;
