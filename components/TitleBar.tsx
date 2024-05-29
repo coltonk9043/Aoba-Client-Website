@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import "./TitleBar.css";
 
-const TitleBar = () => {
+export const TitleBar = () => {
   const [mobile, setMobile] = useState<boolean>(
     typeof window == "undefined" ? false : window.innerWidth < 768
   );
