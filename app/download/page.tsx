@@ -1,4 +1,4 @@
-import { TitleBar } from "@/components/TitleBar";
+import TitleBar from "@/components/TitleBar"; 
 
 type Release = {
     url: string,

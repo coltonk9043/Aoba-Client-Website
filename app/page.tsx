@@ -1,5 +1,6 @@
 import { FeaturePanel } from "@/components/FeaturePane";
-import { TitleBar } from "../components/TitleBar"
+import TitleBar from "@/components/TitleBar";
+
 import Image from 'next/image'
 
 export default function Home() {
@@ -29,21 +30,23 @@ export default function Home() {
 
   return (
     <main>
-      <TitleBar/>
+      <TitleBar />
 
       {/** Aoba Logo */}
       <div className="relative" style={{height: 500}}>
-        <Image className="absolute w-[75%] max-w-[400px]" style={{top: "50%", left: "50%", transform: "translate(-50%, -50%)", animation: "logoBounce 2s infinite" }} src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client"/>
+        <Image className="z-3 absolute w-[75%] max-w-[400px]" style={{top: "50%", left: "50%", transform: "translate(-50%, -50%)", animation: "logoBounce 2s infinite" }} src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client"/>
       </div>
       
       {/** Feature Panel */}
       <div className="p-5 border-0 border-t border-b border-zinc-500 bg-zinc-800">
+        <h2 className="m-auto mt-10 mb-10 max-w-[1000px] text-center">Aoba is a Minecraft client-side hacked client that provides an upper edge in your Minecraft experience. Supporting several versions up to 1.20.6</h2>
         <h1 className="m-auto text-center">Features</h1>
         <div className="flex flex-wrap justify-center">
           <FeaturePanel title="Lots of hacks" description="Aoba contains plenty of hacks to cover all of your gameplay needs!" img="/screenshot_hacks.png"/>
           <FeaturePanel title="Full-Fledged command system" description="Aoba's command system spans across the entire hacked client!" img="/screenshot_commands.png"/>
           <FeaturePanel title="UI Customization" description="Plenty of UI options to customize the way Aoba looks." img="/screenshot_hud.png"/>
         </div>
+        <h2 className="ml-[50px] mr-[50px] mt-10 mb-10 text-center text-bold"><a className="text-blue-900" href="/download">Download</a> it and give it a try!</h2>
       </div>
 
       <div className="p-5">
