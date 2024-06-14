@@ -39,7 +39,7 @@ export default function Home() {
       
       {/** Feature Panel */}
       <div className="p-5 border-0 border-t border-b border-zinc-500 bg-zinc-800">
-        <h2 className="m-auto mt-10 mb-10 max-w-[1000px] text-center">Aoba is a Minecraft client-side hacked client that provides an upper edge in your Minecraft experience. Supporting several versions up to 1.20.6</h2>
+        <h2 className="m-auto mt-10 mb-10 max-w-[1000px] text-center">Aoba is a Minecraft client-side hacked client that provides an upper edge in your Minecraft experience. Supporting several versions up to 1.21</h2>
         <h1 className="m-auto text-center">Features</h1>
         <div className="flex flex-wrap justify-center">
           <FeaturePanel title="Lots of hacks" description="Aoba contains plenty of hacks to cover all of your gameplay needs!" img="/screenshot_hacks.png"/>
