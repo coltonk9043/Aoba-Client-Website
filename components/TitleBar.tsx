@@ -57,10 +57,7 @@ export const TitleBar = () => {
               <Link className="w-full text-2xl p-5" href="/wiki/">Wiki</Link>
             </div>
             <div className="link">
-              <Link className="w-full text-2xl p-5" href="/contact/">Contact</Link>
-            </div>
-            <div className="link">
-              <Link className="w-full text-2xl p-5" href="/">Donate</Link>
+              <Link className="w-full text-2xl p-5" href="/">Support Us</Link>
             </div>
           </nav>
         </div>
@@ -89,9 +86,6 @@ export const TitleBar = () => {
               </Link>
               <Link className="p-5 hover:bg-purple-300" href="/wiki/">
                 Wiki
-              </Link>
-              <Link className="p-5 hover:bg-purple-300" href="/contact/">
-                Contact
               </Link>
               <Link className="p-5 hover:bg-purple-300" href="/">
                 Support Us
