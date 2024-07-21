@@ -87,7 +87,7 @@ export const TitleBar = () => {
               <Link className="p-5 hover:bg-purple-300" href="/wiki/">
                 Wiki
               </Link>
-              <Link className="p-5 hover:bg-purple-300" href="/">
+              <Link className="p-5 hover:bg-purple-300" href="https://github.com/sponsors/coltonk9043">
                 Support Us
               </Link>
             </div>
