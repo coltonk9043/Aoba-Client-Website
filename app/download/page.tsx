@@ -1,4 +1,11 @@
+import ReleasesWidget from "@/components/ReleaseWidget/ReleaseWidget";
 import TitleBar from "@/components/TitleBar"; 
+import React from "react";
+
+enum ReleaseType{
+    Release = 0,
+    Prerelease = 1,
+}
 
 type Release = {
     url: string,
@@ -118,28 +125,40 @@ const DownloadPane = (release : Release) => {
     )
 }
 
-export default async function Page() {
-
+const Releases = async (props : {prerelease : boolean}) => {
+    // Grab the data in GitHub, parse the json, and store it.
     const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-MC-Hacked-Client/releases", { next: {revalidate: 3600}})
     .then((e) => { return e.json(); })
     .then((json) => { return json })
 
-    const generateDownloads = () => {
+    // Generates the actual Download panels 
+    const generateReleaseDownloads = () => {
         if(Array.isArray(githubData)){
             return githubData.map((e : Release) => {
+                if((props.prerelease && !e.prerelease) || (!props.prerelease && e.prerelease))
+                    return;
+
                 return DownloadPane(e);
             })
         }
         return undefined;
     }
 
+    return generateReleaseDownloads();
+}
+
+export default function Page() {
     return (
         <main>
             <TitleBar/>
             <div className="m-5 w-auto max-w-[850px] sm:m-auto sm:mt-10 sm:mb-10 sm:w-3/4">
                 <h1>Aoba Hacked Client for Minecraft Downloads</h1>
                 <p className="text-gray-400">Below are all available versions of Aoba, ranging from 1.19.4 to 1.20.x</p>
-                {generateDownloads()}
+
+                <ReleasesWidget>
+                    <div><Releases prerelease={false}/></div>
+                    <div><Releases prerelease={true}/></div>
+                </ReleasesWidget>
             </div>
         </main>
     )
