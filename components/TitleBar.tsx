@@ -1,15 +1,15 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import "./TitleBar.css";
 
 export const TitleBar = () => {
-  const [nav, setNav] = useState(true);
+  const [navbarExpanded, setNavbarExpanded] = useState(false);
 
   const onClickHandler = () => {
-    setNav((prevNav) => !prevNav);
+    setNavbarExpanded((prevNav) => !prevNav);
   };
 
   return(
@@ -47,38 +47,43 @@ export const TitleBar = () => {
             </div>
 
             <div className="hidden md:flex md:visible">
-              <a className="hover:bg-purple-300 w-[64px] h-[64px]" href="https://discord.gg/HyZ3uGrwgs">
-                <Image
-                  className="relative top-[13%] left-[10%]"
+              <Link className="hover:bg-purple-300 w-[64px] h-[64px]" href="https://discord.gg/HyZ3uGrwgs">
+                <Image className="relative top-[13%] left-[10%]"
                   src="/discord.png"
                   width={50}
                   height={50}
                   alt="Aoba Fan Club (Unofficial)" />
-              </a>
-              <a className="hover:bg-purple-300 w-[64px] h-[64px]" href="https://github.com/coltonk9043/Aoba-MC-Hacked-Client">
-                <Image
-                  className="relative top-[13%] left-[10%]"
+              </Link>
+              <Link className="hover:bg-purple-300 w-[64px] h-[64px]" href="https://github.com/coltonk9043/Aoba-MC-Hacked-Client">
+                <Image className="relative top-[13%] left-[10%]"
                   src="/github.png"
                   width={50}
                   height={50}
                   alt="GitHub Logo" />
-              </a>
+              </Link>
             </div>
         </div>
-      </div>
-      <div>
-          <nav className={nav ? "md:hidden" : "nav-open md:hidden"}>
-            <div className="link mt-[64px]">
-              <Link className="w-full text-2xl p-5" href="/download/">Download</Link>
-            </div>
-            <div className="link">
-              <Link className="w-full text-2xl p-5" href="/wiki/">Wiki</Link>
-            </div>
-            <div className="link">
-              <Link className="w-full text-2xl p-5" href="/">Support Us</Link>
-            </div>
+
+        <nav key={'title-navbar'} className={navbarExpanded ? "nav nav-open md:hidden" : "nav hidden"}>
+            <Link className="w-full content-center text-2xl p-5 hover:bg-purple-300" href="/download/">Download</Link>
+            <Link className="w-full content-center text-2xl p-5 hover:bg-purple-300" href="/wiki/">Wiki</Link>
+            <Link className="w-full content-center text-2xl p-5 hover:bg-purple-300" href="/">Support Us</Link>
+            <Link className="hover:bg-purple-300 w-[128px] h-[128px] mx-auto" href="https://discord.gg/HyZ3uGrwgs">
+                <Image className="relative top-[13%] left-[10%]"
+                  src="/discord.png"
+                  width={96}
+                  height={96}
+                  alt="Aoba Fan Club (Unofficial)" />
+              </Link>
+              <Link className="hover:bg-purple-300 w-[128px] h-[128px] mx-auto" href="https://github.com/coltonk9043/Aoba-MC-Hacked-Client">
+                <Image className="relative top-[13%] left-[10%]"
+                  src="/github.png"
+                  width={96}
+                  height={96}
+                  alt="GitHub Logo" />
+              </Link>
           </nav>
-        </div>
+      </div>
     </div>
   )
 };

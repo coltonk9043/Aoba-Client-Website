@@ -1,6 +1,7 @@
 'use client'
 import { WikiEntries, WikiEntry } from "@/app/wiki/wiki";
 import React from "react";
+import Image from "next/image";
 
 export type DirectoryTreeNode = {
     name: string,
@@ -20,7 +21,7 @@ export const CollapsibleTree =  (props : {entry : WikiEntry}) => {
                     return (<CollapsibleTree key={index} entry={e}/>)
                 }
             }else{
-                return (<a key={index} href={"/" + e.path}><p>{e.name}</p></a>)
+                return (<a className="font-light" key={index} href={"/" + e.path}><p>{e.name}</p></a>)
             }
         })
     }
@@ -28,8 +29,10 @@ export const CollapsibleTree =  (props : {entry : WikiEntry}) => {
     const renderChildren = () => {
         if(props.entry.children !== undefined && expanded){
             return(
-                <div className="ml-[3rem]">
-                    {mapChildren(props.entry.children)}
+                <div className="border-l border-l-gray-700">
+                    <div className="ml-[3rem]">
+                        {mapChildren(props.entry.children)}
+                    </div>
                 </div>
             )
         }
@@ -37,16 +40,25 @@ export const CollapsibleTree =  (props : {entry : WikiEntry}) => {
 
     return (
         <>
-        <p className="font-semibold text-xl" onClick={(e) => {setExpanded(!expanded)}}>{props.entry.name}</p>
+        <div className="flex gap-8" onClick={(e) => {setExpanded(!expanded)}}>
+            <p className="font-semibold text-xl" >{props.entry.name}</p>
+            <Image className={`w-[16px] h-[16px] ml-auto center mt-auto mb-auto hover:cursor-pointer ${expanded ? 'rotate-180' : ''}`} src="/expander.png"
+                  width={16}
+                  height={16}
+                  alt="Expand"/>
+        </div>
+        
         {renderChildren()}
         </>
     )
 }
 
-export async function WikiSideBar({ posts } : { posts?: string[]}) {
+export function WikiSideBar({ posts } : { posts?: string[]}) {
     return(
-        <div className="p-5 bg-zinc-800 border-r border-zinc-500 w-auto">
-            <CollapsibleTree entry={WikiEntries} />
+        <div className={'bg-zinc-800  border-zinc-500 border-b w-full md:w-auto md:border-b-0 md:border-r md:inline-block'}>
+            <div className='w-full pl-5 pr-5 inline-block'>
+                <CollapsibleTree entry={WikiEntries} />
+            </div>
         </div>
     )
 }
