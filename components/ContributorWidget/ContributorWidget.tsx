@@ -32,7 +32,7 @@ export const ContributorWidget = async (props : {}) => {
         if(Array.isArray(githubData)){
             return githubData.map((e : GithubAvatar) => {
                 return (
-                    <div className="border border-zinc-500 bg-zinc-800 rounded-lg p-5 m-2 text-center">
+                    <div key={e.login} className="border border-zinc-500 bg-zinc-800 rounded-lg p-5 m-2 text-center">
                         <Link href={e.html_url}>
                             <Image className=" mt-5 mb-5 m-auto rounded-full" src={e.avatar_url} alt={e.login} width={150} height={150}/>
                         </Link>
