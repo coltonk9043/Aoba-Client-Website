@@ -103,7 +103,7 @@ const DownloadPane = (release : Release) => {
     }
 
     return (
-        <div className="border border-zinc-500 bg-zinc-700 rounded-lg mt-5 mb-5 p-3">
+        <div className="border border-zinc-500 bg-zinc-800 rounded-lg mt-5 mb-5 p-3">
             <div className="flex border-b border-zinc-500">
                 <h2 className="grow">Aoba {release.tag_name}</h2>
                 {generateReleaseType()}
@@ -149,9 +149,9 @@ const Releases = async (props : {prerelease : boolean}) => {
 
 export default function Page() {
     return (
-        <main>
+        <main className="bg-[url('/pretty.png')] bg-cover bg-fixed">
             <TitleBar/>
-            <div className="m-5 w-auto max-w-[850px] sm:m-auto sm:mt-10 sm:mb-10 sm:w-3/4">
+            <div className="m-5 w-auto max-w-[850px] sm:m-auto sm:mt-10 sm:mb-10 sm:w-3/4 bg-zinc-900 p-5 md:p-10 rounded-lg">
                 <h1>Aoba Hacked Client for Minecraft Downloads</h1>
                 <p className="text-gray-400">Below are all available versions of Aoba, ranging from 1.19.4 to 1.20.x</p>
 
