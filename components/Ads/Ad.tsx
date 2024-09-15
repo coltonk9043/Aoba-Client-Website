@@ -36,7 +36,7 @@ export const DisplayAd = () => {
             <AdUnit>
                 <ins
                     className="adsbygoogle"
-                    data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID!}
+                    data-ad-client={"ca-" + process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID!}
                     style={{ display: "block" }}
                     data-ad-slot="4502990413"
                     data-ad-format="auto"
@@ -54,7 +54,7 @@ export function InFeedAd() {
                 <ins
                     className="adsbygoogle"
                     style={{ display: "block" }}
-                    data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID!}
+                    data-ad-client={"ca-" + process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID!}
                     data-ad-format="fluid"
                     data-ad-layout-key="-f9+5v+4m-d8+7b"
                     data-ad-slot="3380084295"
