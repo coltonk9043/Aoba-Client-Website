@@ -21,7 +21,6 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       <body className="bg-zinc-900">{children}</body>
       <Script id="nextjs-google-adsense"
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${publisherId}`}
-            strategy={"afterInteractive"}
             crossOrigin="anonymous"/>
     </html>
   );
