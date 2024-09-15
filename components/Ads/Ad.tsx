@@ -15,7 +15,8 @@ const AdUnit = ({ children }: AdProps) => {
 
 export const InArticleAd = () => {
     return (
-        <div className="rounded-xl border">
+        <>
+            <p className="border-b">Advertisement</p>
             <AdUnit>
                 <ins
                     className="adsbygoogle"
@@ -26,13 +27,14 @@ export const InArticleAd = () => {
                     data-ad-slot="6681596133"
                 ></ins>
             </AdUnit>
-        </div>
+        </>
     );
 }
 
 export const DisplayAd = () => {
     return (
-        <div className="rounded-xl border">
+        <>
+            <p className="border-b">Advertisement</p>
             <AdUnit>
                 <ins
                     className="adsbygoogle"
@@ -43,13 +45,14 @@ export const DisplayAd = () => {
                     data-full-width-responsive="true"
                 ></ins>
             </AdUnit>
-        </div>
+        </>
     );
 }
 
 export function InFeedAd() {
     return (
-        <div className="rounded-xl border">
+        <>
+            <p className="border-b">Advertisement</p>
             <AdUnit>
                 <ins
                     className="adsbygoogle"
@@ -60,6 +63,7 @@ export function InFeedAd() {
                     data-ad-slot="3380084295"
                 ></ins>
             </AdUnit>
-        </div>
+        </>
+
     );
 }
