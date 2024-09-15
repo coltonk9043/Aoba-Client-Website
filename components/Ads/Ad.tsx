@@ -16,7 +16,7 @@ const AdUnit = ({ children }: AdProps) => {
 export const InArticleAd = () => {
     return (
         <>
-            <p className="border-b">Advertisement</p>
+            <p className="border-b mb-1">Advertisement</p>
             <AdUnit>
                 <ins
                     className="adsbygoogle"
@@ -34,7 +34,7 @@ export const InArticleAd = () => {
 export const DisplayAd = () => {
     return (
         <>
-            <p className="border-b">Advertisement</p>
+            <p className="border-b mb-1">Advertisement</p>
             <AdUnit>
                 <ins
                     className="adsbygoogle"
@@ -52,7 +52,7 @@ export const DisplayAd = () => {
 export function InFeedAd() {
     return (
         <>
-            <p className="border-b">Advertisement</p>
+            <p className="border-b mb-1">Advertisement</p>
             <AdUnit>
                 <ins
                     className="adsbygoogle"
