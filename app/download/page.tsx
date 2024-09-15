@@ -124,7 +124,7 @@ const DownloadPane = (release: Release) => {
                 <h2>Images</h2>
                 {generateImages()}
             </div>
-            <DisplayAd />
+            
         </>
 
     )
@@ -139,11 +139,17 @@ const Releases = async (props: { prerelease: boolean }) => {
     // Generates the actual Download panels 
     const generateReleaseDownloads = () => {
         if (Array.isArray(githubData)) {
-            return githubData.map((e: Release) => {
+            return githubData.map((e: Release, i: number) => {
                 if ((props.prerelease && !e.prerelease) || (!props.prerelease && e.prerelease))
                     return;
 
-                return DownloadPane(e);
+                return (
+                    <>
+                        {DownloadPane(e)}
+                        { i > 1 && i % 2 == 0 ? <DisplayAd /> : undefined}
+                    </>
+                    
+                )
             })
         }
         return undefined;
