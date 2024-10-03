@@ -24,7 +24,7 @@ export type GithubAvatar = {
 }
 
 export const ContributorWidget = async (props : {}) => {
-    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-MC-Hacked-Client/contributors", { next: {revalidate: 3600}})
+    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-Client/contributors", { next: {revalidate: 3600}})
     .then((e) => { return e.json(); })
     .then((json) => { return json })
 
