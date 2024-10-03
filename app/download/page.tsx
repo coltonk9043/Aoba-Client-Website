@@ -163,7 +163,7 @@ export default function Page() {
         <main className="bg-[url('/pretty.png')] bg-cover bg-fixed">
             <TitleBar />
             <div className="m-5 w-auto max-w-[850px] sm:m-auto sm:mt-10 sm:mb-10 sm:w-3/4 bg-zinc-900 p-5 md:p-10 rounded-lg">
-                <h1>Aoba Hacked Client for Minecraft Downloads</h1>
+                <h1>Aoba Client for Minecraft Downloads</h1>
                 <p className="text-gray-400">Below are all available versions of Aoba, ranging from 1.19.4 to 1.20.x</p>
 
                 <ReleasesWidget>
