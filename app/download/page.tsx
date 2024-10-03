@@ -94,7 +94,7 @@ const DownloadPane = (release: Release) => {
     const generateImages = () => {
         let images = release.body.match(/([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm);
         return images?.map((e: string, index: number) => {
-            if (e.startsWith("https://github.com/coltonk9043/Aoba-MC-Hacked-Client/assets")) {
+            if (e.startsWith("https://github.com/coltonk9043/Aoba-Client/assets")) {
                 return (
                     <img key={release.tag_name + index} className="rounded-lg" src={e} alt="screenshot" />
                 )
@@ -132,7 +132,7 @@ const DownloadPane = (release: Release) => {
 
 const Releases = async (props: { prerelease: boolean }) => {
     // Grab the data in GitHub, parse the json, and store it.
-    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-MC-Hacked-Client/releases", { next: { revalidate: 3600 } })
+    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-Client/releases", { next: { revalidate: 3600 } })
         .then((e) => { return e.json(); })
         .then((json) => { return json })
 
