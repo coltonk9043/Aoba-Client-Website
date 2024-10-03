@@ -54,7 +54,7 @@ export const TitleBar = () => {
                   height={50}
                   alt="Aoba Fan Club (Unofficial)" />
               </Link>
-              <Link className="w-[64px] h-[64px] hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 rounded-lg" href="https://github.com/coltonk9043/Aoba-MC-Hacked-Client">
+              <Link className="w-[64px] h-[64px] hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 rounded-lg" href="https://github.com/coltonk9043/Aoba-Client">
                 <Image className="relative top-[13%] left-[10%]"
                   src="/github.png"
                   width={50}
@@ -75,7 +75,7 @@ export const TitleBar = () => {
                   height={96}
                   alt="Aoba Fan Club (Unofficial)" />
               </Link>
-              <Link className="w-[128px] h-[128px] mx-auto hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500" href="https://github.com/coltonk9043/Aoba-MC-Hacked-Client">
+              <Link className="w-[128px] h-[128px] mx-auto hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500" href="https://github.com/coltonk9043/Aoba-Client">
                 <Image className="relative top-[13%] left-[10%]"
                   src="/github.png"
                   width={96}
