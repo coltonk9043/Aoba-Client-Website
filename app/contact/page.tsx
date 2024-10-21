@@ -1,5 +1,5 @@
-import Form from "@/components/Form";
-import TitleBar from "@/components/TitleBar";
+import Form from "@/components/form";
+import TitleBar from "@/components/title-bar";
 
 export default function Page() {
     return (

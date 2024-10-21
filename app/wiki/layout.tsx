@@ -1,7 +1,7 @@
 
-import { DisplayAd } from "@/components/Ads/Ad";
-import { TitleBar } from "@/components/TitleBar"
-import { WikiSideBar } from "@/components/WikiSideBar"
+import { DisplayAd } from "@/components/ad";
+import { TitleBar } from "@/components/title-bar"
+import { WikiSideBar } from "@/components/wiki-side-bar"
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
     return (

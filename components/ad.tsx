@@ -1,5 +1,5 @@
 import { ReactNode, Suspense } from "react";
-import AdClient from "./AdClient";
+import AdClient from "./ad-client";
 
 type AdProps = {
     children: ReactNode;
