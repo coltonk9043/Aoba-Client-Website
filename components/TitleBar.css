@@ -1,0 +1,43 @@
+.desktop {
+    display: none;
+}
+
+.mobile {
+    display: inline;
+    position: relative;
+    z-index: 5;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    color: #fff;
+    font-weight: 500;
+    font-size: 2rem;
+    transition: 0.4s;
+    text-align: center;
+    transform:translateX(100vw);
+}
+
+.nav-open {
+    width: 100%;
+    height: 100vh;
+    transition: 0.4s;
+    transform:translateX(0);
+}
+
+
+.link:hover {
+    background-color: rgb(216 180 254);
+}
+
+@media only screen and (min-width: 769px) {
+    nav {
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        justify-content: center;
+        height: 100%;
+    }
+}
