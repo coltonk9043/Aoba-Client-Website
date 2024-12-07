@@ -1,7 +1,7 @@
 <html><head><base href="/" /><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Aoba Client • Minecraft Utility Mod</title><style>
 :root {
-    --primary: #ff3333;
-    --secondary: #ff6666;
+    --primary: #9c27b0;    /* Changed from #ff3333 to purple */
+    --secondary: #ba68c8;  /* Changed from #ff6666 to lighter purple */
     --dark: #1a1a1a;
     --light: #f5f5f5;
 }
@@ -52,10 +52,9 @@ body {
 }
 
 .nav-links a:hover {
-    border: 1px solid rgba(255, 51, 51, 0.3);
-    transform: translateY(-2px);
+    border: 1px solid rgba(156, 39, 176, 0.3);  /* Changed from rgba(255, 51, 51, 0.3) */
     color: var(--primary);
-    background: rgba(255, 51, 51, 0.1);
+    background: rgba(156, 39, 176, 0.1);        /* Changed from rgba(255, 51, 51, 0.1) */
 }
 
 .hero {
@@ -67,16 +66,16 @@ body {
     position: relative;
     overflow: hidden;
     padding-top: 4rem;
-    background: radial-gradient(circle at center, rgba(255, 51, 51, 0.1) 0%, rgba(26, 26, 26, 0.95) 100%);
+    background: radial-gradient(circle at center, rgba(156, 39, 176, 0.1) 0%, rgba(26, 26, 26, 0.95) 100%);
 }
 
 .gradient-title {
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(45deg, #9c27b0, #e1bee7);  /* Changed gradient colors */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-size: 4.5rem;
-    text-shadow: 0 0 20px rgba(255, 51, 51, 0.3);
+    text-shadow: 0 0 20px rgba(156, 39, 176, 0.5);  /* Increased shadow opacity */
     letter-spacing: 2px;
     margin-bottom: 1rem;
     animation: titlePulse 3s infinite;
@@ -121,7 +120,7 @@ body {
     transition: all 0.3s;
     text-decoration: none;
     display: inline-block;
-    box-shadow: 0 4px 15px rgba(255, 51, 51, 0.3);
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);  /* Changed shadow color */
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
@@ -130,7 +129,7 @@ body {
 .cta-button:hover {
     border: 2px solid rgba(255, 255, 255, 0.1);
     transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 20px rgba(255, 51, 51, 0.4);
+    box-shadow: 0 6px 20px rgba(156, 39, 176, 0.4);  /* Changed shadow color */
 }
 
 .features {
@@ -143,20 +142,20 @@ body {
 }
 
 .feature-card {
-    background: linear-gradient(135deg, rgba(255, 51, 51, 0.1), rgba(255, 102, 102, 0.1));
+    background: linear-gradient(135deg, rgba(156, 39, 176, 0.1), rgba(186, 104, 200, 0.1));
     padding: 2rem;
     border-radius: 12px;
     text-align: center;
     transition: transform 0.3s;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 15px rgba(255, 51, 51, 0.15);
-    border: 1px solid rgba(255, 51, 51, 0.3);
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.15);
+    border: 1px solid rgba(156, 39, 176, 0.3);
 }
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(255, 51, 51, 0.25);
-    border: 1px solid rgba(255, 51, 51, 0.5);
+    box-shadow: 0 8px 25px rgba(156, 39, 176, 0.25);
+    border: 1px solid rgba(156, 39, 176, 0.5);
 }
 
 .feature-card h3 {
@@ -180,22 +179,22 @@ body {
 
 .hack-item {
     display: block;
-    background: rgba(255, 51, 51, 0.1);
+    background: rgba(156, 39, 176, 0.1);
     padding: 1.2rem;
     border-radius: 8px;
     text-align: center;
     transition: all 0.3s;
     cursor: pointer;
-    border: 1px solid rgba(255, 51, 51, 0.2);
+    border: 1px solid rgba(156, 39, 176, 0.2);
     color: var(--light);
     text-decoration: none;
     backdrop-filter: blur(5px);
-    box-shadow: 0 2px 8px rgba(255, 51, 51, 0.1);
+    box-shadow: 0 2px 8px rgba(156, 39, 176, 0.1);
 }
 
 .hack-item:hover {
-    background: rgba(255, 51, 51, 0.25);
-    box-shadow: 0 4px 15px rgba(255, 51, 51, 0.3);
+    background: rgba(156, 39, 176, 0.25);
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
     transform: translateY(-3px) scale(1.03);
 }
 
@@ -203,12 +202,12 @@ body {
     text-align: center;
     margin: 4rem 0 2rem;
     font-size: 3rem;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background: linear-gradient(45deg, #9c27b0, #e1bee7);  /* Changed gradient colors */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     padding: 1rem;
-    text-shadow: 0 0 15px rgba(255, 51, 51, 0.2);
+    text-shadow: 0 0 15px rgba(156, 39, 176, 0.4);  /* Increased shadow opacity */
     letter-spacing: 1px;
 }
 
@@ -239,7 +238,7 @@ body {
         <div class="content">
             <h1 class="gradient-title">Aoba Client</h1>
             <p class="description">Experience Minecraft like never before with our advanced utility mod. Supporting versions up to 1.21.1, Aoba provides powerful features while maintaining smooth performance.</p>
-            <a href="https://github.com/coltonk9043/Aoba-Client/releases" class="cta-button">Download Latest Release</a>
+            <a href="https://github.com/coltonk9043/Aoba-Client/releases/tag/1.4.3" class="cta-button">Download Latest Release</a>
         </div>
     </div>
 
@@ -329,7 +328,7 @@ class MinecraftParticle {
         this.size = Math.random() * 4 + 1;
         this.speedY = Math.random() * 1.5 - 0.75;
         this.speedX = Math.random() * 1.5 - 0.75;
-        this.color = `rgba(255, ${Math.floor(Math.random() * 51 + 51)}, ${Math.floor(Math.random() * 51 + 51)}, ${Math.random() * 0.5 + 0.5})`;
+        this.color = `rgba(156, ${Math.floor(Math.random() * 39 + 39)}, ${Math.floor(Math.random() * 176 + 176)}, ${Math.random() * 0.5 + 0.5})`; // Updated particle colors
         this.opacity = Math.random() * 0.6 + 0.4;
         this.pulse = Math.random() * Math.PI * 2; // Random starting phase
         this.pulseSpeed = Math.random() * 0.02 + 0.01;
