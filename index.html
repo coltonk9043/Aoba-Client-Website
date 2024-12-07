@@ -1,0 +1,416 @@
+<html><head><base href="/" /><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Aoba Client • Minecraft Utility Mod</title><style>
+:root {
+    --primary: #ff3333;
+    --secondary: #ff6666;
+    --dark: #1a1a1a;
+    --light: #f5f5f5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Minecraft', Arial, sans-serif;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('https://cdn.jsdelivr.net/npm/minecraft-font@1.0.0/MinecraftRegular.woff2') format('woff2');
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.navbar {
+    background: rgba(26, 26, 26, 0.95);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    transition: all 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+    border: 1px solid transparent;
+}
+
+.nav-links a:hover {
+    border: 1px solid rgba(255, 51, 51, 0.3);
+    transform: translateY(-2px);
+    color: var(--primary);
+    background: rgba(255, 51, 51, 0.1);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 4rem;
+    background: radial-gradient(circle at center, rgba(255, 51, 51, 0.1) 0%, rgba(26, 26, 26, 0.95) 100%);
+}
+
+.gradient-title {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 4.5rem;
+    text-shadow: 0 0 20px rgba(255, 51, 51, 0.3);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    animation: titlePulse 3s infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.minecraft-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.content {
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    line-height: 1.6;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: var(--light);
+    padding: 1.2rem 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(255, 51, 51, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 51, 51, 0.4);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(255, 51, 51, 0.1), rgba(255, 102, 102, 0.1));
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(255, 51, 51, 0.15);
+    border: 1px solid rgba(255, 51, 51, 0.3);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 51, 51, 0.25);
+    border: 1px solid rgba(255, 51, 51, 0.5);
+}
+
+.feature-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.feature-card p {
+    line-height: 1.6;
+}
+
+.hacks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hack-item {
+    display: block;
+    background: rgba(255, 51, 51, 0.1);
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid rgba(255, 51, 51, 0.2);
+    color: var(--light);
+    text-decoration: none;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 8px rgba(255, 51, 51, 0.1);
+}
+
+.hack-item:hover {
+    background: rgba(255, 51, 51, 0.25);
+    box-shadow: 0 4px 15px rgba(255, 51, 51, 0.3);
+    transform: translateY(-3px) scale(1.03);
+}
+
+.section-title {
+    text-align: center;
+    margin: 4rem 0 2rem;
+    font-size: 3rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 1rem;
+    text-shadow: 0 0 15px rgba(255, 51, 51, 0.2);
+    letter-spacing: 1px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--light);
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+</style></head><body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="https://github.com/coltonk9043/Aoba-Client/releases/tag/1.4.3">Download</a>
+            <a href="https://www.aobaclient.com/wiki">Wiki</a>
+            <a href="https://github.com/sponsors/coltonk9043">Support Us</a>
+            <a href="https://discord.com/invite/HyZ3uGrwgs">Discord</a>
+            <a href="https://github.com/coltonk9043/Aoba-Client">GitHub</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <canvas id="minecraft-particles" class="minecraft-particles"></canvas>
+        <div class="content">
+            <h1 class="gradient-title">Aoba Client</h1>
+            <p class="description">Experience Minecraft like never before with our advanced utility mod. Supporting versions up to 1.21.1, Aoba provides powerful features while maintaining smooth performance.</p>
+            <a href="https://github.com/coltonk9043/Aoba-Client/releases/tag/1.4.3" class="cta-button">Download Latest Release</a>
+        </div>
+    </div>
+
+    <h2 class="section-title">Key Features</h2>
+    <p class="section-subtitle">Discover what makes Aoba Client the perfect choice for enhancing your Minecraft experience</p>
+    <div class="features">
+        <div class="feature-card">
+            <h3>Extensive Hack Collection</h3>
+            <p>Access over 50 specialized modifications designed to enhance your gameplay. From combat improvements to quality-of-life features, we've got everything covered.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Advanced Command System</h3>
+            <p>Take full control with our intuitive command system. Customize settings, toggle features, and manage your experience with simple, powerful commands.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Customizable UI</h3>
+            <p>Make Aoba truly yours with extensive UI customization options. Adjust layouts, colors, and visibility to match your perfect setup.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Performance Optimization</h3>
+            <p>Enjoy seamless gameplay with our optimized codebase. Aoba Client is designed to maintain high FPS while running multiple modifications simultaneously.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Available Modifications</h2>
+    <p class="section-subtitle">Browse our comprehensive collection of gameplay enhancements</p>
+    <div class="hacks-grid">
+        <a href="https://www.aobaclient.com/wiki/hacks/aimbot" class="hack-item" title="Automatic aiming assistance">Aimbot</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/anticactus" class="hack-item" title="Prevents cactus damage">AntiCactus</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/antiinvis" class="hack-item" title="Reveals invisible entities">AntiInvis</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/antiknockback" class="hack-item" title="Reduces received knockback">AntiKnockback</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/autoeat" class="hack-item" title="Automatically consumes food">AutoEat</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/autofarm" class="hack-item" title="Automated farming assistance">AutoFarm</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/autofish" class="hack-item" title="Automated fishing">AutoFish</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/autosign" class="hack-item" title="Automatic sign completion">AutoSign</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/autosoup" class="hack-item" title="Automatic soup consumption">AutoSoup</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/autototem" class="hack-item" title="Automatic totem usage">AutoTotem</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/autorespawn" class="hack-item" title="Instant respawn on death">AutoRespawn</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/autowalk" class="hack-item" title="Continuous walking">AutoWalk</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/breadcrumbs" class="hack-item" title="Leaves a trail behind you">Breadcrumbs</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/chestesp" class="hack-item" title="Highlights nearby chests">ChestESP</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/criticals" class="hack-item" title="Enhanced critical hits">Criticals</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/crystalaura" class="hack-item" title="End Crystal combat assistance">CrystalAura</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/entityesp" class="hack-item" title="Highlights all entities">EntityESP</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/fastplace" class="hack-item" title="Increased placement speed">FastPlace</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/fastbreak" class="hack-item" title="Increased breaking speed">FastBreak</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/fly" class="hack-item" title="Enables flight">Fly</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/freecam" class="hack-item" title="Spectator-like camera mode">Freecam</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/fullbright" class="hack-item" title="Maximum brightness">Fullbright</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/itemesp" class="hack-item" title="Highlights dropped items">ItemESP</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/glide" class="hack-item" title="Slow falling ability">Glide</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/jesus" class="hack-item" title="Walk on water">Jesus</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/jetpack" class="hack-item" title="Vertical propulsion">Jetpack</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/killaura" class="hack-item" title="Automatic attack system">KillAura</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/nametags" class="hack-item" title="Enhanced player nametags">Nametags</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/noclip" class="hack-item" title="Phase through blocks">Noclip</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/nofall" class="hack-item" title="Prevents fall damage">NoFall</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/nojumpdelay" class="hack-item" title="Removes jump cooldown">NoJumpDelay</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/nooverlay" class="hack-item" title="Removes screen overlays">NoOverlay</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/noslowdown" class="hack-item" title="Prevents slowdown effects">NoSlowdown</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/nuker" class="hack-item" title="Mass block breaking">Nuker</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/playeresp" class="hack-item" title="Highlights other players">PlayerESP</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/pov" class="hack-item" title="Custom field of view">POV</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/reach" class="hack-item" title="Extended reach distance">Reach</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/safewalk" class="hack-item" title="Prevents edge falls">Safewalk</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/sneak" class="hack-item" title="Toggle sneak state">Sneak</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/spawneresp" class="hack-item" title="Highlights mob spawners">SpawnerESP</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/spider" class="hack-item" title="Climb walls like a spider">Spider</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/sprint" class="hack-item" title="Automatic sprinting">Sprint</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/step" class="hack-item" title="Automatic step-up blocks">Step</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/surround" class="hack-item" title="Obsidian protection">Surround</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/tilebreaker" class="hack-item" title="Break specific tiles">TileBreaker</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/timer" class="hack-item" title="Modify game speed">Timer</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/tracer" class="hack-item" title="Draw lines to entities">Tracer</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/trajectory" class="hack-item" title="Show projectile paths">Trajectory</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/triggerbot" class="hack-item" title="Automatic attack on aim">TriggerBot</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/xray" class="hack-item" title="See through blocks">XRay</a>
+        <a href="https://www.aobaclient.com/wiki/hacks/zoom" class="hack-item" title="Toggle zoom view">Zoom</a>
+    </div>
+
+<script>
+class MinecraftParticle {
+    constructor(canvas, x, y) {
+        this.canvas = canvas;
+        this.x = x;
+        this.y = y;
+        this.size = Math.random() * 4 + 1;
+        this.speedY = Math.random() * 1.5 - 0.75;
+        this.speedX = Math.random() * 1.5 - 0.75;
+        this.color = `rgba(255, ${Math.floor(Math.random() * 51 + 51)}, ${Math.floor(Math.random() * 51 + 51)}, ${Math.random() * 0.5 + 0.5})`;
+        this.opacity = Math.random() * 0.6 + 0.4;
+        this.pulse = Math.random() * Math.PI * 2; // Random starting phase
+        this.pulseSpeed = Math.random() * 0.02 + 0.01;
+        this.fadeState = 'visible'; // New property to track fade state
+        this.fadeAmount = 1; // New property for fade transition
+    }
+
+    update() {
+        this.y += this.speedY;
+        this.x += this.speedX;
+        this.pulse += this.pulseSpeed;
+        
+        // Smooth sine wave for opacity
+        const basePulse = (Math.sin(this.pulse) + 1) / 2; // Normalize to 0-1
+        this.opacity = basePulse * 0.5 + 0.3; // Range from 0.3 to 0.8
+        
+        // Handle wrapping with fade effect
+        const padding = 50; // Padding area for fade effect
+        
+        if (this.y < padding) {
+            this.fadeAmount = this.y / padding;
+        } else if (this.y > this.canvas.height - padding) {
+            this.fadeAmount = (this.canvas.height - this.y) / padding;
+        } else if (this.x < padding) {
+            this.fadeAmount = this.x / padding;
+        } else if (this.x > this.canvas.width - padding) {
+            this.fadeAmount = (this.canvas.width - this.x) / padding;
+        } else {
+            this.fadeAmount = 1;
+        }
+        
+        // Wrap positions with smooth transition
+        if (this.y < -this.size) this.y = this.canvas.height + this.size;
+        if (this.y > this.canvas.height + this.size) this.y = -this.size;
+        if (this.x < -this.size) this.x = this.canvas.width + this.size;
+        if (this.x > this.canvas.width + this.size) this.x = -this.size;
+    }
+
+    draw(ctx) {
+        const finalOpacity = this.opacity * this.fadeAmount;
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = finalOpacity;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+const canvas = document.getElementById('minecraft-particles');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+const particles = [];
+const particleCount = 100;
+
+for (let i = 0; i < particleCount; i++) {
+    particles.push(new MinecraftParticle(
+        canvas,
+        Math.random() * canvas.width,
+        Math.random() * canvas.height
+    ));
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    particles.forEach(particle => {
+        particle.update();
+        particle.draw(ctx);
+    });
+    
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+</body></html>
