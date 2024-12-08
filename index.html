@@ -25,30 +25,36 @@ body {
 
 .navbar {
     background: rgba(26, 26, 26, 0.95);
-    padding: 1rem 2rem;
+    padding: 0.8rem 1rem;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 999;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center the nav links */
     align-items: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap; /* Allow links to wrap on small screens */
+    justify-content: center;
+    padding: 0.5rem;
 }
 
 .nav-links a {
     color: var(--light);
     text-decoration: none;
     transition: all 0.3s;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
     border-radius: 4px;
     backdrop-filter: blur(5px);
     border: 1px solid transparent;
+    font-size: 0.9rem; /* Slightly smaller font on mobile */
+    white-space: nowrap; /* Prevent text wrapping within buttons */
 }
 
 .nav-links a:hover {
@@ -108,16 +114,16 @@ body {
 .content {
     z-index: 3;  /* Increase z-index to appear above particles */
     text-align: center;
-    padding: 2rem;
+    padding: 1rem; /* Adjusted for mobile */
     max-width: 1200px;
     margin: 0 auto;
     position: relative;  /* Add position relative */
 }
 
 .description {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    max-width: 800px;
+    font-size: clamp(1.1rem, 4vw, 1.5rem); /* Responsive font size */
+    padding: 0 1rem; /* Added padding */
+    margin-bottom: 1.5rem;
     line-height: 1.6;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -125,10 +131,10 @@ body {
 .cta-button {
     background: linear-gradient(45deg, var(--primary), var(--secondary));
     color: var(--light);
-    padding: 1.2rem 2.5rem;
+    padding: clamp(0.8rem, 3vw, 1.2rem) clamp(1.5rem, 5vw, 2.5rem);
     border: 2px solid transparent;
     border-radius: 4px;
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 3vw, 1.3rem);
     cursor: pointer;
     transition: all 0.3s;
     text-decoration: none;
@@ -147,9 +153,9 @@ body {
 
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    padding: 4rem 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 1.5rem; /* Adjusted gap */
+    padding: 2rem 1rem; /* Adjusted padding */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -183,9 +189,9 @@ body {
 
 .hacks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive columns */
+    gap: 0.8rem; /* Adjusted gap */
+    padding: 1rem; /* Adjusted padding */
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -213,13 +219,13 @@ body {
 
 .section-title {
     text-align: center;
-    margin: 4rem 0 2rem;
-    font-size: 3rem;
+    margin: 3rem 0 1.5rem; /* Adjusted margin */
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
     background: linear-gradient(45deg, #9c27b0, #e1bee7);  /* Changed gradient colors */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    padding: 1rem;
+    padding: 0.5rem; /* Added padding */
     text-shadow: 0 0 15px rgba(156, 39, 176, 0.4);  /* Increased shadow opacity */
     letter-spacing: 1px;
 }
@@ -227,18 +233,136 @@ body {
 .section-subtitle {
     text-align: center;
     color: var(--light);
-    margin-bottom: 3rem;
-    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+    padding: 0 1rem; /* Added padding */
     opacity: 0.8;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
+.carousel {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(156, 39, 176, 0.25);
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: auto;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(156, 39, 176, 0.7);
+    border: none;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background: rgba(156, 39, 176, 0.9);
+}
+
+.carousel-btn.prev {
+    left: 1rem;
+}
+
+.carousel-btn.next {
+    right: 1rem;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-dot.active {
+    background: var(--primary);
+}
+
+/* Add media queries for specific adjustments */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+    
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-links a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.85rem;
+    }
+    
+    .animated-logo {
+        max-width: 320px;
+    }
+    
+    .feature-card {
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero {
+        padding-top: 5rem;
+    }
+    
+    .animated-logo {
+        max-width: 280px;
+    }
+    
+    .cta-button {
+        width: 90%;
+        max-width: 300px;
+    }
+}
 </style></head><body>
     <nav class="navbar">
         <div class="nav-links">
-            <a href="https://github.com/coltonk9043/Aoba-Client/releases/tag/1.4.3">Download</a>
+            <a href="https://github.com/coltonk9043/Aoba-Client/releases">Download</a>
             <a href="https://www.aobaclient.com/wiki">Wiki</a>
             <a href="https://github.com/sponsors/coltonk9043">Support Us</a>
             <a href="https://discord.com/invite/HyZ3uGrwgs">Discord</a>
@@ -251,7 +375,7 @@ body {
         <div class="content">
             <img src="https://www.aobaclient.com/_next/image?url=%2Faoba-name.png&w=640&q=75" alt="Aoba Client" class="animated-logo">
             <p class="description">Experience Minecraft like never before with our advanced utility mod. Supporting versions up to 1.21.1, Aoba provides powerful features while maintaining smooth performance.</p>
-            <a href="https://github.com/coltonk9043/Aoba-Client/releases/" class="cta-button">Download Latest Release</a>
+            <a href="https://github.com/coltonk9043/Aoba-Client/releases" class="cta-button">Download Latest Release</a>
         </div>
     </div>
 
@@ -273,6 +397,29 @@ body {
         <div class="feature-card">
             <h3>Performance Optimization</h3>
             <p>Enjoy seamless gameplay with our optimized codebase. Aoba Client is designed to maintain high FPS while running multiple modifications simultaneously.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Screenshots</h2>
+    <p class="section-subtitle">Take a look at Aoba Client in action</p>
+    <div class="carousel">
+        <button class="carousel-btn prev">←</button>
+        <button class="carousel-btn next">→</button>
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="https://www.aobaclient.com/_next/image?url=%2Fscreenshot_hacks.png&w=640&q=75" alt="Hacks Screenshot">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.aobaclient.com/_next/image?url=%2Fscreenshot_commands.png&w=640&q=75" alt="Commands Screenshot">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://www.aobaclient.com/_next/image?url=%2Fscreenshot_hud.png&w=640&q=75" alt="HUD Screenshot">
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <div class="carousel-dot active"></div>
+            <div class="carousel-dot"></div>
+            <div class="carousel-dot"></div>
         </div>
     </div>
 
@@ -424,5 +571,43 @@ function animate() {
 }
 
 animate();
+
+const carousel = document.querySelector('.carousel-container');
+const slides = document.querySelectorAll('.carousel-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+const prevBtn = document.querySelector('.carousel-btn.prev');
+const nextBtn = document.querySelector('.carousel-btn.next');
+
+let currentSlide = 0;
+
+function updateCarousel() {
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
+
+prevBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateCarousel();
+});
+
+nextBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateCarousel();
+});
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateCarousel();
+    });
+});
+
+// Auto advance slides
+setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateCarousel();
+}, 5000);
 </script>
 </body></html>
