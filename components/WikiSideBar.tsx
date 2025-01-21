@@ -55,7 +55,7 @@ export const CollapsibleTree =  (props : {entry : WikiEntry}) => {
 
 export function WikiSideBar({ posts } : { posts?: string[]}) {
     return(
-        <div className={'bg-zinc-800  border-zinc-500 border-b w-full md:w-auto md:border-b-0 md:border-r md:inline-block'}>
+        <div className={'bg-zinc-800 border-aoba-purple border rounded-lg m-5 p-5 md:inline-block'}>
             <div className='w-full pl-5 pr-5 inline-block'>
                 <CollapsibleTree entry={WikiEntries} />
             </div>

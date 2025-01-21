@@ -1,6 +1,5 @@
 import type { MDXComponents } from 'mdx/types'
-import { ImageProps } from 'next/image'
- 
+
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     h1: ({children}) => (
@@ -14,6 +13,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     p: ({children}) => (
       <p className='mt-5 mb-5'>{children}</p>
+    ),
+    code: ({children}) => (
+      <code className='bg-[#1a1a1a] px-1 py-2 border-4 text-[#bb86fc]'>{children}</code>
     ),
     ...components,
   }
