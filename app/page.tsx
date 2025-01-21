@@ -28,7 +28,7 @@ export default function Home() {
   const generateHacksSummary = () => {
     return Hacks.map((e: Hack) => {
       return (
-        <FeaturePanel description={e.name} href={"wiki/hacks/" + e.name.toLowerCase()} />
+        <FeaturePanel key={e.name} description={e.name} href={"wiki/hacks/" + e.name.toLowerCase()} />
       )
     })
   }

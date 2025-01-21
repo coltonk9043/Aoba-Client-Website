@@ -9,7 +9,7 @@ export default function Page() {
     const generateModulePanels = () => {
         return Hacks.map((e, index) => {
             return (
-                <Link href={"/wiki/hacks/" + e.name.toLowerCase()}>
+                <Link key={e.name + index} href={"/wiki/hacks/" + e.name.toLowerCase()}>
                                 <div key={e.name + index} className="bg-background-accent rounded-lg p-4 transition-transform shadow-lg hover:-translate-y-3 hover:cursor-pointer">
                     <p className="text-aoba-purple border-b-[1px] border-[#444] text-xl py-2">{e.name}</p>
                     <p className="my-4">{e.description}</p>
