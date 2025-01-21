@@ -14,10 +14,13 @@ nav {
     background-color: black;
     color: #fff;
     font-weight: 500;
-    font-size: 2rem;
     transition: 0.4s;
     text-align: center;
     transform:translateX(100vw);
+}
+
+nav, a{
+    font-size: 0.95em;
 }
 
 .nav-open {

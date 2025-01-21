@@ -9,7 +9,6 @@ export const WikiEntries: WikiEntry =
     name: "Wiki", path: "wiki/", children: [
         {
             name: "Basics", path: undefined, children: [
-                { name: "Installation", path: "wiki/basics/installation", children: undefined },
                 { name: "ClickGUI", path: "wiki/basics/clickgui", children: undefined },
                 { name: "Modules", path: "wiki/basics/modules", children: undefined },
                 { name: "Commands", path: "wiki/basics/commands", children: undefined }

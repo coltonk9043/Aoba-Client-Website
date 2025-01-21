@@ -1,6 +1,8 @@
 import { DisplayAd } from "@/components/Ads/Ad";
+import InformationPane from "@/components/InformationPane/InformationPane";
 import ReleasesWidget from "@/components/ReleaseWidget/ReleaseWidget";
 import TitleBar from "@/components/TitleBar";
+import Link from "next/link";
 import React from "react";
 
 enum ReleaseType {
@@ -94,7 +96,7 @@ const DownloadPane = (release: Release) => {
     const generateImages = () => {
         let images = release.body.match(/([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm);
         return images?.map((e: string, index: number) => {
-            if (e.startsWith("https://github.com/coltonk9043/Aoba-Client/assets")) {
+            if (e.startsWith("https://github.com/coltonk9043/Aoba-Client/assets") || e.startsWith("https://github.com/user-attachments/assets")) {
                 return (
                     <img key={release.tag_name + index} className="rounded-lg" src={e} alt="screenshot" />
                 )
@@ -160,12 +162,17 @@ const Releases = async (props: { prerelease: boolean }) => {
 
 export default function Page() {
     return (
-        <main className="bg-[url('/pretty.png')] bg-cover bg-fixed">
+        <main className="bg-landing bg-cover bg-fixed">
             <TitleBar />
             <div className="m-5 w-auto max-w-[850px] sm:m-auto sm:mt-10 sm:mb-10 sm:w-3/4 bg-zinc-900 p-5 md:p-10 rounded-lg">
-                <h1>Aoba Client for Minecraft Downloads</h1>
-                <p className="text-gray-400">Below are all available versions of Aoba, ranging from 1.19.4 to 1.20.x</p>
+                <h1 className="pb-2">🎮 Aoba Client Downloads</h1>
+                <p className="text-gray-400">Below are all available versions of Aoba, ranging from Minecraft versions 1.19.4 to 1.21.x</p>
 
+                <InformationPane className="my-5">
+                    <h2 className="text-aoba-purple">📥 Installation Instructions</h2>
+                    <p>Installation instructions can be found on the <Link href="/wiki/">Wiki</Link></p>
+                </InformationPane>
+                
                 <ReleasesWidget>
                     <div><Releases prerelease={false} /></div>
                     <div><Releases prerelease={true} /></div>
