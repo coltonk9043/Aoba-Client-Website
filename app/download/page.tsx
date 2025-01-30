@@ -148,7 +148,7 @@ const Releases = async (props: { prerelease: boolean }) => {
                 return (
                     <>
                         {DownloadPane(e)}
-                        { i > 1 && i % 2 == 0 ? <DisplayAd /> : undefined}
+                        <DisplayAd />
                     </>
                     
                 )
