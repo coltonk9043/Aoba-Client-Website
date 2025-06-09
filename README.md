@@ -1,5 +1,5 @@
 # Aoba Website
-A website for Aoba, the custom hacked client for Minecraft 1.21.3/4 using Fabric.
+A website for Aoba, the custom utility client for Minecraft using Fabric.
 
 # Notable Technologies
 - Node.js
