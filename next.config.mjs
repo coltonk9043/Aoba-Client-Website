@@ -8,6 +8,7 @@ const nextConfig = {
   // Optionally, add any other Next.js config below
   reactStrictMode: true,
   images: {
+   minimumCacheTTL: 2678400, // 31 days
     remotePatterns: [
       {
         protocol: "https",
