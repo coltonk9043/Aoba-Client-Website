@@ -16,7 +16,7 @@ const FeaturePanelComponent = ({ title, description, href }: FeaturePanelProps) 
     );
 
     return (
-        <div className="m-2 p-4 border border-aoba-purple-dark-0.4 rounded-xl bg-opacity-20 bg-gradient-to-br from-aoba-purple-dark-0.2 to-aoba-purple-0.2 backdrop-blur transition-transform hover:-translate-y-1 hover:scale-105">
+        <div className="m-2 p-4 border border-aoba-purple-dark-0.4 rounded-xl bg-opacity-20 bg-gradient-to-br from-aoba-purple-dark-0.2 to-aoba-purple-0.2 transition-transform hover:-translate-y-1 hover:scale-105">
             {href ? (
                 <a className="text-center" href={href}>
                     {content}

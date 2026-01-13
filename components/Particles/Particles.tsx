@@ -11,6 +11,8 @@ const ParticlesComponent = ({ count }: ParticlesProps) => {
     const particlesRef = useRef<Particle[]>([]);
     const isVisibleRef = useRef(true);
     const isMobileRef = useRef(false);
+    const isScrollingRef = useRef(false);
+    const scrollTimeoutRef = useRef<NodeJS.Timeout>();
 
     const resizeCanvas = useCallback(() => {
         const canvas = canvasRef.current;
@@ -23,7 +25,7 @@ const ParticlesComponent = ({ count }: ParticlesProps) => {
 
     const animate = useCallback(() => {
         const canvas = canvasRef.current;
-        if (!canvas || !isVisibleRef.current) {
+        if (!canvas || !isVisibleRef.current || isScrollingRef.current) {
             requestRef.current = requestAnimationFrame(animate);
             return;
         }
@@ -71,16 +73,30 @@ const ParticlesComponent = ({ count }: ParticlesProps) => {
             isVisibleRef.current = !document.hidden;
         };
 
+            isScrollingRef.current = true;
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
+            }
+            scrollTimeoutRef.current = setTimeout(() => {
+                isScrollingRef.current = false;
+            }, 150);
+        };
+
         window.addEventListener("resize", handleResize);
+        window.addEventListener("scroll", handleScroll, { passive: true });
         document.addEventListener("visibilitychange", handleVisibilityChange);
 
         requestRef.current = requestAnimationFrame(animate);
 
         return () => {
             window.removeEventListener("resize", handleResize);
+            window.removeEventListener("scroll", handleScroll);
             document.removeEventListener("visibilitychange", handleVisibilityChange);
             if (requestRef.current) {
                 cancelAnimationFrame(requestRef.current);
+            }
+            if (scrollTimeoutRef.current) {
+                clearTimeout(scrollTimeoutRef.current);
             }
         };
     }, [count, resizeCanvas, animate]);

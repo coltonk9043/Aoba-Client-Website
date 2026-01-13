@@ -9,6 +9,10 @@ import { RotatingText } from "@/components/RotatingText/RotatingText";
 import { Particles } from "@/components/Particles/Particles";
 import { Carousel } from "@/components/Carousel/Carousel";
 
+const hacksSummary = Hacks.map((e: Hack) => (
+  <FeaturePanel key={e.name} description={e.name} href={"wiki/hacks/" + e.name.toLowerCase()} />
+));
+
 export default function Home() {
 
   const features = ["Powerful",
@@ -30,14 +34,6 @@ export default function Home() {
     { src: "/screenshot_commands.png", alt: "Commands" },
     { src: "/screenshot_hud.png", alt: "UI Customization" },
   ];
-
-  const generateHacksSummary = () => {
-    return Hacks.map((e: Hack) => {
-      return (
-        <FeaturePanel key={e.name} description={e.name} href={"wiki/hacks/" + e.name.toLowerCase()} />
-      )
-    })
-  }
 
   return (
     <main className="bg-landing bg-cover bg-fixed m-0 py-0">
@@ -96,7 +92,7 @@ export default function Home() {
             <p className="my-3 text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark">Available Mods</p>
             <p className="text-sm sm:text-base">Browse our comprehensive collection of gameplay enhancements</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-auto-fill-150 gap-2">
-              {generateHacksSummary()}
+              {hacksSummary}
             </div>
           </div>
         </div>
