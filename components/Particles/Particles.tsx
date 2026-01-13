@@ -73,6 +73,7 @@ const ParticlesComponent = ({ count }: ParticlesProps) => {
             isVisibleRef.current = !document.hidden;
         };
 
+        const handleScroll = () => {
             isScrollingRef.current = true;
             if (scrollTimeoutRef.current) {
                 clearTimeout(scrollTimeoutRef.current);
