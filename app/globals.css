@@ -2,18 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-h1{
-  color: white;
-  font-size: 24pt;
-}
- 
-h2{
-  color: white;
-  font-size: 20pt;
-}
+@layer base {
+  :focus-visible {
+    outline: 2px solid #BB86FC;
+    outline-offset: 2px;
+  }
 
-p, a, li{
-  color: white;
+  h1 {
+    color: white;
+    font-size: 24pt;
+  }
+
+  h2 {
+    color: white;
+    font-size: 20pt;
+  }
+
+  p, a, li, span, button {
+    color: white;
+  }
+
+  a:hover {
+    color: #BB86FC;
+  }
 }
 
 code {
@@ -26,6 +37,14 @@ code {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  .logo-bounce {
+    animation: logoBounce 2s infinite;
+  }
+
+  .logo-glow {
+    filter: drop-shadow(0 0 20px rgba(156, 39, 176, 0.5));
   }
 }
 

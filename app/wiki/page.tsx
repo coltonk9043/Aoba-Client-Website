@@ -28,7 +28,7 @@ export default function Page() {
             <h1 className="my-3 pb-2 border-b-2 border-b-aoba-purple">🎮 Aoba Client Wiki</h1>
             <InformationPane>
                 <h2 className="text-aoba-purple">📥 Installation Instructions</h2>
-                <ol className="list-decimal mx-20">
+                <ol className="list-decimal mx-8 sm:mx-12 md:mx-20">
                     <li>Install Minecraft Java Edition</li>
                     <li>Download and install <a href="https://fabricmc.net/use/">Fabric Loader</a> for your Minecraft version</li>
                     <li>Download the Aoba Client mod (.jar file)</li>
@@ -37,7 +37,7 @@ export default function Page() {
                 </ol>
 
                 <h2 className="text-aoba-purple">⚙️ Getting Started</h2>
-                <ol className="list-decimal mx-20">
+                <ol className="list-decimal mx-8 sm:mx-12 md:mx-20">
                     <li>Join a world or server</li>
                     <li>To set up the ClickGUI keybind, type in chat: <code>.aoba clickgui set [key]</code></li>
                     <li>Replace [key] with your desired key (e.g., <code>.aoba clickgui set RSHIFT</code>)</li>
@@ -45,7 +45,7 @@ export default function Page() {
                 </ol>
             </InformationPane>
 
-            <div className="grid grid-cols-auto-fill-300 gap-5 m-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-auto-fill-300 gap-4 sm:gap-5 m-4 sm:m-6 md:m-10">
                 {generateModulePanels()}
             </div>
         </>

@@ -164,9 +164,9 @@ export default function Page() {
     return (
         <main className="bg-landing bg-cover bg-fixed">
             <TitleBar />
-            <div className="m-5 w-auto max-w-[850px] sm:m-auto sm:mt-10 sm:mb-10 sm:w-3/4 bg-zinc-900 p-5 md:p-10 rounded-lg">
-                <h1 className="pb-2">🎮 Aoba Client Downloads</h1>
-                <p className="text-gray-400">Below are all available versions of Aoba, ranging from Minecraft versions 1.19.4 to 1.21.x</p>
+            <div className="mx-4 my-6 sm:mx-auto sm:my-10 w-auto max-w-[850px] sm:w-11/12 md:w-3/4 bg-zinc-900 p-4 sm:p-6 md:p-10 rounded-lg">
+                <h1 className="pb-2 text-2xl sm:text-3xl md:text-4xl">🎮 Aoba Client Downloads</h1>
+                <p className="text-gray-400 text-sm sm:text-base">Below are all available versions of Aoba, ranging from Minecraft versions 1.19.4 to 1.21.x</p>
 
                 <InformationPane className="my-5">
                     <h2 className="text-aoba-purple">📥 Installation Instructions</h2>

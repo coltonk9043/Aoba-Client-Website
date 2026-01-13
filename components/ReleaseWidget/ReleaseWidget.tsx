@@ -1,37 +1,57 @@
 'use client'
 
-import React from "react";
+import { useState, useMemo, useCallback, memo } from "react";
 
-enum State{
+enum State {
     Releases = 0,
     Prereleases = 1,
 }
 
-const ReleasesWidget = (props: {children: React.ReactNode}) => {
-    const [state, setState] = React.useState<State>(State.Releases);
+interface ReleasesWidgetProps {
+    children: React.ReactNode;
+}
 
-    const getDownloadPage = () => {
-        let children = React.Children.toArray(props.children);
-        if(Array.isArray(children)){
-            if(state == State.Releases){
-                const view = children[0];
-                return view;
-            }else if (state == State.Prereleases){
-                const view = children[1];
-                return view;
-            }
-        }
-    }
+const ReleasesWidgetComponent = ({ children }: ReleasesWidgetProps) => {
+    const [state, setState] = useState<State>(State.Releases);
+
+    const childrenArray = useMemo(() => {
+        return Array.isArray(children) ? children : [children];
+    }, [children]);
+
+    const currentView = useMemo(() => {
+        const childArray = Array.isArray(children) ? children : [children];
+        return state === State.Releases ? childArray[0] : childArray[1];
+    }, [state, children]);
+
+    const handleReleasesClick = useCallback(() => {
+        setState(State.Releases);
+    }, []);
+
+    const handlePrereleasesClick = useCallback(() => {
+        setState(State.Prereleases);
+    }, []);
 
     return (
         <div>
             <div className="border rounded w-[300px] flex mt-5 mb-5">
-                <p className="border-r text-center basis-1/2 hover:cursor-pointer" style={{backgroundColor: state == State.Releases ? '#DC0BF6' : 'transparent'}} onClick={() => {setState(State.Releases)}} >Releases</p>
-                <p className="text-center basis-1/2 hover:cursor-pointer" style={{backgroundColor: state == State.Prereleases ? '#DC0BF6' : 'transparent'}} onClick={() => {setState(State.Prereleases)}}>Pre-releases</p>
+                <button
+                    className={`border-r text-center basis-1/2 hover:cursor-pointer transition-colors ${state === State.Releases ? 'bg-[#DC0BF6]' : 'bg-transparent'}`}
+                    onClick={handleReleasesClick}
+                >
+                    Releases
+                </button>
+                <button
+                    className={`text-center basis-1/2 hover:cursor-pointer transition-colors ${state === State.Prereleases ? 'bg-[#DC0BF6]' : 'bg-transparent'}`}
+                    onClick={handlePrereleasesClick}
+                >
+                    Pre-releases
+                </button>
             </div>
-
-            {getDownloadPage()}
+            {currentView}
         </div>
-    )
-}
+    );
+};
+
+const ReleasesWidget = memo(ReleasesWidgetComponent);
+
 export default ReleasesWidget;

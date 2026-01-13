@@ -10,7 +10,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
             <div className="md:flex">
                 <WikiSideBar/>
                 <div className="flex-grow">
-                    <div className="m-auto mt-10 mb-10 mr-10 ml-10 md:mr-auto md:ml-auto max-w-[1200px]">
+                    <div className="m-auto mt-6 mb-6 mx-4 sm:mt-8 sm:mb-8 sm:mx-6 md:mt-10 md:mb-10 md:mx-auto max-w-[1200px]">
                         {children}
                         <DisplayAd/>
                     </div>

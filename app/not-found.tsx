@@ -7,17 +7,20 @@ export default function Custom404() {
         <>
             <TitleBar />
 
-            {/** Aoba Logo */}
-                <div className="absolute" style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
-                    <Image className="z-3 m-auto" src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client" />
-                    <h1 className="mt-10 text-center">404 - Page not found!</h1>
-                    <p className="text-center">You likely ended up here because Cocolots is an idiot!</p>
-                    <p className="text-center">If you clicked a link and ended up here! Let him know on the Discord!</p>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 w-full max-w-lg">
+                <Image className="z-3 m-auto max-w-full h-auto" src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client" />
+                <h1 className="mt-10 text-center text-2xl sm:text-3xl">404 - Page not found!</h1>
+                <p className="text-center text-sm sm:text-base">You likely ended up here because Cocolots is an idiot!</p>
+                <p className="text-center text-sm sm:text-base">If you clicked a link and ended up here! Let him know on the Discord!</p>
 
-                    <a className="m-auto mt-5 mb-5 hover:text-purple-300 duration-300" href="https://discord.gg/HyZ3uGrwgs">
-                        <IoLogoDiscord className="size-16 m-auto mt-5 mb-5" />
-                    </a>
-                </div>
+                <a
+                    className="block m-auto mt-5 mb-5 hover:text-purple-300 duration-300 focus:outline-none focus:text-purple-300"
+                    href="https://discord.gg/HyZ3uGrwgs"
+                    aria-label="Join Discord"
+                >
+                    <IoLogoDiscord className="size-16 m-auto" />
+                </a>
+            </div>
         </>
     )
 }

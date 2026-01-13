@@ -1,76 +1,98 @@
 'use client'
-import React from "react";
+import React, { useEffect, useRef, useCallback, memo } from "react";
 
-export const Particles = (props : {count : number}) => {
-    const requestRef = React.useRef<number>()
-    const canvasRef = React.useRef<HTMLCanvasElement>(null);
-    const particles : Particle[] = [];
+interface ParticlesProps {
+    count: number;
+}
 
-    React.useEffect(() => {
+const ParticlesComponent = ({ count }: ParticlesProps) => {
+    const requestRef = useRef<number>();
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const particlesRef = useRef<Particle[]>([]);
+    const isVisibleRef = useRef(true);
+    const isMobileRef = useRef(false);
+
+    const resizeCanvas = useCallback(() => {
         const canvas = canvasRef.current;
-        resizeCanvas();
-
-        window.addEventListener("resize", resizeCanvas);
-        if(canvas){
-            for (let i = 0; i < props.count; i++) {
-                particles.push(new Particle(
-                    canvas,
-                    Math.random() * canvas.width,
-                    Math.random() * canvas.height
-                ));
-            }
-        }
-
-        requestRef.current = requestAnimationFrame(animate);
-
-        // Callback to remove event listeners and cancel animation frame.
-        return () => {
-            window.removeEventListener("resize", resizeCanvas);
-            if(requestRef.current)
-                cancelAnimationFrame(requestRef.current);
-        };
-    }, []);
-
-    /**
-     * Resizes the canvas to the Window size.
-     */
-    const resizeCanvas = () => {
-        const canvas = canvasRef.current;
-        if(canvas){
-            var body = document.body;
+        if (canvas) {
+            const body = document.body;
             canvas.width = window.innerWidth - 10;
             canvas.height = body.offsetHeight;
         }
-    }
+    }, []);
 
-    /**
-     * Tick Animation Function
-     */
-    const animate = () => {
-        if(canvasRef.current){
-            const canvas = canvasRef.current;
-            const context = canvas.getContext('2d');
-            if(context){
-                context.globalCompositeOperation = "destination-over"
-                context.clearRect(0, 0, canvas.width, canvas.height);
-
-                // Update Particles
-                particles.forEach(particle => {
-                    particle.update();
-                    particle.draw(context);
-                });
-            }
-
+    const animate = useCallback(() => {
+        const canvas = canvasRef.current;
+        if (!canvas || !isVisibleRef.current) {
             requestRef.current = requestAnimationFrame(animate);
+            return;
         }
-    }
+
+        const context = canvas.getContext('2d');
+        if (context) {
+            context.globalCompositeOperation = "destination-over";
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            particlesRef.current.forEach(particle => {
+                particle.update();
+                particle.draw(context);
+            });
+        }
+
+        requestRef.current = requestAnimationFrame(animate);
+    }, []);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        isMobileRef.current = window.matchMedia('(max-width: 768px)').matches;
+
+        // Reduce particle count by 60% on mobile
+        const effectiveCount = isMobileRef.current ? Math.floor(count * 0.4) : count;
+
+        resizeCanvas();
+
+        particlesRef.current = [];
+        for (let i = 0; i < effectiveCount; i++) {
+            particlesRef.current.push(new Particle(
+                canvas,
+                Math.random() * canvas.width,
+                Math.random() * canvas.height
+            ));
+        }
+
+        const handleResize = () => {
+            resizeCanvas();
+        };
+
+        // Pause animation when tab is hidden
+        const handleVisibilityChange = () => {
+            isVisibleRef.current = !document.hidden;
+        };
+
+        window.addEventListener("resize", handleResize);
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+
+        requestRef.current = requestAnimationFrame(animate);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+            if (requestRef.current) {
+                cancelAnimationFrame(requestRef.current);
+            }
+        };
+    }, [count, resizeCanvas, animate]);
 
     return (
-        <div className="absolute left-0 top-0 w-full">
+        <div className="absolute left-0 top-0 w-full pointer-events-none">
             <canvas ref={canvasRef} id="minecraft-particles" />
         </div>
     );
-}
+};
+
+export const Particles = memo(ParticlesComponent);
 
 const padding = 50; // Padding area for fade effect
 class Particle {

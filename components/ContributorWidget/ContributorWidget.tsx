@@ -23,32 +23,38 @@ export type GithubAvatar = {
     contributions: number
 }
 
-export const ContributorWidget = async (props : {}) => {
-    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-Client/contributors", { next: {revalidate: 3600}})
-    .then((e) => { return e.json(); })
-    .then((json) => { return json })
+export const ContributorWidget = async () => {
+    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-Client/contributors", {
+        next: { revalidate: 3600 }
+    }).then((res) => res.json());
 
-    const generateContributors = () => {
-        if(Array.isArray(githubData)){
-            return githubData.map((e : GithubAvatar) => {
-                return (
-                    <div key={e.login} className="border border-zinc-500 bg-zinc-800 rounded-lg px-10 py-5 m-2 text-center">
-                        <Link href={e.html_url}>
-                            <Image className=" mt-2 mb-2 m-auto rounded-full" src={e.avatar_url} alt={e.login} width={125} height={125}/>
-                        </Link>
-                        
-                        <h2 className="border-b border-zinc-500" style={{color: e.login == "coltonk9043" ? "gold" : "white"}}>{e.login}</h2>
-                        <p>{e.contributions} {e.contributions > 1 ? "contributions" : "contribution"}</p>
-                    </div>
-                )
-            });
-        }
+    if (!Array.isArray(githubData)) {
+        return null;
     }
 
     return (
         <div className="flex flex-wrap justify-center mx-auto">
-            {generateContributors()}
+            {githubData.map((contributor: GithubAvatar) => (
+                <div key={contributor.login} className="border border-zinc-500 bg-zinc-800 rounded-lg px-10 py-5 m-2 text-center">
+                    <Link href={contributor.html_url}>
+                        <Image
+                            className="mt-2 mb-2 m-auto rounded-full"
+                            src={contributor.avatar_url}
+                            alt={contributor.login}
+                            width={125}
+                            height={125}
+                        />
+                    </Link>
+                    <h2 className={`border-b border-zinc-500 ${contributor.login === "coltonk9043" ? "text-yellow-500" : "text-white"}`}>
+                        {contributor.login}
+                    </h2>
+                    <p>
+                        {contributor.contributions} {contributor.contributions > 1 ? "contributions" : "contribution"}
+                    </p>
+                </div>
+            ))}
         </div>
-    )
-}
+    );
+};
+
 export default ContributorWidget;

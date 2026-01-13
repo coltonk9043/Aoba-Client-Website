@@ -1,19 +1,30 @@
 'use client'
-import React from "react";
+import { useState, useEffect, memo } from "react";
 
-export const RotatingText = (props : {features : string[], className : string}) => {
-    const [selectedIndex, setSelectedIndex] = React.useState<number>(0);
+interface RotatingTextProps {
+    features: string[];
+    className: string;
+}
 
-    const incrementIndex = () => {
-        let newIndex : number = (selectedIndex + 1) % props.features.length;
-        setSelectedIndex(newIndex);
-    }
+const RotatingTextComponent = ({ features, className }: RotatingTextProps) => {
+    const [selectedIndex, setSelectedIndex] = useState(0);
 
-    React.useEffect(() => {
-        setTimeout(() => incrementIndex(), 3000);
-    }, [selectedIndex]);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setSelectedIndex((prevIndex) => (prevIndex + 1) % features.length);
+        }, 3000);
+
+        return () => clearTimeout(timer);
+    }, [selectedIndex, features.length]);
 
     return (
-        <p key={selectedIndex} className={"text-aoba-purple-dark text-center font-bold " + props.className} style={{animation: "rotateText 3s linear infinite"}}>{props.features[selectedIndex]}</p>
+        <p
+            key={selectedIndex}
+            className={`text-aoba-purple-dark text-center font-bold animate-[rotateText_3s_linear_infinite] ${className}`}
+        >
+            {features[selectedIndex]}
+        </p>
     );
-}
+};
+
+export const RotatingText = memo(RotatingTextComponent);
