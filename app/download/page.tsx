@@ -67,7 +67,34 @@ type Uploader = {
     site_admin: boolean,
 }
 
+function parseTagName(tagName: string): { version: string; date?: string } {
+    const newFormat = tagName.match(/^build-([\d.]+)-(\d{8})$/);
+    if (newFormat) {
+        const [, version, dateStr] = newFormat;
+        const month = parseInt(dateStr.substring(0, 2)) - 1;
+        const day = parseInt(dateStr.substring(2, 4));
+        const year = parseInt(dateStr.substring(4, 8));
+        const formatted = new Date(year, month, day).toLocaleDateString('en-US', {
+            month: 'long', day: 'numeric', year: 'numeric'
+        });
+        return { version, date: formatted };
+    }
+    const oldFormat = tagName.match(/^build-(.+)$/);
+    if (oldFormat) return { version: oldFormat[1] };
+    return { version: tagName };
+}
+
+function parseAssetVersion(name: string): string {
+    const withoutExt = name.replace(/\.jar$/, "");
+    const newFormat = withoutExt.match(/-([\d.]+)-\d{8}$/);
+    if (newFormat) return newFormat[1];
+    const parts = withoutExt.split("-");
+    return parts[parts.length - 1];
+}
+
 const DownloadPane = (release: Release) => {
+    const parsed = parseTagName(release.tag_name);
+
     const generateReleaseType = () => {
         if (release.prerelease) {
             return (<p className="m-2 border border-red-500 text-red-500 rounded-md pr-2 pl-2">Prerelease</p>)
@@ -78,30 +105,17 @@ const DownloadPane = (release: Release) => {
 
     const generateDownloads = () => {
         return release.assets.map((e: ReleaseAsset) => {
-            let nameSplit = e.name.split("-");
-            let minecraftVersion = nameSplit[nameSplit.length - 1].replace(".jar", "")
+            let minecraftVersion = parseAssetVersion(e.name);
             return (
-                <>
+                <React.Fragment key={e.id}>
                     <div className="col-span-3 border-b border-zinc-600" />
                     <p className="text-center mt-2">{minecraftVersion}</p>
                     <p className="italic text-center mt-2">{e.name}</p>
-                    <a className="bg-blue-400 rounded-md pr-2 pl-2 m-2 text-center" href={e.browser_download_url}>
-                        <p>Download</p>
+                    <a className="bg-purple-600 rounded-md p-3 m-2 text-center" href={e.browser_download_url}>
+                        Download
                     </a>
-                </>
+                </React.Fragment>
             )
-        });
-    }
-
-    const generateImages = () => {
-        let images = release.body.match(/([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm);
-        return images?.map((e: string, index: number) => {
-            if (e.startsWith("https://github.com/coltonk9043/Aoba-Client/assets") || e.startsWith("https://github.com/user-attachments/assets")) {
-                return (
-                    <img key={release.tag_name + index} className="rounded-lg" src={e} alt="screenshot" />
-                )
-            } else
-                return undefined;
         });
     }
 
@@ -109,9 +123,12 @@ const DownloadPane = (release: Release) => {
         <>
             <div className="border border-zinc-500 bg-zinc-800 rounded-lg mt-5 mb-5 p-3">
                 <div className="flex border-b border-zinc-500">
-                    <h2 className="grow">Aoba {release.tag_name}</h2>
+                    <div className="grow">
+                        <h2>Aoba {parsed.version} - {parsed.date}</h2>
+                    </div>
                     {generateReleaseType()}
                 </div>
+
 
                 <div className="grid grid-cols-3 border border-zinc-600 rounded-lg mt-5 mb-t p-5" style={{ gridTemplateColumns: "auto auto 105px" }}>
                     <p className="font-bold text-center">Version / File</p>
@@ -122,11 +139,7 @@ const DownloadPane = (release: Release) => {
                 </div>
 
                 <p className="text-gray-400">Full changelog available on <a className="text-blue-400 font-semibold" href={release.html_url}>GitHub</a></p>
-
-                <h2>Images</h2>
-                {generateImages()}
             </div>
-            
         </>
 
     )
@@ -146,11 +159,11 @@ const Releases = async (props: { prerelease: boolean }) => {
                     return;
 
                 return (
-                    <>
+                    <React.Fragment key={e.id}>
                         {DownloadPane(e)}
                         <DisplayAd />
-                    </>
-                    
+                    </React.Fragment>
+
                 )
             })
         }
