@@ -1,11 +1,34 @@
 # Fly
 
 ```
-Default Keybind: V
-Category: MOVEMENT
+Default Keybind: None
+Category: Movement
 ```
 
-Allows the player to fly around.
+Fly allows you to freely fly through the air, bypassing normal gravity. It offers two modes: Synthetic, which gives you
+full control over flight with configurable speed, acceleration, and momentum, and Natural, which enables creative-style flight.
+Fly also works while riding entities.
 
-# Settings
- - Speed (Variable): The speed that the player will fly.
+## Detectable By
+- [x] NoCheatPlus
+- [x] Vulcan
+- [x] AdvancedAntiCheat
+- [x] Verus
+- [x] Grim
+- [x] Matrix
+- [x] Negativity
+- [x] Karhu
+- [ ] Buzz
+
+## Settings
+
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Mode | Enum | The method used to simulate flying (Synthetic, Natural) | Synthetic |
+| Speed | Float | The speed of flight (0.05 - 15.0) | 2.0 |
+| Sprint Speed Multiplier | Float | Speed multiplier applied when sprinting (1.0 - 3.0) | 1.5 |
+| Ascend Speed | Float | Upward motion applied when the jump key is pressed (0.1 - 2.0) | 0.3 |
+| Descend Speed | Float | Downward motion applied when the sneak key is pressed (-2.0 - 0.0) | -0.3 |
+| Acceleration | Float | The rate at which fly speed ramps up (0.2 - 1.0) | 0.3 |
+| Momentum | Float | The percentage of speed lost after movement keys are released. 0 = full momentum preserved, 1 = speed drops immediately (0.0 - 1.0) | 0.3 |
+| AntiKick | Boolean | Applies a small downward motion each tick to prevent the server from kicking the player for flying | false |

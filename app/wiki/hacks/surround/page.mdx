@@ -2,10 +2,29 @@
 
 ```
 Default Keybind: NONE
-Category: COMBAT
+Category: World
 ```
 
-Automatically surrounds the player with available blocks. Useful for situations where you need a quick barrier from the dangers around you.
+Surround automatically places blocks on all four sides of you to create a protective enclosure.
+It builds walls up to a configurable height using blocks from a customizable list, and will clear any vegetation in the way
+before placing. Options include auto-centering your position and automatically disabling once the enclosure is complete.
 
-# Settings
-TBD
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Height | Slider | The height of the surrounding walls in blocks (1.0 - 3.0, Step: 1.0) | 1.0 |
+| Blocks | Blocks | The list of blocks that Surround will use for placement | Obsidian, Ender Chest, Enchanting Table, Anvil, Chipped Anvil, Damaged Anvil, Crying Obsidian, Netherite Block, Ancient Debris, Respawn Anchor |
+| Align | Toggle | Aligns the player to the center of the nearest block before placing surrounds, ensuring a clean enclosure | off |
+| Auto-Disable | Toggle | Automatically disables the module after the surrounding blocks have been placed | off |
+| Legit | Toggle | Simulates visible hand swings when breaking obstructing blocks, rather than sending swing packets silently | off |

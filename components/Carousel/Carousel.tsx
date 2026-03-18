@@ -37,22 +37,20 @@ const CarouselComponent = ({ images }: CarouselProps) => {
                     <span className="font-bold text-2xl">&lt;</span>
                 </button>
 
-                <div className="h-[40vh] sm:h-[45vh] md:h-[50vh] flex overflow-hidden relative mx-5 my-auto">
+                <div className="relative aspect-video mx-5 my-auto">
                     {images.map((image, index) => (
                         <div
                             key={`${image.alt}-${index}`}
-                            className={`absolute rounded-lg overflow-hidden inset-0 transition-opacity mx-10 duration-500 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+                            className={`absolute inset-0 rounded-lg overflow-hidden transition-opacity duration-500 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
                         >
-                            {index === currentSlide && (
-                                <Image
-                                    src={image.src}
-                                    alt={image.alt}
-                                    fill
-                                    sizes="(max-width: 768px) 90vw, 50vw"
-                                    style={{ objectFit: 'contain' }}
-                                    priority={index === 0}
-                                />
-                            )}
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                fill
+                                sizes="(max-width: 768px) 90vw, 50vw"
+                                style={{ objectFit: 'contain' }}
+                                priority={index === 0}
+                            />
                         </div>
                     ))}
                 </div>

@@ -1,31 +1,63 @@
 # ClickGUI
-The ClickGUI is an essential part of Aoba; almost every function of Aoba can be performed. It allows the user to enable and disable modules (hacks), modify their settings, add overlay hud elements, and much more.
 
-The default keybind to toggle the ClickGUI is 'Tilda' (~). The keybind can also be rebound in the 'HUD' page described below or by using the command:
-> .aoba clickgui set [key]
+The ClickGUI is the central interface for Aoba Client. Nearly every function of the mod can be accessed through it, 
+such as: enabling and disabling modules, adjusting their settings, adding HUD overlays, and more.
 
-The ClickGUI contains a highly-extensible Window system that allows the user to drag and resize windows. To drag a Window, simply click anywhere along the top of a Window and drag your mouse. If the Window does not drag, it is likely that your mouse is over another GUI element. To resize a Window, simply grab the sides of the Window (your mouse will change to a resize cursor), and then drag to your desired size. Many of these windows contain a minimum size that they cannot be shrunk past. Window's states will be saved across game sessions, such that you do not lose the position of placed Windows.
+## Opening the ClickGUI
+
+As of 1.21.11+, the default keybind to toggle the ClickGUI is **Right Shift**. If you would like to use a different key, 
+the keybind can be changed in the HUD settings page (described below), or by running the following command in chat:
+
+```
+.aoba clickgui set [key]
+.aoba clickgui set RSHIFT
+```
+
+You can rebind it at any time.
+
+## Window System
+
+The ClickGUI features a flexible window system. Each panel can be freely moved and resized to suit your layout.
+
+- **Dragging** - Click anywhere along the top of a window and drag to reposition it.
+- **Resizing** - Hover over the edge of a window until the cursor changes, then drag to resize. Windows have a minimum size and cannot be shrunk past it.
+- **Persistence** - Window positions and sizes are saved across game sessions, so your layout is preserved when you relaunch.
 
 ![ClickGUI](/screenshot_hud.png)
 
-# Navigation Bar
-The ClickGUI supports several different 'pages', all displaying a different grouping of content.
-Included in Aoba by default are three pages: Modules, Tools, and HUD. Shown below are the 3 pages and what content they contains:
+## Customization
 
-## Modules
-This page contains all of the modules and their settings.
-In this page, all modules will be listed in their respective categories, along with a 'gear' icon. Clicking on this gear icon next to the module name will open another window containing additional settings for that specific module. Clicking on one of these modules will toggle it on or off.
+The ClickGUI supports extensive visual customization. From the HUD settings page, you can adjust:
 
-Any installed addons for Aoba will have their modules displayed in this page, including any custom categories.
+- **Foreground color** - Change the text and icon colors.
+- **Background color** - Set the background color of windows and panels.
+- **Border color** - Customize the border color of UI elements.
+- **Corner rounding** - Control how rounded the corners of windows appear.
+- **Effects** - Toggle additional visual effects applied to the UI.
 
-## Tools
-Currently this page does not contain much, but the intention is to create a central location for any GUI related tools.
+These options allow you to personalize the look and feel of Aoba to your preference.
 
-An example of a current tool is the AuthCracker for offline servers, which allows you to break into a cracked account's auth code using a set of commonly used passwords. 
+## Navigation Pages
 
-## HUD
-This page contains the ability to enable and disable certain HUD elements on the screen, along with some GUI specific settings.
+The ClickGUI is organized into several pages, each grouping different types of content.
 
-Contained on this page is a Window that contains all of the HUD element's names. Clicking the (+) or (-) will toggle these HUDs on or off respectively. Once enabled, enabled HUDs will still be rendered on the players screen regardless of whether the ClickGUI is open or not. HUD elements can be moved and resized, exactly the same way that a Window can be. 
+### Modules
 
-There is another Window that contains all of the settings related to the GUI. Here, you can change most of the GUI colors, and change the keybinds for toggling the ClickGUI on and off. 
+This page lists all available modules organized by category. Each module has a **gear icon** next to it. Clicking the gear opens a settings window 
+for that specific module. Clicking the module name toggles it on or off.
+
+Any installed Aoba addons will also have their modules displayed here, including any custom categories they define.
+
+### Tools
+
+A central location for GUI-based tools. Currently this includes the **AuthCracker** for offline servers, which allows you to test 
+cracked accounts using a set of commonly used passwords.
+
+### HUD
+
+This page lets you manage on-screen HUD elements and GUI-specific settings.
+
+- **HUD Elements** - A window lists all available HUD overlays. Click **(+)** or **(-)** to enable or disable them. Enabled HUD elements 
+remain visible on screen even when the ClickGUI is closed. They can be moved and resized the same way as windows.
+- **GUI Settings** - A separate window contains all settings related to the GUI appearance, including colors, effects, and the keybind for toggling the ClickGUI.
+

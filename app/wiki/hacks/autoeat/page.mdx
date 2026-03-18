@@ -5,8 +5,25 @@ Default Keybind: NONE
 Category: MISC
 ```
 
-Aimbot is a module that automatically looks towards the nearest entity and locks your crosshair to them.
-It can be useful in situations where you must be constantly looking at a player, such as KitPvP.
+AutoEat automatically eats the best food in your hotbar when your hunger or health drops below a set threshold. It picks the most nutritious food available and can prioritize golden apples over regular food.
 
-# Settings
- - Hunger (Variable): The hunger at which AutoEat will trigger (measured in half-hungers).
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Fill To Full | Boolean | When enabled, the module will continue eating until your hunger bar is completely full rather than stopping once it rises above the hunger threshold | true |
+| Swap Back | Boolean | Whether your selected hotbar slot will be switched back to the slot you had selected before eating | true |
+| Hunger | Float | The hunger level at which AutoEat will trigger (1 - 20, Step: 1) | 10 |
+| Health | Float | The health level at which AutoEat will trigger. If your health drops to or below this value, the module will begin eating (1 - 20, Step: 1) | 10 |
+| Prioritize Gapples | Boolean | When enabled, enchanted golden apples and golden apples are prioritized over other food items | true |

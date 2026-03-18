@@ -1,11 +1,28 @@
-# PlayerESP 
+# PlayerESP
 
 ```
 Default Keybind: NONE
-Category: RENDER
+Category: Render
 ```
 
-This module places an ESP around other players. Allows you see the position of a player through a wall.
+PlayerESP lets you see other players through walls by highlighting them with colored outlines.
+Players are color-coded as default, friendly, or enemy for easy identification.
 
-# Settings
-TBD
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Default Color | Color | The default color of the ESP box drawn around players | RGB(255, 255, 0) |
+| Friendly Color | Color | The color used for friendly players | RGB(0, 255, 0) |
+| Enemy Color | Color | The color used for enemy players | RGB(255, 0, 0) |
+| Line Thickness | Float | Adjusts the thickness of the ESP box lines. Min: 0.0, Max: 5.0, Step: 0.1 | 2.0 |

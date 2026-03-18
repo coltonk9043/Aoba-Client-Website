@@ -1,61 +1,140 @@
 # Modules
 
-Modules are effectively the 'hacks' that Aoba contains that can be enabled and disabled. 
+Modules are the core features of Aoba Client. Each module can be individually enabled or disabled, providing specific 
+functionality such as flying, ore detection, combat assistance, and more.
 
-When enabled, a Module can change or modify additional functionality into the game, such as Flying, Ore XRay, etc...
+## Toggling Modules
 
-Modules can be toggled through the ClickGUI, Module Selector HUD, or through chat commands.
-![ClickGUI](/screenshot_clickgui_modules.png)
+Modules can be toggled in four ways:
 
-## List of Modules
-- [Aimbot](http://aobaclient.com/wiki/hacks/aimbot)
-- [AntiCactus](http://aobaclient.com/wiki/hacks/anticactus)
-- [AntiInvis](http://aobaclient.com/wiki/hacks/antiinvis)
-- [AntiKnockback](http://aobaclient.com/wiki/hacks/antiknockback)
-- [AutoEat](http://aobaclient.com/wiki/hacks/autoeat)
-- [AutoFarm](http://aobaclient.com/wiki/hacks/autofarm)
-- [AutoFish](http://aobaclient.com/wiki/hacks/autofish)
-- [AutoRespawn](http://aobaclient.com/wiki/hacks/autorespawn)
-- [AutoSign](http://aobaclient.com/wiki/hacks/autosign)
-- [AutoSoup](http://aobaclient.com/wiki/hacks/autosoup)
-- [AutoTotem](http://aobaclient.com/wiki/hacks/autototem)
-- [AutoWalk](http://aobaclient.com/wiki/hacks/autowalk)
-- [Breadcrumbs](http://aobaclient.com/wiki/hacks/breadcrumbs)
-- [ChestESP](http://aobaclient.com/wiki/hacks/chestesp)
-- [Criticals](http://aobaclient.com/wiki/hacks/criticals)
-- [CrystalAura](http://aobaclient.com/wiki/hacks/crystalaura)
-- [EntityESP](http://aobaclient.com/wiki/hacks/entityesp)
-- [FastBreak](http://aobaclient.com/wiki/hacks/fastbreak)
-- [FastPlace](http://aobaclient.com/wiki/hacks/fastplace)
-- [Fly](http://aobaclient.com/wiki/hacks/fly)
-- [Freecam](http://aobaclient.com/wiki/hacks/freecam)
-- [Fullbright](http://aobaclient.com/wiki/hacks/fullbright)
-- [Glide](http://aobaclient.com/wiki/hacks/glide)
-- [ItemESP](http://aobaclient.com/wiki/hacks/itemesp)
-- [Jesus](http://aobaclient.com/wiki/hacks/jesus)
-- [JetPack](http://aobaclient.com/wiki/hacks/jetpack)
-- [KillAura](http://aobaclient.com/wiki/hacks/killaura)
-- [Nametags](http://aobaclient.com/wiki/hacks/nametags)
-- [NoClip](http://aobaclient.com/wiki/hacks/noclip)
-- [NoFall](http://aobaclient.com/wiki/hacks/nofall)
-- [NoJumpDelay](http://aobaclient.com/wiki/hacks/nojumpdelay)
-- [NoOverlay](http://aobaclient.com/wiki/hacks/nooverlay)
-- [NoSlowdown](http://aobaclient.com/wiki/hacks/noslowdown)
-- [Nuker](http://aobaclient.com/wiki/hacks/nuker)
-- [PlayerESP](http://aobaclient.com/wiki/hacks/playeresp)
-- [POV](http://aobaclient.com/wiki/hacks/pov)
-- [Reach](http://aobaclient.com/wiki/hacks/reach)
-- [Safewalk](http://aobaclient.com/wiki/hacks/safewalk)
-- [Sneak](http://aobaclient.com/wiki/hacks/sneak)
-- [SpawnerESP](http://aobaclient.com/wiki/hacks/spawneresp)
-- [Spider](http://aobaclient.com/wiki/hacks/spider)
-- [Sprint](http://aobaclient.com/wiki/hacks/sprint)
-- [Step](http://aobaclient.com/wiki/hacks/step)
-- [Surround](http://aobaclient.com/wiki/hacks/surround)
-- [TileBreaker](http://aobaclient.com/wiki/hacks/tilebreaker)
-- [Timer](http://aobaclient.com/wiki/hacks/timer)
-- [Tracer](http://aobaclient.com/wiki/hacks/tracer)
-- [Trajectory](http://aobaclient.com/wiki/hacks/trajectory)
-- [TriggerBot](http://aobaclient.com/wiki/hacks/triggerbot)
-- [XRay](http://aobaclient.com/wiki/hacks/xray)
-- [Zoom](http://aobaclient.com/wiki/hacks/zoom)
+- **ClickGUI** - Open the [ClickGUI](/wiki/basics/clickgui) and click a module to toggle it on or off. Click the gear icon next to a module to access its settings.
+- **Module Selector HUD** - Use the on-screen module selector for quick access.
+- **Chat Commands** - Toggle modules directly via chat commands.
+- **Keybinds** - Assign a keybind to any module for instant toggling without opening the GUI.
+
+![ClickGUI Modules](/screenshot_clickgui_modules.png)
+
+## Module Settings
+
+Each module has its own configuration that can be accessed through the [ClickGUI](/wiki/basics/clickgui). Next to every module name is a **gear icon** that opens 
+a dedicated settings window for that module. These settings allow you to fine-tune the module's behavior, such as adjusting ranges, speeds, targets, and other module-specific options. 
+All settings persist across game sessions, so you only need to configure them once.
+
+![Module Settings](/screenshot_config.png)
+
+```
+⚠ Disclaimer: Most servers run anti-cheat plugins. Modules must be properly tuned through their settings to avoid detection. 
+Be aware of which modules you are using and adjust their values accordingly to minimize the risk of bans.
+```
+
+## Anticheat Window
+
+The ClickGUI includes an **Anticheat Window**, which contains a list of known server-side anticheats. Each anticheat entry displays 
+all modules that are detectable by that specific anticheat plugin. When you select an anticheat from the list, Aoba will automatically 
+disable any modules that are known to be flagged by it, helping to protect you from accidental bans.
+
+Simply select the AntiCheat that the server is running and Aoba will handle the rest by 
+restricting modules that would otherwise get you detected. You can switch between anticheats at any time, and the module restrictions will update accordingly.
+
+![Anticheat Off](/screenshot_anticheat_off.png)
+![Anticheat On](/screenshot_anticheat_on.png)
+
+## Combat
+
+| Module | Description |
+|--------|-------------|
+| [Aimbot](/wiki/hacks/aimbot) | Automatically aims at nearby entities |
+| [AntiInvis](/wiki/hacks/antiinvis) | Reveals invisible players and entities |
+| [AntiKnockback](/wiki/hacks/antiknockback) | Reduces or eliminates knockback from attacks |
+| [AutoRespawn](/wiki/hacks/autorespawn) | Instantly respawns upon death |
+| [AutoSoup](/wiki/hacks/autosoup) | Automatically consumes soup for health regeneration |
+| [AutoTotem](/wiki/hacks/autototem) | Automatically equips totems of undying |
+| [BedAura](/wiki/hacks/bedaura) | Automatically breaks nearby beds |
+| [BowAimbot](/wiki/hacks/bowaimbot) | Automatically aims based on projectile velocity |
+| [Criticals](/wiki/hacks/criticals) | Forces critical hits on every attack |
+| [CrystalAura](/wiki/hacks/crystalaura) | Automatically places and detonates end crystals |
+| [KillAura](/wiki/hacks/killaura) | Automatically attacks nearby entities |
+| [MaceAura](/wiki/hacks/maceaura) | Automatically attacks using mace mechanics |
+| [Nametags](/wiki/hacks/nametags) | Enhances nametags with additional information |
+| [Reach](/wiki/hacks/reach) | Increases reach distance for blocks and entities |
+| [TriggerBot](/wiki/hacks/triggerbot) | Attacks entities when crosshair is over them |
+
+## Movement
+
+| Module | Description |
+|--------|-------------|
+| [ClickTP](/wiki/hacks/clicktp) | Teleport to where you click |
+| [EntityControl](/wiki/hacks/entitycontrol) | Take control of ridden entities |
+| [FastLadder](/wiki/hacks/fastladder) | Increases ladder climbing speed |
+| [Fly](/wiki/hacks/fly) | Enables creative-like flight in survival mode |
+| [Freecam](/wiki/hacks/freecam) | Detaches camera from player for free exploration |
+| [Glide](/wiki/hacks/glide) | Slows falling speed for controlled descent |
+| [GuiMove](/wiki/hacks/guimove) | Allows movement while GUIs are open |
+| [HighJump](/wiki/hacks/highjump) | Increases jump height |
+| [Jesus](/wiki/hacks/jesus) | Walk on water and lava surfaces |
+| [Jetpack](/wiki/hacks/jetpack) | Provides vertical flight with customizable speed |
+| [Noclip](/wiki/hacks/noclip) | Walk through solid blocks |
+| [NoFall](/wiki/hacks/nofall) | Prevents fall damage |
+| [NoJumpDelay](/wiki/hacks/nojumpdelay) | Removes delay between jumps |
+| [NoSlowdown](/wiki/hacks/noslowdown) | Prevents slowdown from soul sand, items, etc. |
+| [ReverseStep](/wiki/hacks/reversestep) | Instantly descend full blocks |
+| [Safewalk](/wiki/hacks/safewalk) | Prevents falling off edges |
+| [Sneak](/wiki/hacks/sneak) | Toggles sneaking for safe edge building |
+| [Speed](/wiki/hacks/speed) | Increases movement speed |
+| [Spider](/wiki/hacks/spider) | Climb walls like a spider |
+| [Sprint](/wiki/hacks/sprint) | Automatically sprints when moving forward |
+| [Step](/wiki/hacks/step) | Steps up full blocks without jumping |
+| [Strafe](/wiki/hacks/strafe) | Maintains momentum while strafing |
+
+## Render
+
+| Module | Description |
+|--------|-------------|
+| [BlockESP](/wiki/hacks/blockesp) | Highlights specific blocks through walls |
+| [Breadcrumbs](/wiki/hacks/breadcrumbs) | Renders a trail showing your movement path |
+| [ChestESP](/wiki/hacks/chestesp) | Highlights storage containers through walls |
+| [EntityESP](/wiki/hacks/entityesp) | Highlights all entities through walls |
+| [FocusFps](/wiki/hacks/focusfps) | Reduces rendering when the game is unfocused |
+| [Fullbright](/wiki/hacks/fullbright) | Removes darkness by maximizing brightness |
+| [ItemESP](/wiki/hacks/itemesp) | Highlights dropped items through walls |
+| [NoRender](/wiki/hacks/norender) | Disables rendering of specific game elements |
+| [PlayerESP](/wiki/hacks/playeresp) | Highlights players through walls |
+| [POV](/wiki/hacks/pov) | View another player or mob's point of view |
+| [SpawnerESP](/wiki/hacks/spawneresp) | Highlights mob spawners through walls |
+| [Tooltips](/wiki/hacks/tooltips) | Enhances item tooltips with additional information |
+| [Tracer](/wiki/hacks/tracer) | Draws lines to entities for tracking |
+| [Trajectory](/wiki/hacks/trajectory) | Shows predicted path of projectiles |
+| [XRay](/wiki/hacks/xray) | Makes selected blocks visible through walls |
+| [Zoom](/wiki/hacks/zoom) | Provides adjustable zoom function |
+
+## World
+
+| Module | Description |
+|--------|-------------|
+| [AutoFarm](/wiki/hacks/autofarm) | Automatically harvests and replants crops |
+| [AutoSign](/wiki/hacks/autosign) | Automatically writes text on placed signs |
+| [Nuker](/wiki/hacks/nuker) | Breaks multiple blocks simultaneously |
+| [Scaffold](/wiki/hacks/scaffold) | Automatically places blocks beneath you while walking |
+| [Surround](/wiki/hacks/surround) | Places blocks around player for protection |
+| [TileBreaker](/wiki/hacks/tilebreaker) | Breaks specified tile entities in range |
+
+## Misc
+
+| Module | Description |
+|--------|-------------|
+| [AntiCactus](/wiki/hacks/anticactus) | Prevents damage from cacti |
+| [AntiHunger](/wiki/hacks/antihunger) | Reduces hunger depletion rate |
+| [AutoEat](/wiki/hacks/autoeat) | Consumes food automatically when hunger is low |
+| [AutoFish](/wiki/hacks/autofish) | Automates fishing with catch detection |
+| [AutoOminousBottle](/wiki/hacks/autoominousbottle) | Automatically uses ominous bottles |
+| [AutoShear](/wiki/hacks/autoshear) | Automatically shears nearby sheep |
+| [AutoWalk](/wiki/hacks/autowalk) | Automatically walks in a specified direction |
+| [DiscordRPC](/wiki/hacks/discordrpc) | Displays Aoba Client status on Discord rich presence |
+| [EXPThrower](/wiki/hacks/expthrower) | Automatically throws experience bottles |
+| [FakePlayer](/wiki/hacks/fakeplayer) | Spawns a client-side fake player entity |
+| [FastBreak](/wiki/hacks/fastbreak) | Increases block breaking speed |
+| [FastPlace](/wiki/hacks/fastplace) | Removes block placement delay |
+| [MCA](/wiki/hacks/mca) | Automated middle-click action |
+| [RandomPlace](/wiki/hacks/randomplace) | Places blocks in random positions |
+| [Timer](/wiki/hacks/timer) | Modifies game tick speed |
+| [XCarry](/wiki/hacks/xcarry) | Allows carrying items in crafting grid slots |

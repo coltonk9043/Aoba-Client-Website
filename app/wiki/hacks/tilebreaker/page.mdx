@@ -2,10 +2,25 @@
 
 ```
 Default Keybind: NONE
-Category: WORLD
+Category: World
 ```
 
-Confusing module meant for griefing. Works similar to nuker, but only targets blocks that are broken by one hit.
+TileBreaker automatically destroys fragile blocks like torches, flowers, crops, and tall grass around you within a
+configurable radius. A colored highlight box is shown around each targeted block.
 
-# Settings
-TBD
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Color | Color | The color of the highlight box rendered around targeted blocks | Cyan (0.0, 1.0, 1.0) |
+| Radius | Slider | The radius (in blocks) around the player within which TileBreaker will scan for and destroy blocks (0.0 - 15.0, Step: 1.0) | 5.0 |

@@ -2,10 +2,28 @@
 
 ```
 Default Keybind: NONE
-Category: COMBAT
+Category: Combat
 ```
 
-AntiKnockback prevents your player from being knocked back from attacks, including attacks from a weapon enchanted with the Knockback enchantment.
+AntiKnockback reduces or completely removes knockback from attacks, explosions, and projectiles. It can also prevent you from being pushed by entities, blocks, liquids, and fishing hooks.
 
-# Settings
-None!
+## Detectable By
+- [ ] NoCheatPlus
+- [x] Vulcan
+- [x] AdvancedAntiCheat
+- [ ] Verus
+- [x] Grim
+- [x] Matrix
+- [ ] Negativity
+- [x] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Horizontal | Slider | Controls the multiplier applied to horizontal knockback velocity. A value of 0 completely cancels horizontal knockback, while a value of 1 leaves it unchanged (0.0 - 1.0, Step: 0.01) | 0.0 |
+| Vertical | Slider | Controls the multiplier applied to vertical knockback velocity. A value of 0 completely cancels vertical knockback, while a value of 1 leaves it unchanged (0.0 - 1.0, Step: 0.01) | 0.0 |
+| No Push Entities | Toggle | Prevents the player from being pushed by entities | On |
+| No Push Blocks | Toggle | Prevents the player from being pushed by blocks | On |
+| No Push Liquids | Toggle | Prevents the player from being pushed by liquids | On |
+| No Push Fishhook | Toggle | Prevents the player from being pulled by a fishing hook. When enabled, the module cancels the fishing rod reel-in packet if the player is the hooked entity | On |

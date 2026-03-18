@@ -14,8 +14,11 @@ const TitleBarComponent = () => {
 
   return (
     <div className="inline z-20 relative md:static">
-      <div className="z-50 sticky top-0 bg-background-titlebar">
+      <div className="z-50 sticky top-0 bg-background border-b border-b-zinc-700 text-[#A1A1AA] [&_a]:text-[#A1A1AA] [&_a]:no-underline font-[570] leading-[1.3]">
         <div className="flex items-center justify-between w-full gap-2 sm:gap-3">
+          <Link href="/" className="shrink-0 ml-3">
+            <Image src="/aoba.png" width={32} height={32} alt="Aoba" />
+          </Link>
           <div className="hidden grow shrink justify-center md:flex md:visible my-2">
             <Link className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="/">Home</Link>
             <Link className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="/download/">Download</Link>

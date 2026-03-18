@@ -25,30 +25,54 @@ export default function Page() {
 
     return (
         <>
-            <h1 className="my-3 pb-2 border-b-2 border-b-aoba-purple">🎮 Aoba Client Wiki</h1>
-            <InformationPane>
-                <h2 className="text-aoba-purple">📥 Installation Instructions</h2>
-                <ol className="list-decimal mx-8 sm:mx-12 md:mx-20">
-                    <li>Install Minecraft Java Edition</li>
-                    <li>Download and install <a href="https://fabricmc.net/use/">Fabric Loader</a> for your Minecraft version</li>
-                    <li>Download the Aoba Client mod (.jar file)</li>
-                    <li>Place the .jar file in your Minecraft mods folder (usually <code>%appdata%/.minecraft/mods</code>)</li>
-                    <li>Launch Minecraft with the Fabric profile</li>
-                </ol>
+            <h1 className="my-3 pb-2 border-b-2 border-b-aoba-purple">Installation</h1>
 
-                <h2 className="text-aoba-purple">⚙️ Getting Started</h2>
-                <ol className="list-decimal mx-8 sm:mx-12 md:mx-20">
-                    <li>Join a world or server</li>
-                    <li>To set up the ClickGUI keybind, type in chat: <code>.aoba clickgui set [key]</code></li>
-                    <li>Replace [key] with your desired key (e.g., <code>.aoba clickgui set RSHIFT</code>)</li>
-                    <li>Press your set keybind to open the hack menu</li>
-                </ol>
+            <section className="my-8">
+                <h2 className="text-aoba-purple mb-2">Prerequisites</h2>
+                <p className="mb-2">Before installing Aoba Client, make sure you have the following:</p>
+                <ul className="list-disc ml-6 space-y-1">
+                    <li><strong>Minecraft Java Edition</strong> - Aoba does not support Bedrock Edition.</li>
+                    <li><strong>Fabric Loader</strong> - Aoba is built as a Fabric mod. Download and install the latest version of <a href="https://fabricmc.net/use/">Fabric Loader</a> that matches your Minecraft version.</li>
+                    <li><strong>Fabric API</strong> - Required for Aoba to function. Download it from <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api">CurseForge</a> and place it in your <code>mods</code> folder alongside Aoba.</li>
+                </ul>
+            </section>
+
+            <InformationPane className="my-8">
+                <p className="font-semibold text-red-400">We want to stress that we have NEVER used, and will NEVER use, platforms such as MediaFire, Mega, Google Drive, or any other third-party services to host downloads for Aoba Client. These sources are not secure and could expose you to malware or unauthorized versions. Always download responsibly and from trusted sources!</p>
             </InformationPane>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-auto-fill-300 gap-4 sm:gap-5 m-4 sm:m-6 md:m-10">
+            <section className="my-8">
+                <h2 className="text-aoba-purple mb-2">Installing the Mod</h2>
+                <ol className="list-decimal ml-6 space-y-2">
+                    <li>Open your Minecraft installation folder:
+                        <ul className="list-none ml-4 mt-1 space-y-1">
+                            <li><strong>Windows:</strong> <code>%appdata%/.minecraft</code></li>
+                            <li><strong>macOS:</strong> <code>~/Library/Application Support/minecraft</code></li>
+                            <li><strong>Linux:</strong> <code>~/.minecraft</code></li>
+                        </ul>
+                    </li>
+                    <li>Navigate to the <code>mods</code> folder. If it does not exist, create it.</li>
+                    <li>Place both the Aoba Client <code>.jar</code> file and the Fabric API <code>.jar</code> file into the <code>mods</code> folder.</li>
+                    <li>Launch Minecraft using the <strong>Fabric</strong> profile from the Minecraft Launcher.</li>
+                </ol>
+            </section>
+
+            <section className="my-8">
+                <h2 className="text-aoba-purple mb-2">Getting Started</h2>
+                <p className="mb-2">Once you are in-game, the primary way to interact with Aoba is through the <Link href="/wiki/basics/clickgui">ClickGUI</Link>. 
+                The ClickGUI is a fully customizable graphical interface where you can browse, enable, and configure all of Aoba{"'"}s modules. 
+                It features a flexible window system that lets you drag, resize, and arrange panels to your liking. The layout of the UI is saved between sessions.</p>
+                <p className="mt-2 mb-2">As of 1.21.11+, the default keybind to open the ClickGUI is <strong>Right Shift</strong>. If you would like to change it, open chat and type:</p>
+                <ol className="list-decimal ml-6 space-y-2">
+                    <li><code>.aoba clickgui set [key]</code> - replacing <code>[key]</code> with your preferred key (e.g. <code>.aoba clickgui set RSHIFT</code>)</li>
+                </ol>
+            </section>
+
+            <h2 className="my-3 pb-2 border-b-2 border-b-aoba-purple">Modules</h2>
+            <p className="mt-2">For details on individual modules and what they do, see the <Link href="/wiki/basics/modules">Modules</Link> page.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-auto-fill-300 gap-4 sm:gap-5 my-4">
                 {generateModulePanels()}
             </div>
         </>
-
     )
 }

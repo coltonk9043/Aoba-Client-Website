@@ -7,7 +7,7 @@ interface InformationPaneProps {
 
 const InformationPaneComponent = ({ children, className = "" }: InformationPaneProps) => {
     return (
-        <div className={`bg-background-accent rounded-lg p-5 border-l-4 border-l-aoba-purple ${className}`}>
+        <div className={`bg-background-accent rounded-lg p-5 my-4 border-l-4 border-l-aoba-purple ${className}`}>
             {children}
         </div>
     );

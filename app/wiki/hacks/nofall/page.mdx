@@ -1,11 +1,29 @@
-# NoFall
+# No-Fall
 
 ```
 Default Keybind: NONE
-Category: MOVEMENT
+Category: Movement
 ```
 
-This module prevents you from taking fall damage. Be sure to enable this when using modules such as Fly, NoClip, Jetpack, etc..
+No-Fall prevents you from taking fall damage. It offers two modes: Packet mode, which tricks
+the server into thinking you never fell, and Bucket mode, which automatically places a water
+bucket below you before you land. It is recommended to enable this module when using Fly, NoClip, or Jetpack.
 
-# Settings
-TBD
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Mode | Enum | Controls how No-Fall will react to fall damage (Packet, Bucket) | Packet |
+| Ignore Elytra | Boolean | When enabled, No-Fall will not trigger while the player is flying with an elytra | false |
+| Ignore Mace | Boolean | When enabled, No-Fall will not trigger when a mace is in the player's main hand, preserving the mace's smash attack mechanic | true |

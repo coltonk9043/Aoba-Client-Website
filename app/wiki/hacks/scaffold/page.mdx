@@ -1,0 +1,32 @@
+# Scaffold
+
+```
+Default Keybind: NONE
+Category: World
+```
+
+Scaffold automatically places blocks beneath you as you walk, allowing you to bridge across gaps or build platforms hands-free.
+It includes rotation settings to make placement look more natural and a configurable delay between placements.
+
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Radius | Slider | How far Scaffold will search for a valid block placement position below the player (1.0 - 10.0, Step: 0.5) | 4.0 |
+| Place Delay | Slider | How long (in ticks) Scaffold waits between placing blocks. Lower values place blocks more frequently (0.0 - 20.0, Step: 1.0) | 0.0 |
+| Rotation Mode | Enum | Controls how the player's view rotates toward the block placement position | NONE |
+| Max Rotation | Slider | The maximum speed (in degrees) at which Scaffold will rotate the player's view per update (1.0 - 360.0) | 10.0 |
+| Yaw Rotation Jitter | Slider | Adds randomness to the horizontal (yaw) rotation to make placement appear more human-like (0.0 - 10.0, Step: 0.1) | 0.0 |
+| Pitch Rotation Jitter | Slider | Adds randomness to the vertical (pitch) rotation to make placement appear more human-like (0.0 - 10.0, Step: 0.1) | 0.0 |
+| Fake Rotation | Toggle | Spoofs the player's rotation so that it appears rotated on the server side without visually changing the client's view | off |
+| Swing Hand | Toggle | Whether the player's hand swings when placing blocks | on |

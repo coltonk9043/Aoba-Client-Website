@@ -2,10 +2,24 @@
 
 ```
 Default Keybind: NONE
-Category: RENDER
+Category: Render
 ```
 
-Zooms the player's FOV in a certain amount to allow the player to see further distances more clearly.
+Zoom narrows your field of view to see distant objects more clearly. The zoom level is controlled
+by a configurable factor, and your original FOV is restored when the module is disabled.
 
-# Settings
-TBD
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Factor | Float | The zoom factor applied to the current field of view. Higher values result in a narrower FOV and greater zoom. Min: 1.0, Max: 3.6, Step: 0.1 | 2.0 |

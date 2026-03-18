@@ -2,13 +2,32 @@
 
 ```
 Default Keybind: NONE
-Category: COMBAT
+Category: Combat
 ```
 
-Aimbot is a module that automatically looks towards the nearest entity and locks your crosshair to them.
-It can be useful in situations where you must be constantly looking at a player, such as KitPvP.
+Aimbot automatically locks your crosshair onto the nearest player or mob within range, making it easier to track moving targets in combat. You can adjust the targeting radius, rotation speed, and add jitter for a more natural-looking aim.
 
-# Settings
- - Target Entities (Toggle): Whether or not to look at mobs.
- - Target Players (Toggle): Whether or not to look at players.
- - Frequency (Variable): The frequency at which Aoba will scan for a new entity to look at. (Decreasing time between scans decreases performance, but allows for snappier aimbot)
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Target Mobs | Toggle | Whether to target mobs and animals | off |
+| Target Players | Toggle | Whether to target other players | on |
+| Target Friends | Toggle | Whether to target players on your friends list | on |
+| Ticks | Slider | How frequently the aimbot scans for and updates its target, measured in ticks. Lower values update more often but may cause more lag (1.0 - 1.0) | 1.0 |
+| Radius | Slider | The maximum distance (in blocks) within which the aimbot will search for and lock onto a target (1.0 - 256.0) | 64.0 |
+| Rotation Mode | Enum | Controls how the player's view rotates toward the target | NONE |
+| Max Rotation | Slider | The maximum speed (in degrees) at which the aimbot will rotate the player's view per update (1.0 - 360.0) | 10.0 |
+| Yaw Rotation Jitter | Slider | Adds randomness to the horizontal (yaw) rotation to make aim appear more human-like (0.0 - 10.0, Step: 0.1) | 0.0 |
+| Pitch Rotation Jitter | Slider | Adds randomness to the vertical (pitch) rotation to make aim appear more human-like (0.0 - 10.0, Step: 0.1) | 0.0 |
+| Fake Rotation | Toggle | Spoofs the player's rotation so that it appears rotated on the server side without visually changing the client's view | off |

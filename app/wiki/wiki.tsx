@@ -4,18 +4,37 @@ export type WikiEntry = {
     children: WikiEntry[] | undefined,
 }
 
-export const WikiEntries: WikiEntry =
-{
-    name: "Wiki", path: "wiki/", children: [
+export const WikiEntries: WikiEntry[] = [
+        { name: "Installation", path: "wiki", children: undefined },
+        { name: "Reporting Bugs", path: "wiki/basics/bugs", children: undefined },
         {
             name: "Basics", path: undefined, children: [
-                { name: "ClickGUI", path: "wiki/basics/clickgui", children: undefined },
+                { name: "ClickGUI", path: undefined, children: [
+                    { name: "Overview", path: "wiki/basics/clickgui", children: undefined },
+                    { name: "Components", path: undefined, children: [
+                        { name: "Button", path: "wiki/basics/clickgui/components/button", children: undefined },
+                        { name: "Checkbox", path: "wiki/basics/clickgui/components/checkbox", children: undefined },
+                        { name: "Slider", path: "wiki/basics/clickgui/components/slider", children: undefined },
+                        { name: "TextBox", path: "wiki/basics/clickgui/components/textbox", children: undefined },
+                        { name: "Keybind", path: "wiki/basics/clickgui/components/keybind", children: undefined },
+                        { name: "Color Picker", path: "wiki/basics/clickgui/components/colorpicker", children: undefined },
+                        { name: "Enum Selector", path: "wiki/basics/clickgui/components/enum", children: undefined },
+                        { name: "Blocks Selector", path: "wiki/basics/clickgui/components/blocks", children: undefined },
+                        { name: "Hotbar Selector", path: "wiki/basics/clickgui/components/hotbar", children: undefined },
+                    ]},
+                ]},
                 { name: "Modules", path: "wiki/basics/modules", children: undefined },
-                { name: "Commands", path: "wiki/basics/commands", children: undefined }
+                { name: "Commands", path: "wiki/basics/commands", children: undefined },
+                { name: "Macros", path: "wiki/basics/macros", children: undefined },
+                { name: "Alt Manager", path: "wiki/basics/altmanager", children: undefined },
+                { name: "Addons", path: undefined, children: [
+                    { name: "Overview", path: "wiki/basics/addons", children: undefined },
+                    { name: "Developing Addons", path: "wiki/basics/addons/developing", children: undefined }
+                ]}
             ]
         },
         {
-            name: "Hacks", path: undefined, children: [
+            name: "Modules", path: undefined, children: [
                 { name: "Aimbot", path: "wiki/hacks/aimbot", children: undefined },
                 { name: "AntiCactus", path: "wiki/hacks/anticactus", children: undefined },
                 { name: "AntiInvis", path: "wiki/hacks/antiinvis", children: undefined },
@@ -69,5 +88,4 @@ export const WikiEntries: WikiEntry =
                 { name: "Zoom", path: "wiki/hacks/zoom", children: undefined },
             ]
         }
-    ]
-}
+]

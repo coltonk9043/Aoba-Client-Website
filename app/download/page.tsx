@@ -1,14 +1,8 @@
 import { DisplayAd } from "@/components/Ads/Ad";
 import InformationPane from "@/components/InformationPane/InformationPane";
-import ReleasesWidget from "@/components/ReleaseWidget/ReleaseWidget";
 import TitleBar from "@/components/TitleBar";
 import Link from "next/link";
 import React from "react";
-
-enum ReleaseType {
-    Release = 0,
-    Prerelease = 1,
-}
 
 type Release = {
     url: string,
@@ -27,6 +21,7 @@ type Release = {
     tarball_url: string,
     zipball_url: string,
     body: string,
+    body_html: string,
     mentions_count: number,
 }
 
@@ -67,90 +62,92 @@ type Uploader = {
     site_admin: boolean,
 }
 
-const DownloadPane = (release: Release) => {
-    const generateReleaseType = () => {
-        if (release.prerelease) {
-            return (<p className="m-2 border border-red-500 text-red-500 rounded-md pr-2 pl-2">Prerelease</p>)
-        } else {
-            return (<p className="m-2 border border-green-500 text-green-500 rounded-md pr-2 pl-2">Release</p>)
-        }
+function parseTagName(tagName: string): { version: string; date?: string } {
+    const newFormat = tagName.match(/^build-([\d.]+)-(\d{8})$/);
+    if (newFormat) {
+        const [, version, dateStr] = newFormat;
+        const month = parseInt(dateStr.substring(0, 2)) - 1;
+        const day = parseInt(dateStr.substring(2, 4));
+        const year = parseInt(dateStr.substring(4, 8));
+        const formatted = new Date(year, month, day).toLocaleDateString('en-US', {
+            month: 'long', day: 'numeric', year: 'numeric'
+        });
+        return { version, date: formatted };
     }
+    const oldFormat = tagName.match(/^build-(.+)$/);
+    if (oldFormat) return { version: oldFormat[1] };
+    return { version: tagName };
+}
+
+function parseAssetVersion(name: string): string {
+    const withoutExt = name.replace(/\.jar$/, "");
+    const newFormat = withoutExt.match(/-([\d.]+)-\d{8}$/);
+    if (newFormat) return newFormat[1];
+    const parts = withoutExt.split("-");
+    return parts[parts.length - 1];
+}
+
+const DownloadPane = (release: Release) => {
+    const parsed = parseTagName(release.tag_name);
 
     const generateDownloads = () => {
         return release.assets.map((e: ReleaseAsset) => {
-            let nameSplit = e.name.split("-");
-            let minecraftVersion = nameSplit[nameSplit.length - 1].replace(".jar", "")
+            let minecraftVersion = parseAssetVersion(e.name);
             return (
-                <>
-                    <div className="col-span-3 border-b border-zinc-600" />
-                    <p className="text-center mt-2">{minecraftVersion}</p>
-                    <p className="italic text-center mt-2">{e.name}</p>
-                    <a className="bg-blue-400 rounded-md pr-2 pl-2 m-2 text-center" href={e.browser_download_url}>
-                        <p>Download</p>
+                <div key={e.id} className="flex items-center justify-between py-3 border-b border-zinc-700 last:border-b-0">
+                    <div className="flex-grow">
+                        <p className="font-medium">{minecraftVersion}</p>
+                        <p className="text-xs text-zinc-400">{e.name}</p>
+                    </div>
+                    <a className="shrink-0 bg-gradient-to-r from-aoba-purple-dark to-[#9c6ccc] rounded-lg px-4 py-2 text-sm font-semibold hover:opacity-90 transition-opacity" href={e.browser_download_url}>
+                        Download
                     </a>
-                </>
+                </div>
             )
         });
     }
 
-    const generateImages = () => {
-        let images = release.body.match(/([\w+]+\:\/\/)?([\w\d-]+\.)*[\w-]+[\.\:]\w+([\/\?\=\&\#\.]?[\w-]+)*\/?/gm);
-        return images?.map((e: string, index: number) => {
-            if (e.startsWith("https://github.com/coltonk9043/Aoba-Client/assets") || e.startsWith("https://github.com/user-attachments/assets")) {
-                return (
-                    <img key={release.tag_name + index} className="rounded-lg" src={e} alt="screenshot" />
-                )
-            } else
-                return undefined;
-        });
-    }
-
     return (
-        <>
-            <div className="border border-zinc-500 bg-zinc-800 rounded-lg mt-5 mb-5 p-3">
-                <div className="flex border-b border-zinc-500">
-                    <h2 className="grow">Aoba {release.tag_name}</h2>
-                    {generateReleaseType()}
-                </div>
-
-                <div className="grid grid-cols-3 border border-zinc-600 rounded-lg mt-5 mb-t p-5" style={{ gridTemplateColumns: "auto auto 105px" }}>
-                    <p className="font-bold text-center">Version / File</p>
-                    <p className="font-bold text-center">Filename</p>
-                    <br />
-
-                    {generateDownloads()}
-                </div>
-
-                <p className="text-gray-400">Full changelog available on <a className="text-blue-400 font-semibold" href={release.html_url}>GitHub</a></p>
-
-                <h2>Images</h2>
-                {generateImages()}
+        <div className="border border-zinc-700 bg-[#1a1a1e] rounded-xl mt-5 mb-5 overflow-hidden">
+            <div className="px-5 py-4 border-b border-zinc-700 bg-black/20">
+                <h2 className="text-2xl">Aoba <span className="text-aoba-purple">{parsed.version}</span></h2>
+                {parsed.date && <p className="text-sm text-zinc-400">{parsed.date}</p>}
             </div>
-            
-        </>
 
+            <div className="px-5 py-2">
+                {generateDownloads()}
+            </div>
+
+            {release.body_html && (
+                <div className="px-5 py-4 border-t border-zinc-700">
+                    <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-2">Changelog</p>
+                    <div className="text-left text-sm text-gray-300 [&_h2]:text-lg [&_h2]:font-semibold [&_h2]:mt-3 [&_h2]:mb-1 [&_h3]:text-base [&_h3]:font-semibold [&_h3]:mt-2 [&_ul]:list-disc [&_ul]:ml-5 [&_ul]:my-1 [&_li]:my-0.5 [&_a]:text-aoba-purple [&_a]:underline"
+                        dangerouslySetInnerHTML={{ __html: release.body_html }}
+                    />
+                </div>
+            )}
+        </div>
     )
 }
 
-const Releases = async (props: { prerelease: boolean }) => {
-    // Grab the data in GitHub, parse the json, and store it.
-    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-Client/releases", { next: { revalidate: 3600 } })
+const Releases = async () => {
+    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-Client/releases", {
+        next: { revalidate: 3600 },
+        headers: { Accept: "application/vnd.github.html+json" },
+    })
         .then((e) => { return e.json(); })
         .then((json) => { return json })
 
-    // Generates the actual Download panels 
     const generateReleaseDownloads = () => {
         if (Array.isArray(githubData)) {
-            return githubData.map((e: Release, i: number) => {
-                if ((props.prerelease && !e.prerelease) || (!props.prerelease && e.prerelease))
-                    return;
+            return githubData.map((e: Release) => {
+                if (e.prerelease) return;
 
                 return (
-                    <>
+                    <React.Fragment key={e.id}>
                         {DownloadPane(e)}
                         <DisplayAd />
-                    </>
-                    
+                    </React.Fragment>
                 )
             })
         }
@@ -164,19 +161,16 @@ export default function Page() {
     return (
         <main className="bg-landing bg-cover bg-fixed">
             <TitleBar />
-            <div className="mx-4 my-6 sm:mx-auto sm:my-10 w-auto max-w-[850px] sm:w-11/12 md:w-3/4 bg-zinc-900 p-4 sm:p-6 md:p-10 rounded-lg">
-                <h1 className="pb-2 text-2xl sm:text-3xl md:text-4xl">🎮 Aoba Client Downloads</h1>
+            <div className="mx-4 my-6 sm:mx-auto sm:my-10 w-auto max-w-[850px] sm:w-11/12 md:w-3/4 bg-background border border-zinc-700 p-4 sm:p-6 md:p-10 rounded-xl">
+                <h1 className="pb-2 text-2xl sm:text-3xl md:text-4xl">Aoba Client Downloads</h1>
                 <p className="text-gray-400 text-sm sm:text-base">Below are all available versions of Aoba, ranging from Minecraft versions 1.19.4 to 1.21.x</p>
 
                 <InformationPane className="my-5">
                     <h2 className="text-aoba-purple">📥 Installation Instructions</h2>
                     <p>Installation instructions can be found on the <Link href="/wiki/">Wiki</Link></p>
                 </InformationPane>
-                
-                <ReleasesWidget>
-                    <div><Releases prerelease={false} /></div>
-                    <div><Releases prerelease={true} /></div>
-                </ReleasesWidget>
+
+                <Releases />
             </div>
         </main>
     )

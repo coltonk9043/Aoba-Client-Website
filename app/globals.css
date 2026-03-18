@@ -10,16 +10,37 @@
 
   h1 {
     color: white;
-    font-size: 24pt;
+    font-size: 28pt;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 
   h2 {
     color: white;
     font-size: 20pt;
+    font-weight: 600;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #3f3f46;
+  }
+
+  h3 {
+    color: #BB86FC;
+    font-size: 14pt;
+    font-weight: 600;
+    margin-bottom: 0;
   }
 
   p, a, li, span, button {
     color: white;
+  }
+
+  strong, b {
+    color: white;
+  }
+
+  a[href^="http"] {
+    text-decoration: underline;
   }
 
   a:hover {
@@ -27,11 +48,104 @@
   }
 }
 
+.mdx-content p,
+.mdx-content li,
+.mdx-content td {
+  color: #a1a1aa;
+}
+
+.mdx-content strong,
+.mdx-content b {
+  color: white;
+}
+
+.mdx-content input[type="checkbox"] {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid #3f3f46;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  position: relative;
+  cursor: default;
+}
+
+.mdx-content input[type="checkbox"]:not(:checked)::after {
+  content: "✕";
+  color: #52525b;
+  font-size: 0.9rem;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mdx-content input[type="checkbox"]:checked {
+  border-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.mdx-content li:has(input[type="checkbox"]:checked) {
+  color: #fca5a5;
+}
+
+.mdx-content input[type="checkbox"]:checked::after {
+  content: "✓";
+  color: #ef4444;
+  font-size: 1rem;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 code {
-  background: #1a1a1a;
+  background: #0a0a0c;
   padding: 3px 6px;
   border-radius: 4px;
   color: #bb86fc;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+
+th {
+  text-align: left;
+  color: white;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-bottom: 2px solid #3f3f46;
+}
+
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #27272a;
+  color: #a1a1aa;
+}
+
+tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+pre {
+  background: #0a0a0c;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 @layer utilities {

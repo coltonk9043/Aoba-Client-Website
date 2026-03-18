@@ -2,19 +2,28 @@
 
 ```
 Default Keybind: NONE
-Category: WORLD
+Category: World
 ```
 
-Nuker destroys all blocks within a certain radius of the player.
+Nuker automatically destroys all blocks around you within a configurable radius. In Creative mode,
+it breaks all blocks simultaneously for maximum speed. In Survival mode, it breaks blocks one at a time.
+You can blacklist specific blocks to skip them, and a highlight box shows the block currently being broken.
 
-There are 2 modes:
-1. Creative Mode:
-    - Completely obliterates all blocks around the player.
-    - Easily detected by AntiCheats as it sends a mass number of packets all at once.
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
 
-2. Survival Mode:
-    - Destroys each block one by one.
-    - Not easily detected by Anti-Cheats (This does not include anticheats that check for rotation! Please be sure to use the correct rotation mode for the server you are on!)
-
-# Settings
-TBD
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Creative | Toggle | Enables creative mode destruction, which breaks all blocks in range simultaneously by sending instant break packets | off |
+| Color | Color | The color of the highlight box rendered around the block currently being broken | Cyan (0.0, 1.0, 1.0) |
+| Radius | Slider | The radius (in blocks) around the player within which Nuker will destroy blocks (0.0 - 15.0, Step: 1.0) | 5.0 |
+| Blacklist | Blocks | A list of blocks that Nuker will skip and not break | empty |

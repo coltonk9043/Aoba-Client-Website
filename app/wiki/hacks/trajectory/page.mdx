@@ -2,10 +2,25 @@
 
 ```
 Default Keybind: NONE
-Category: RENDER
+Category: Render
 ```
 
-Renders an estimated trajectory that a projectile will follow when it is thrown, shot, or propelled.
+Trajectory shows a predicted flight path for throwable items and projectiles, with a marker at the expected landing spot.
+Supported items include bows, ender pearls, snowballs, eggs, tridents, potions, and experience bottles.
 
-# Settings
-TBD
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Color | Color | Sets the color of the trajectory line and the landing indicator box | cyan (R:0 G:255 B:255) |
+| Blip Size | Float | Controls the size of the 3D box drawn at the predicted landing position. Min: 0.05, Max: 1.0, Step: 0.05 | 0.15 |

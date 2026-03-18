@@ -2,10 +2,25 @@
 
 ```
 Default Keybind: NONE
-Category: COMBAT
+Category: Combat
 ```
 
-Criticals will automatically hit a critical strike on an enemy when the player attempts to attack them.
+Criticals forces every melee attack to deal critical hit damage (50% bonus), even while standing on the ground.
+A "Legit" mode is available that performs an actual jump before each hit for a more natural appearance.
 
-# Settings
- - Legit (Toggle): Whether or not a legitimate method of criticals is used when the player clicks.
+## Detectable By
+- [x] NoCheatPlus
+- [x] Vulcan
+- [x] AdvancedAntiCheat
+- [x] Verus
+- [x] Grim
+- [x] Matrix
+- [ ] Negativity
+- [x] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Legit | Toggle | When enabled, the player performs a real jump to trigger the critical hit, which is more legitimate but visually obvious. 
+When disabled, the module silently spoofs position packets to fake the fall condition | off |

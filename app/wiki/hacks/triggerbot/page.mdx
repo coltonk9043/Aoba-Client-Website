@@ -2,10 +2,30 @@
 
 ```
 Default Keybind: NONE
-Category: COMBAT
+Category: Combat
 ```
 
-Automatically hits anything that comes across your crosshair.
+TriggerBot automatically attacks whatever entity you are looking at, making it appear more natural than
+KillAura since it only swings when your crosshair is already on a target. It waits for full attack cooldown to deal maximum damage per hit.
 
-# Settings
-TBD
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [x] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Radius | Slider | The radius within which TriggerBot will trigger an attack (0.1 - 10.0, Step: 0.1) | 5.0 |
+| Target Animals | Toggle | Whether TriggerBot will attack animal entities | Off |
+| Target Monsters | Toggle | Whether TriggerBot will attack hostile monster entities | On |
+| Target Players | Toggle | Whether TriggerBot will attack other players | On |
+| Target Friends | Toggle | Whether TriggerBot will attack players on your friends list | Off |
+| Attack Delay | Slider | The delay in milliseconds between consecutive attacks (0 - 500, Step: 10) | 0 |
+| Randomness | Slider | Adds randomness to the delay between attacks, making the timing less predictable and harder for anti-cheats to detect (0.0 - 60.0, Step: 1.0) | 0.0 |

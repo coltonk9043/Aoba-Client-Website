@@ -1,11 +1,31 @@
-# NoClip
+# Noclip
 
 ```
 Default Keybind: NONE
-Category: MOVEMENT
+Category: Movement
 ```
 
-NoClip allows you to fly through blocks on Creative servers. 
+Noclip allows you to fly through blocks and walls freely. Holding the sprint key increases your movement speed.
 
-# Settings
-TBD
+## Detectable By
+- [x] NoCheatPlus
+- [x] Vulcan
+- [x] AdvancedAntiCheat
+- [x] Verus
+- [x] Grim
+- [x] Matrix
+- [x] Negativity
+- [x] Karhu
+- [ ] Buzz
+
+## Settings
+
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Speed | Float | Controls the fly speed of the player (0.1 - 15.0) | 2.0 |
+| Speed Multiplier | Float | Multiplies the movement speed when the sprint key is held (0.1 - 15.0) | 1.5 |
+| On Ground Packet | Boolean | Whether to send the on-ground flag in movement packets while moving | true |
+| Packet Distance Threshold | Float | The distance threshold used to calculate how many packets to send per movement update (1.0 - 100.0) | 10.0 |
+| Packet Count Offset | Float | An offset subtracted from the number of packets required per update (1.0 - 10.0) | 1.0 |
+| Yaw Offset | Float | The angle offset applied to the player's yaw for calculating the right direction of movement (0.0 - 360.0) | 90.0 |
+| Max Packets Per Update | Float | The maximum number of packets allowed to be sent every update tick (1.0 - 40.0) | 5.0 |

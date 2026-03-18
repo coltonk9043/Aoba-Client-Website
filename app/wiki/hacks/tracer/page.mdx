@@ -2,10 +2,30 @@
 
 ```
 Default Keybind: NONE
-Category: RENDER
+Category: Render
 ```
 
-Displays a line from your crosshair to all nearby players, or mobs.
+Tracer draws lines from your crosshair to nearby players and entities, making it easy to locate them even through walls or at long distances.
+Line colors shift based on distance, giving you a quick sense of how far away each target is.
 
-# Settings
-TBD
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Player Color | Color | Sets the base color used for lines drawn toward players | yellow (R:255 G:255 B:0) |
+| Passive Color | Color | Sets the color used for lines drawn toward passive entities | cyan (R:0 G:255 B:255) |
+| Enemy Color | Color | Sets the color used for lines drawn toward enemy entities | cyan (R:0 G:255 B:255) |
+| Misc. Color | Color | Sets the color used for lines drawn toward miscellaneous entities | cyan (R:0 G:255 B:255) |
+| Max Lines | Float | The maximum number of tracer lines that can be rendered at once. Min: 1, Max: 300, Step: 1 | 100 |
+| Tracer Target | Enum: Head, Body, Feet | The part of the entity's body the tracer line will point toward | Head |
+| Tracer Mode | Enum: Stem, Fill | Controls how tracers are displayed. Stem draws a vertical line at the entity's position in addition to the tracer line. Fill renders a translucent 3D box around the entity instead | Stem |

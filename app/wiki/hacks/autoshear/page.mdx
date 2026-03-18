@@ -1,0 +1,31 @@
+# AutoShear
+
+```
+Default Keybind: NONE
+Category: MISC
+```
+
+AutoShear automatically shears nearby sheep within a configurable radius. Baby sheep and already-sheared sheep are ignored.
+A legit mode ensures only sheep directly in your line of sight are sheared.
+
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Radius | Float | The radius within which AutoShear will search for sheep to shear (0.1 - 10, Step: 0.1) | 5 |
+| Legit | Boolean | When enabled, a raycast is used to ensure AutoShear only shears sheep that are directly visible to the player | false |
+| Rotation Mode | Enum | Controls how the player's view rotates toward the target sheep | NONE |
+| Max Rotation | Float | The maximum speed at which AutoShear will rotate toward a sheep (1 - 360) | 10 |
+| Yaw Rotation Jitter | Float | The amount of randomness applied to the player's yaw rotation (0 - 10, Step: 0.1) | 0 |
+| Pitch Rotation Jitter | Float | The amount of randomness applied to the player's pitch rotation (0 - 10, Step: 0.1) | 0 |

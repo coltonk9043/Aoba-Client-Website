@@ -2,15 +2,35 @@
 
 ```
 Default Keybind: NONE
-Category: COMBAT
+Category: Combat
 ```
 
-This module will automatically swing at any player, or mob, that gets within a certain radius of the player. 
-This module is also referred to as ```Forcefield``` in other mods.
+KillAura automatically attacks the nearest player, monster, or animal within range, waiting for full attack
+cooldown to deal maximum damage. A "Legit" mode only swings when your crosshair is over the target
+for a more natural appearance.
 
-For servers with heavy anticheats, Aoba provides several options to try an imitate player movement during combat.
-It is **HIGHLY** recommended to join an anti-cheat test server to **TUNE** the client for the specific server you
-want to play on; simply joining a server and turning it on **WILL** get you banned.
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [x] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
 
-# Settings
-TBD
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Radius | Slider | The radius in blocks within which KillAura will target entities (0.1 - 10.0, Step: 0.1) | 5.0 |
+| Target Animals | Toggle | Whether KillAura will attack animal mobs | Off |
+| Target Monsters | Toggle | Whether KillAura will attack hostile mobs | On |
+| Target Players | Toggle | Whether KillAura will attack other players | On |
+| Target Friends | Toggle | Whether KillAura will attack players on your friends list | Off |
+| Legit | Toggle | When enabled, a raycast is used to ensure KillAura only attacks the target when it is directly in the player's line of sight, preventing hits on entities outside of view | Off |
+| Randomness | Slider | Introduces randomness into the delay between attacks to make the attack pattern less predictable. A value of 0 means no randomness (attack every tick) (0.0 - 60.0, Step: 1.0) | 0.0 |
+| Rotation Mode | Enum | Controls how the player's view rotates toward the target | NONE |
+| Max Rotation | Slider | The maximum rotation speed (in degrees) at which the player's view will turn toward the target per tick (1.0 - 360.0) | 10.0 |
+| Yaw Rotation Jitter | Slider | Adds randomness to the player's horizontal (yaw) rotation to simulate human-like aim inconsistency (0.0 - 10.0, Step: 0.1) | 0.0 |
+| Pitch Rotation Jitter | Slider | Adds randomness to the player's vertical (pitch) rotation to simulate human-like aim inconsistency (0.0 - 10.0, Step: 0.1) | 0.0 |

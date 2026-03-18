@@ -2,10 +2,29 @@
 
 ```
 Default Keybind: NONE
-Category: RENDER
+Category: Render
 ```
 
-ItewmESP will draw boxes, which are visible through walls, on any dropped item. 
+ItemESP lets you see dropped items through walls by highlighting them within a configurable range.
+It can also color-code items by rarity, making it easy to spot valuable drops at a glance.
 
-# Settings
- - Color (Color): The color that the boxes will be rendered.
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Color | Color | The color of the ESP box drawn around items | RGB(0, 255, 255) with 0.3 alpha |
+| Line Thickness | Float | Adjusts the thickness of the ESP box lines. Min: 0.0, Max: 5.0, Step: 0.1 | 2.0 |
+| Visibility | Boolean | Toggles whether the ESP boxes are rendered | true |
+| Range | Float | The maximum distance from the player at which ESP boxes will be drawn on items. Min: 10.0, Max: 500.0, Step: 5.0 | 100.0 |
+| Rare Item Color | Color | The color used for items with Rare rarity when Color Rarity is enabled | RGB(255, 128, 0) |
+| Color Rarity | Boolean | When enabled, rare items will be highlighted with the Rare Item Color instead of the default color | true |

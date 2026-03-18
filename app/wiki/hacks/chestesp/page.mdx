@@ -2,14 +2,25 @@
 
 ```
 Default Keybind: NONE
-Category: RENDER
+Category: Render
 ```
 
-ChestESP will draw boxes, which are visible through walls, on any Chest. 
+ChestESP highlights chests, trapped chests, and barrels through walls, making them visible even when hidden behind blocks. T
+his is useful for locating hidden storage, finding bases, or spotting containers that might otherwise be out of view.
 
-This lets you find bases, and hidden chests that you may have not been able to see otherwise.
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
 
-# Settings
- - Color (Color): If Rainbow is not enabled, the color that the boxes will be rendered.
- - Rainbow (Toggle): Whether or not Rainbow color mode is enabled.
- - Effect Speed (Variable): The speed at which Rainbow will transition to the next color.
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Color | Color | The color used to render the ESP boxes around detected containers | Cyan (R: 0, G: 255, B: 255, A: 76) |
+| Line Thickness | Float | Adjusts the thickness of the ESP box lines. Min: 0.0, Max: 5.0 | 2.0 |

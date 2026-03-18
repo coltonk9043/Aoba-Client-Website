@@ -1,11 +1,43 @@
-# Crystal Aura
+# CrystalAura
 
 ```
 Default Keybind: NONE
-Category: COMBAT
+Category: Combat
 ```
 
-CrystalAura automatically places Obsidian and an End Crystal near a player when they step within the radius of the player. Once it is placed, Aoba will attempt to attack the End Crystal, causing the enemy (9/10) times, to take a fatal amount of damage.
+CrystalAura automatically places and detonates End Crystals near enemy players to deal explosive damage.
+It intelligently picks placement positions to maximize damage to targets while protecting you with anti-suicide and self-damage limits.
 
-# Settings
- - Radius (Variable): The radius at which CrystalAura will place and hit End Crystals.
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Ignore Walls | Toggle | Ignore walls when targeting enemies | true |
+| Swing Hand | Toggle | Swing hand after interacting | true |
+| Hand Setting | Enum | The hand to use for interactions (MAIN_HAND, OFF_HAND) | MAIN_HAND |
+| Radius | Slider | Radius, in blocks, that you can place/attack a crystal (1.0 - 15.0, Step: 1.0) | 5.0 |
+| Place Radius | Slider | Radius, in blocks, that you can place/attack a crystal (1.0 - 15.0, Step: 1.0) | 5.0 |
+| Target Friends | Toggle | Target friends | false |
+| Attack Delay | Slider | Delay between attacks in milliseconds (0 - 2000, Step: 50) | 500 |
+| Auto Switch | Toggle | Automatically switch to End Crystal | true |
+| Place Delay | Slider | Delay between placing crystals in milliseconds (0 - 2000, Step: 50) | 500 |
+| Target Mode | Enum | Mode to target players (NEAREST, MOST_HEALTH) | NEAREST |
+| MultiPlace | Toggle | Allows placing multiple crystals simultaneously | false |
+| AntiSuicide | Toggle | Prevents attacking crystals if it would result in player's death | true |
+| Min Damage | Slider | Minimum damage a crystal must deal to be placed or attacked (0 - 36, Step: 0.5) | 6.0 |
+| Max Self Damage | Slider | Maximum self-damage the player can take from a single crystal (0 - 20, Step: 0.5) | 4.0 |
+| Enemy Range | Slider | Maximum distance an enemy can be to be considered a target (0 - 32, Step: 1.0) | 12.0 |
+| Wall Range | Slider | Distance an enemy must be to a wall for crystals to be placed or attacked through it (0 - 8, Step: 0.5) | 3.0 |
+| Crystal Priority | Enum | Prioritize which crystals to attack first (CLOSEST, HIGHEST_DAMAGE, LOWEST_HEALTH) | CLOSEST |
+| Rotation Mode | Enum | Controls how the player's view rotates (NONE, INSTANT, SMOOTH) | NONE |
+| Color | Color | Color used for the placement position render overlay | Cyan (0, 1.0, 1.0) |

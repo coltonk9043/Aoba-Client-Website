@@ -14,8 +14,8 @@ const config: Config = {
         "landing": "radial-gradient(circle at center, rgba(156, 39, 176, 0.1) 0%, rgba(26, 26, 26, 0.95) 100%), url(/pretty.png)"
       },
       colors: {
-        'background': "#1A1A1A",
-        'background-accent': "#2D2D2D",
+        'background': "#121215",
+        'background-accent': "#1e1e22",
         'background-purple' : "#9C27B019",
         'border-purple': "#9C27B04D",
         'aoba-purple' : "#BB86FC",
@@ -24,7 +24,7 @@ const config: Config = {
         'aoba-purple-dark-0.4' : "#9c27b040",
         'aoba-purple-0.2' : "#BB86FC20",
         'aoba-purple-dark-0.2' : "#9c27b020",
-        'background-titlebar' : "#1A1A1AF0", 
+        'titlebar' : "#121215", 
         
       },
       spacing: {

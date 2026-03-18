@@ -1,0 +1,31 @@
+# Developing Addons
+
+To create an addon, you need to implement the `IAddon` interface provided by Aoba's API. Your addon must be registered as a Fabric 
+entrypoint using the `aoba` namespace in your `fabric.mod.json`. For a working example to get started with, check out the 
+[Aoba Addon Template](https://github.com/cvs0/Aoba-Addon-Template) on GitHub.
+
+## IAddon Interface
+
+Your addon class must implement the following:
+
+- **onInitialize()** - Called when the addon is loaded. Use this to set up any addon-specific systems.
+- **modules()** - Returns a list of custom modules to register with the client.
+- **commands()** - Returns a list of custom commands to register with the client.
+- **getName()** - The display name of your addon.
+- **getId()** - A unique identifier for your addon.
+- **getDescription()** - A short description of what your addon does.
+- **getAuthor()** - The addon author's name.
+
+## Fabric Entrypoint
+
+Register your addon in `fabric.mod.json` under the `aoba` entrypoint:
+
+```
+"entrypoints": {
+  "aoba": [
+    "com.example.MyAddon"
+  ]
+}
+```
+
+Once registered, Aoba will automatically discover and load your addon, register its modules and commands, and display it in the addon list.
