@@ -7,7 +7,7 @@ const openSans = Open_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Aoba Utility Mod for Minecraft Java Edition",
-  description: "Aoba Utility Mod for Minecraft. Download links to Aoba Hacked Client 1.20.X - 1.21.X for Minecraft Java edition",
+  description: "Aoba Utility Mod for Minecraft. Download links to Aoba Hacked Client 1.20.X - 26.1.X for Minecraft Java edition",
 };
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
