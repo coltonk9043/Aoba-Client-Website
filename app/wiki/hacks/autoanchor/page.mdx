@@ -1,0 +1,48 @@
+# AutoAnchor
+
+```
+Default Keybind: NONE
+Category: Combat
+```
+
+AutoAnchor automatically places and charges Respawn Anchors near enemy players in the Overworld and End to deal explosive damage.
+It picks placements that maximize damage to targets while protecting you with anti-suicide checks, optional shield placement, and self-damage limits.
+
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Radius | Slider | Radius that the anchor will be placed / activated (1.0 - 15.0, Step: 0.1) | 3.0 |
+| Color | Color | The color of the placement position render overlay | Red |
+| AutoPlace | Toggle | Automatically places the anchor near players within a radius from the player | true |
+| AutoActivate | Toggle | Automatically charges and detonates anchors. If disabled, anchors are placed but left for manual activation | true |
+| Auto Switch | Toggle | Automatically switch to Respawn Anchor / Glowstone | true |
+| SafeAnchor | Toggle | Places a block in front of the player to reduce damage | true |
+| Charge Delay | Slider | Delay between anchor activation in milliseconds (0 - 2000, Step: 50) | 500 |
+| Place Delay | Slider | Delay between placing anchors in milliseconds (0 - 2000, Step: 50) | 500 |
+| AntiSuicide | Toggle | Prevents activating anchors if it would result in player's death | true |
+| Min Damage | Slider | Minimum damage an anchor must deal to be placed or activated (0 - 36, Step: 0.5) | 6.0 |
+| Max Self Damage | Slider | Maximum self-damage the player can take from a single anchor activation (0 - 20, Step: 0.5) | 4.0 |
+| Enemy Range | Slider | Maximum distance an enemy can be to be considered a target (0 - 32, Step: 1.0) | 12.0 |
+| Ignore Walls | Toggle | Ignore walls when targeting enemies | true |
+| Target Priority | Enum | Priority to target players (CLOSEST, HIGHEST_DAMAGE, LOWEST_HEALTH, MOST_HEALTH) | CLOSEST |
+| Target Mobs | Toggle | Target mobs | off |
+| Target Players | Toggle | Target Players | on |
+| Target Friends | Toggle | Target Friends | on |
+| Rotation Mode | Enum | Controls how the player's view rotates (NONE, INSTANT, SMOOTH) | NONE |
+| Legit | Toggle | Whether a raycast will be used to ensure that auto anchor is aiming at the target positions before placing/activating the anchor | true |
+| Max Rotation | Slider | The max speed that Aimbot will rotate (1.0 - 360.0) | 10.0 |
+| Yaw Rotation Jitter | Slider | The randomness of the player's yaw (0.0 - 10.0, Step: 0.1) | 0.0 |
+| Pitch Rotation Jitter | Slider | The randomness of the player's pitch (0.0 - 10.0, Step: 0.1) | 0.0 |
+| Fake Rotation | Toggle | Spoofs the client's rotation so that the player appears rotated on the server | off |
+| Move Fix | Toggle | Corrects movement to match spoofed rotation by using the server yaw for velocity | off |

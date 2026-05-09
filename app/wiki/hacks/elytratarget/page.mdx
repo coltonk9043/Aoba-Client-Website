@@ -1,0 +1,37 @@
+# ElytraTarget
+
+```
+Default Keybind: NONE
+Category: Combat
+```
+
+ElytraTarget locks your crosshair onto the closest player in range while gliding with an elytra and automatically uses fireworks to fly toward them.
+Useful for chasing down targets in elytra combat with configurable firework cadence and rotation behavior.
+
+## Detectable By
+- [ ] NoCheatPlus
+- [ ] Vulcan
+- [ ] AdvancedAntiCheat
+- [ ] Verus
+- [ ] Grim
+- [ ] Matrix
+- [ ] Negativity
+- [ ] Karhu
+- [ ] Buzz
+
+## Settings
+| Name | Type | Description | Default |
+|------|------|-------------|---------|
+| Target Friends | Toggle | Target Friends | on |
+| Fireworks Interval | Slider | How often to use fireworks, in ticks (1.0 - 40.0, Step: 1.0) | 10.0 |
+| Ticks | Slider | How frequent the aimbot updates (Lower = Laggier) (1.0 - 20.0, Step: 1.0) | 1.0 |
+| Radius | Slider | Radius that the aimbot will lock onto a target (1.0 - 256.0, Step: 1.0) | 64.0 |
+| Rotation Mode | Enum | Controls how the player's view rotates (NONE, INSTANT, SMOOTH) | SMOOTH |
+| Max Rotation | Slider | The max speed that Aimbot will rotate (1.0 - 360.0) | 50.0 |
+| Yaw Rotation Jitter | Slider | The randomness of the player's yaw (0.0 - 10.0, Step: 0.1) | 0.5 |
+| Pitch Rotation Jitter | Slider | The randomness of the player's pitch (0.0 - 10.0, Step: 0.1) | 0.3 |
+| Fake Rotation | Toggle | Spoofs the client's rotation so that the player appears rotated on the server | off |
+| Legit | Toggle | Whether the player must be visible to fly to | true |
+| Use Delay | Slider | Delay in ticks between swapping to fireworks and using them (1.0 - 10.0, Step: 1.0) | 3.0 |
+| Swap Delay | Slider | Delay in ticks between using the firework and swapping back (3.0 - 10.0, Step: 1.0) | 4.0 |
+| Move Fix | Toggle | Corrects movement to match spoofed rotation by using the server yaw for velocity | off |

@@ -51,15 +51,15 @@ export default function Home() {
           <Image className="text-center mx-auto my-8 logo-bounce logo-glow max-w-full h-auto" src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client" />
           <p className="text-center text-2xl sm:text-3xl">The utility mod that is</p>
           <RotatingText className="text-2xl sm:text-3xl" features={features} />
-          <p className="text-center text-lg sm:text-xl md:text-2xl m-auto">Experience Minecraft like never before with our advanced utility mod. Supporting versions up to 26.1.1, Aoba provides powerful features while maintaining smooth performance.</p>
+          <p className="text-center text-lg sm:text-xl md:text-2xl m-auto">Experience Minecraft like never before with our advanced utility mod. Supporting versions up to 26.1.2, Aoba provides powerful features while maintaining smooth performance.</p>
 
           <div className="flex gap-3 sm:gap-4 mt-12 sm:mt-16 md:mt-20 mb-5 justify-center flex-wrap">
             <div className="bg-background-purple min-w-[140px] sm:min-w-[180px] rounded-lg py-4 sm:py-6 px-6 sm:px-10 border border-border-purple w-auto text-center">
-              <p className="block text-3xl sm:text-4xl font-bold text-aoba-purple-dark">26.1.1</p>
+              <p className="block text-3xl sm:text-4xl font-bold text-aoba-purple-dark">26.1.2</p>
               <p className="text-sm sm:text-base">Latest Version</p>
             </div>
             <div className="bg-background-purple min-w-[140px] sm:min-w-[180px] rounded-lg py-4 sm:py-6 px-6 sm:px-10 border border-border-purple w-auto text-center">
-              <p className="block text-3xl sm:text-4xl font-bold text-aoba-purple-dark">75</p>
+              <p className="block text-3xl sm:text-4xl font-bold text-aoba-purple-dark">80</p>
               <p className="text-sm sm:text-base">Available Hacks</p>
             </div>
           </div>
