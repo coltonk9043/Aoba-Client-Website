@@ -3,6 +3,22 @@ import InformationPane from "@/components/InformationPane/InformationPane";
 import TitleBar from "@/components/TitleBar";
 import Link from "next/link";
 import React from "react";
+import type { Metadata } from "next";
+import { MC_VERSION, SITE_NAME, SITE_URL } from "@/lib/constants";
+
+export const metadata: Metadata = {
+    title: `Download Aoba ${MC_VERSION} — Hacked Client for Minecraft Java`,
+    description: `Download the latest Aoba Hacked Client for Minecraft Java Edition ${MC_VERSION}. Free, open-source, and packed with 80+ useful hacks.`,
+    alternates: { canonical: "/download" },
+    openGraph: {
+        type: "website",
+        url: `${SITE_URL}/download`,
+        siteName: SITE_NAME,
+        title: `Download Aoba ${MC_VERSION} for Minecraft Java`,
+        description: `Aoba Hacked Client for Minecraft ${MC_VERSION} free download.`,
+        images: [{ url: "/pretty.png", width: 1200, height: 630, alt: `Download Aoba ${MC_VERSION}` }],
+    },
+};
 
 type Release = {
     url: string,
@@ -87,7 +103,7 @@ function parseAssetVersion(name: string): string {
     return parts[parts.length - 1];
 }
 
-const DownloadPane = (release: Release) => {
+const DownloadPane = ({ release }: { release: Release }) => {
     const parsed = parseTagName(release.tag_name);
 
     const generateDownloads = () => {
@@ -145,7 +161,7 @@ const Releases = async () => {
 
                 return (
                     <React.Fragment key={e.id}>
-                        {DownloadPane(e)}
+                        <DownloadPane release={e} />
                         <DisplayAd />
                     </React.Fragment>
                 )
@@ -158,12 +174,30 @@ const Releases = async () => {
 }
 
 export default function Page() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: `${SITE_NAME} ${MC_VERSION}`,
+        alternateName: "Aoba Hacked Client",
+        description: `Aoba Hacked Client for Minecraft Java Edition ${MC_VERSION}.`,
+        url: `${SITE_URL}/download`,
+        applicationCategory: "GameApplication",
+        operatingSystem: `Minecraft Java Edition ${MC_VERSION}`,
+        softwareVersion: MC_VERSION,
+        downloadUrl: `${SITE_URL}/download`,
+        image: `${SITE_URL}/pretty.png`,
+    };
+
     return (
         <main className="bg-landing bg-cover bg-fixed">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <TitleBar />
             <div className="mx-4 my-6 sm:mx-auto sm:my-10 w-auto max-w-[850px] sm:w-11/12 md:w-3/4 bg-background border border-zinc-700 p-4 sm:p-6 md:p-10 rounded-xl">
-                <h1 className="pb-2 text-2xl sm:text-3xl md:text-4xl">Aoba Client Downloads</h1>
-                <p className="text-gray-400 text-sm sm:text-base">Below are all available versions of Aoba, ranging from Minecraft versions 1.19.4 to 1.21.x</p>
+                <h1 className="pb-2 text-2xl sm:text-3xl md:text-4xl">Download Aoba Hacked Client {MC_VERSION} for Minecraft Java</h1>
+                <p className="text-gray-400 text-sm sm:text-base">Free, open-source utility mod for Minecraft Java Edition. Below are all available builds, ranging from Minecraft 1.19.4 through {MC_VERSION}.</p>
 
                 <InformationPane className="my-5">
                     <h2 className="text-aoba-purple">📥 Installation Instructions</h2>

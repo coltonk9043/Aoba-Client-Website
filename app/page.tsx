@@ -9,12 +9,13 @@ import { RotatingText } from "@/components/RotatingText/RotatingText";
 import { Particles } from "@/components/Particles/Particles";
 import { Carousel } from "@/components/Carousel/Carousel";
 import { SectionDivider } from "@/components/SectionDivider";
+import { MC_VERSION, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 const hacksSummary = Hacks.map((e: Hack) => (
-  <a key={e.name} href={"wiki/hacks/" + e.name.toLowerCase()}
-    className="px-3 py-2 rounded-lg border border-zinc-700 text-sm text-center hover:border-aoba-purple-dark hover:bg-aoba-purple-dark-0.2 transition-colors">
+  <Link key={e.name} href={"/wiki/hacks/" + e.name.toLowerCase()}
+    className="px-3 py-2 rounded-xl border border-aoba-purple-dark-0.4 text-sm text-center bg-gradient-to-br from-aoba-purple-dark-0.2 to-aoba-purple-0.2 transition-transform hover:-translate-y-1 hover:scale-105">
     {e.name}
-  </a>
+  </Link>
 ));
 
 export default function Home() {
@@ -39,8 +40,32 @@ export default function Home() {
     { src: "/screenshot_hud.png", alt: "UI Customization" },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: SITE_NAME,
+    alternateName: "Aoba Hacked Client",
+    description: `Free, open-source hacked client for Minecraft Java Edition ${MC_VERSION} with 80+ hacks and full customization.`,
+    url: SITE_URL,
+    applicationCategory: "GameApplication",
+    operatingSystem: `Minecraft Java Edition ${MC_VERSION}`,
+    softwareVersion: MC_VERSION,
+    downloadUrl: `${SITE_URL}/download`,
+    author: {
+      "@type": "Person",
+      name: "coltonk9043",
+      url: "https://github.com/coltonk9043",
+    },
+    license: "https://github.com/coltonk9043/Aoba-Client/blob/main/LICENSE",
+    image: `${SITE_URL}/pretty.png`,
+  };
+
   return (
     <main className="bg-landing bg-cover bg-fixed m-0 py-0">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Particles count={100} />
 
       <div className="z-10 relative">
@@ -48,25 +73,26 @@ export default function Home() {
 
         {/** Aoba Logo */}
         <div className="mx-auto my-20 sm:my-32 md:my-44 w-11/12 sm:w-4/5 md:w-3/5 px-4">
-          <Image className="text-center mx-auto my-8 logo-bounce logo-glow max-w-full h-auto" src={"/aoba-name.png"} width={400} height={200} alt="Aoba Hacked Client" />
-          <p className="text-center text-2xl sm:text-3xl">The utility mod that is</p>
+          <h1 className="sr-only">Aoba — Hacked Client for Minecraft {MC_VERSION}</h1>
+          <Image className="text-center mx-auto my-8 logo-bounce logo-glow max-w-full h-auto" src={"/aoba-name.png"} width={400} height={200} priority fetchPriority="high" alt={`Aoba Hacked Client for Minecraft ${MC_VERSION}`} />
+          <p className="text-center text-2xl sm:text-3xl">The utility client that is</p>
           <RotatingText className="text-2xl sm:text-3xl" features={features} />
-          <p className="text-center text-lg sm:text-xl md:text-2xl m-auto">Experience Minecraft like never before with our advanced utility mod. Supporting versions up to 26.1.2, Aoba provides powerful features while maintaining smooth performance.</p>
+          <p className="text-center text-lg sm:text-xl md:text-2xl m-auto">Gain the upper edge with Aoba, the no-BS Minecraft client that does not compromise. Supporting versions up to {MC_VERSION}, Aoba provides powerful features while maintaining smooth performance.</p>
 
           <div className="flex gap-3 sm:gap-4 mt-12 sm:mt-16 md:mt-20 mb-5 justify-center flex-wrap">
             <div className="bg-background-purple min-w-[140px] sm:min-w-[180px] rounded-lg py-4 sm:py-6 px-6 sm:px-10 border border-border-purple w-auto text-center">
-              <p className="block text-3xl sm:text-4xl font-bold text-aoba-purple-dark">26.1.2</p>
+              <p className="block text-3xl sm:text-4xl font-bold text-aoba-purple-dark">{MC_VERSION}</p>
               <p className="text-sm sm:text-base">Latest Version</p>
             </div>
             <div className="bg-background-purple min-w-[140px] sm:min-w-[180px] rounded-lg py-4 sm:py-6 px-6 sm:px-10 border border-border-purple w-auto text-center">
-              <p className="block text-3xl sm:text-4xl font-bold text-aoba-purple-dark">80</p>
+              <p className="block text-3xl sm:text-4xl font-bold text-aoba-purple-dark">{Hacks.length}</p>
               <p className="text-sm sm:text-base">Available Hacks</p>
             </div>
           </div>
 
           <div className="shadow font-bold cursor-pointer rounded bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark p-4 sm:p-5 m-auto max-w-[350px] w-full text-lg sm:text-xl text-center">
             <Link href="/download" >
-              <p>DOWNLOAD LATEST RELEASE</p>
+              <p>Download Aoba {MC_VERSION} for Minecraft</p>
             </Link>
           </div>
         </div>
@@ -76,8 +102,8 @@ export default function Home() {
           <div className="mx-auto w-11/12 max-w-[1200px] px-4">
 
             {/* Key Features */}
-            <p className="mb-1 text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark">Key Features</p>
-            <p className="text-sm sm:text-base mb-4">Discover what makes Aoba Client the perfect choice for enhancing your Minecraft experience</p>
+            <h2 className="mb-1 text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark">Key Features</h2>
+            <p className="text-sm sm:text-base mb-4">Discover what makes Aoba Client the perfect choice</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
               <FeaturePanel title="Extensive Hack Collection" description="Access over 50 specialized modifications designed to enhance your gameplay." />
               <FeaturePanel title="Advanced Command System" description="Take full control with our intuitive command system. Customize settings, toggle features, and manage your experience with simple, powerful commands." />
@@ -86,16 +112,16 @@ export default function Home() {
             </div>
 
             {/* Available Mods */}
-            <p className="mb-1 text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark">Available Mods</p>
-            <p className="text-sm sm:text-base mb-4">Browse our comprehensive collection of gameplay enhancements</p>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+            <h2 className="mb-1 text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark">Available Mods</h2>
+            <p className="text-sm sm:text-base mb-4">Browse our comprehensive collection of hacks.</p>
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 mb-12 sm:mb-16">
               {hacksSummary}
             </div>
 
             {/* Screenshots */}
             <div className="flex flex-col lg:flex-row items-center gap-6 mb-8">
               <div className="lg:w-1/3 lg:text-left">
-                <p className="mb-1 text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark">Screenshots</p>
+                <h2 className="mb-1 text-3xl sm:text-4xl text-transparent bg-clip-text bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark">Screenshots</h2>
                 <p className="text-sm sm:text-base">See Aoba Client in action. Browse through screenshots of the ClickGUI, module settings, and HUD overlays.</p>
                 <br/>
                 <p className="text-sm sm:text-base">Aoba is highly configurable and gives you full control over most of its functionality.</p>
@@ -111,7 +137,7 @@ export default function Home() {
         <div className="mt-4 text-center py-8 sm:py-10">
           <div className="mx-auto w-11/12 sm:w-4/5 md:w-3/4 px-4">
             <div className="bg-black/30 rounded-xl p-6 sm:p-8 mb-6">
-              <h1 className="m-auto text-center text-3xl sm:text-4xl">Contributors</h1>
+              <h2 className="m-auto text-center text-3xl sm:text-4xl">Contributors</h2>
               <p className="text-sm sm:text-base mt-2">Aoba Client is fully open source and community-driven. Anyone can contribute, review the code, or fork the project on <a href="https://github.com/coltonk9043/Aoba-Client">GitHub</a>. A huge thank you to everyone who has helped make Aoba better. 💜</p>
             </div>
             <ContributorWidget />
