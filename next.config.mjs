@@ -1,15 +1,11 @@
 import createMDX from '@next/mdx'
-import remarkGfm from 'remark-gfm'
- 
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  // Optionally, add any other Next.js config below
   reactStrictMode: true,
   images: {
-   minimumCacheTTL: 2678400, // 31 days
+    minimumCacheTTL: 2678400, // 31 days
     remotePatterns: [
       {
         protocol: "https",
@@ -19,10 +15,9 @@ const nextConfig = {
   }
 }
 
-
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: ['remark-gfm'],
   },
 })
  
