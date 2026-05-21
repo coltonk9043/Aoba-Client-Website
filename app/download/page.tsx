@@ -155,19 +155,16 @@ const Releases = async () => {
         .then((json) => { return json })
 
     const generateReleaseDownloads = () => {
-        if (Array.isArray(githubData)) {
-            return githubData.map((e: Release) => {
-                if (e.prerelease) return;
+        if (!Array.isArray(githubData)) return undefined;
 
-                return (
-                    <React.Fragment key={e.id}>
-                        <DownloadPane release={e} />
-                        <DisplayAd />
-                    </React.Fragment>
-                )
-            })
-        }
-        return undefined;
+        const visibleReleases = githubData.filter((e: Release) => !e.prerelease);
+
+        return visibleReleases.map((e: Release, index: number) => (
+            <React.Fragment key={e.id}>
+                <DownloadPane release={e} />
+                {index < 3 && <DisplayAd />}
+            </React.Fragment>
+        ));
     }
 
     return generateReleaseDownloads();

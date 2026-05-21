@@ -15,8 +15,13 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
                         <div className="bg-[#2a2a1a] text-[#a1a18a] text-base px-5 py-3 rounded-lg mb-4">
                             This wiki is open source - contributions and edits are welcome on <a href="https://github.com/coltonk9043/Aoba-Client-Website" className="underline">GitHub</a>.
                         </div>
+                        <div className="mb-4">
+                            <DisplayAd/>
+                        </div>
                         {children}
-                        <DisplayAd/>
+                        <div className="mt-6">
+                            <DisplayAd/>
+                        </div>
                     </div>
                 </div>
                 <TableOfContents/>

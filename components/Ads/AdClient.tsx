@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 export type AdClientProps = {
@@ -15,14 +15,13 @@ declare global {
 
 export const AdClient = ({ children }: AdClientProps) => {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   useEffect(() => {
     try {
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (err) {
       console.error(err);
     }
-  }, [pathname, searchParams]);
-  return <>{children}</>;
-}
+  }, [pathname]);
+  return <React.Fragment key={pathname}>{children}</React.Fragment>;
+};
 export default AdClient;
