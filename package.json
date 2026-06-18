@@ -13,7 +13,7 @@
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^16.2.6",
     "@types/mdx": "^2.0.13",
-    "next": "^16.2.6",
+    "next": "^16.2.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.1.0",
