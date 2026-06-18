@@ -3,6 +3,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import { MC_VERSION, SITE_NAME, SITE_URL } from "@/lib/constants";
+import { Analytics } from '@vercel/analytics/next';
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 
@@ -49,7 +50,10 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
       <head>
         <link rel="icon" href="/icon.ico" sizes="any" />
       </head>
-      <body className="bg-background">{children}</body>
+      <body className="bg-background">
+		{children}
+		<Analytics />
+		</body>
       <Script id="nextjs-google-adsense"
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${publisherId}`}
             strategy="afterInteractive"
