@@ -22,10 +22,10 @@ const TitleBarComponent = () => {
           <div className="hidden grow shrink justify-center md:flex md:visible my-2">
             <Link className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="/">Home</Link>
             <Link className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="/download/">Download</Link>
-            <Link className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="/wiki/">Wiki</Link>
-            <Link className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="https://github.com/sponsors/coltonk9043">Support Us</Link>
-            <Link className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="https://discord.gg/HyZ3uGrwgs">Discord</Link>
-            <Link className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="https://github.com/coltonk9043/Aoba-Client">GitHub</Link>
+            <Link prefetch={false} className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="/wiki/">Wiki</Link>
+            <Link prefetch={false} className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="https://github.com/sponsors/coltonk9043">Support Us</Link>
+            <Link prefetch={false} className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="https://discord.gg/HyZ3uGrwgs">Discord</Link>
+            <Link prefetch={false} className="px-5 py-3 transition-colors duration-300 rounded-lg border border-transparent hover:bg-[#9C27B01A] hover:border-[#9C27B04D] focus:outline-none focus:ring-2 focus:ring-aoba-purple" href="https://github.com/coltonk9043/Aoba-Client">GitHub</Link>
           </div>
 
           <button
@@ -44,9 +44,9 @@ const TitleBarComponent = () => {
         >
           <Link className="w-full content-center text-2xl p-5 hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 focus:outline-none focus:bg-gradient-to-r focus:from-violet-500 focus:to-fuchsia-500" href="/">Home</Link>
           <Link className="w-full content-center text-2xl p-5 hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 focus:outline-none focus:bg-gradient-to-r focus:from-violet-500 focus:to-fuchsia-500" href="/download/">Download</Link>
-          <Link className="w-full content-center text-2xl p-5 hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 focus:outline-none focus:bg-gradient-to-r focus:from-violet-500 focus:to-fuchsia-500" href="/wiki/">Wiki</Link>
-          <Link className="w-full content-center text-2xl p-5 hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 focus:outline-none focus:bg-gradient-to-r focus:from-violet-500 focus:to-fuchsia-500" href="https://github.com/sponsors/coltonk9043">Support Us</Link>
-          <Link className="w-[128px] h-[128px] mx-auto hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500" href="https://discord.gg/HyZ3uGrwgs" aria-label="Join Discord">
+          <Link prefetch={false} className="w-full content-center text-2xl p-5 hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 focus:outline-none focus:bg-gradient-to-r focus:from-violet-500 focus:to-fuchsia-500" href="/wiki/">Wiki</Link>
+          <Link prefetch={false} className="w-full content-center text-2xl p-5 hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500 focus:outline-none focus:bg-gradient-to-r focus:from-violet-500 focus:to-fuchsia-500" href="https://github.com/sponsors/coltonk9043">Support Us</Link>
+          <Link prefetch={false} className="w-[128px] h-[128px] mx-auto hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500" href="https://discord.gg/HyZ3uGrwgs" aria-label="Join Discord">
             <Image
               className="relative top-[13%] left-[10%]"
               src="/discord.png"
@@ -56,7 +56,7 @@ const TitleBarComponent = () => {
               aria-hidden="true"
             />
           </Link>
-          <Link className="w-[128px] h-[128px] mx-auto hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500" href="https://github.com/coltonk9043/Aoba-Client" aria-label="View on GitHub">
+          <Link prefetch={false} className="w-[128px] h-[128px] mx-auto hover:bg-gradient-to-r hover:from-violet-500 hover:to-fuchsia-500" href="https://github.com/coltonk9043/Aoba-Client" aria-label="View on GitHub">
             <Image
               className="relative top-[13%] left-[10%]"
               src="/github.png"

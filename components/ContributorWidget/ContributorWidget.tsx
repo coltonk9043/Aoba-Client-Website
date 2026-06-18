@@ -36,7 +36,7 @@ export const ContributorWidget = async () => {
         <div className="flex flex-wrap justify-center mx-auto">
             {githubData.map((contributor: GithubAvatar) => (
                 <div key={contributor.login} className="border border-zinc-500 bg-zinc-800 rounded-lg px-10 py-5 m-2 text-center">
-                    <Link href={contributor.html_url}>
+                    <Link prefetch={false} href={contributor.html_url}>
                         <Image
                             className="mt-2 mb-2 m-auto rounded-full"
                             src={contributor.avatar_url}

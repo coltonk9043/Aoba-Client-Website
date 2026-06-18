@@ -12,7 +12,7 @@ import { SectionDivider } from "@/components/SectionDivider";
 import { MC_VERSION, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 const hacksSummary = Hacks.map((e: Hack) => (
-  <Link key={e.name} href={"/wiki/hacks/" + e.name.toLowerCase()}
+  <Link prefetch={false} key={e.name} href={"/wiki/hacks/" + e.name.toLowerCase()}
     className="px-3 py-2 rounded-xl border border-aoba-purple-dark-0.4 text-sm text-center bg-gradient-to-br from-aoba-purple-dark-0.2 to-aoba-purple-0.2 transition-transform hover:-translate-y-1 hover:scale-105">
     {e.name}
   </Link>
@@ -91,7 +91,7 @@ export default function Home() {
           </div>
 
           <div className="shadow font-bold cursor-pointer rounded bg-gradient-to-tl from-aoba-purple to-aoba-purple-dark p-4 sm:p-5 m-auto max-w-[350px] w-full text-lg sm:text-xl text-center">
-            <Link href="/download" >
+            <Link prefetch={false} href="/download" >
               <p>Download Aoba {MC_VERSION} for Minecraft</p>
             </Link>
           </div>

@@ -9,7 +9,7 @@ export default function Page() {
     const generateModulePanels = () => {
         return Hacks.map((e, index) => {
             return (
-                <Link key={e.name + index} href={"/wiki/hacks/" + e.name.toLowerCase()}>
+                <Link prefetch={false} key={e.name + index} href={"/wiki/hacks/" + e.name.toLowerCase()}>
                                 <div key={e.name + index} className="bg-background-accent rounded-lg p-4 transition-transform shadow-lg hover:-translate-y-3 hover:cursor-pointer">
                     <p className="text-aoba-purple border-b-[1px] border-[#444] text-xl py-2">{e.name}</p>
                     <p className="my-4">{e.description}</p>
@@ -59,7 +59,7 @@ export default function Page() {
 
             <section className="my-8">
                 <h2 className="text-aoba-purple mb-2">Getting Started</h2>
-                <p className="mb-2">Once you are in-game, the primary way to interact with Aoba is through the <Link href="/wiki/basics/clickgui">ClickGUI</Link>. 
+                <p className="mb-2">Once you are in-game, the primary way to interact with Aoba is through the <Link prefetch={false} href="/wiki/basics/clickgui">ClickGUI</Link>.
                 The ClickGUI is a fully customizable graphical interface where you can browse, enable, and configure all of Aoba{"'"}s modules. 
                 It features a flexible window system that lets you drag, resize, and arrange panels to your liking. The layout of the UI is saved between sessions.</p>
                 <p className="mt-2 mb-2">As of 1.21.11+, the default keybind to open the ClickGUI is <strong>Right Shift</strong>. If you would like to change it, open chat and type:</p>
@@ -69,7 +69,7 @@ export default function Page() {
             </section>
 
             <h2 className="my-3 pb-2 border-b-2 border-b-aoba-purple">Modules</h2>
-            <p className="mt-2">For details on individual modules and what they do, see the <Link href="/wiki/basics/modules">Modules</Link> page.</p>
+            <p className="mt-2">For details on individual modules and what they do, see the <Link prefetch={false} href="/wiki/basics/modules">Modules</Link> page.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-auto-fill-300 gap-4 sm:gap-5 my-4">
                 {generateModulePanels()}
             </div>
