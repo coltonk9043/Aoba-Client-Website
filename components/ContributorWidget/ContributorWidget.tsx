@@ -24,7 +24,7 @@ export type GithubAvatar = {
 }
 
 export const ContributorWidget = async () => {
-    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-Client/contributors", {
+    const githubData = await fetch("https://api.github.com/repos/Cocolots/Aoba-Client/contributors", {
         next: { revalidate: 3600 }
     }).then((res) => res.json());
 
@@ -45,7 +45,7 @@ export const ContributorWidget = async () => {
                             height={125}
                         />
                     </Link>
-                    <h2 className={`border-b border-zinc-500 ${contributor.login === "coltonk9043" ? "text-yellow-500" : "text-white"}`}>
+                    <h2 className={`border-b border-zinc-500 ${contributor.login === "Cocolots" ? "text-yellow-500" : "text-white"}`}>
                         {contributor.login}
                     </h2>
                     <p>

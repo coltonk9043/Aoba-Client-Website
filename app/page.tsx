@@ -53,10 +53,10 @@ export default function Home() {
     downloadUrl: `${SITE_URL}/download`,
     author: {
       "@type": "Person",
-      name: "coltonk9043",
-      url: "https://github.com/coltonk9043",
+      name: "Cocolots",
+      url: "https://github.com/Cocolots",
     },
-    license: "https://github.com/coltonk9043/Aoba-Client/blob/main/LICENSE",
+    license: "https://github.com/Cocolots/Aoba-Client/blob/master/LICENSE",
     image: `${SITE_URL}/pretty.png`,
   };
 
@@ -138,7 +138,7 @@ export default function Home() {
           <div className="mx-auto w-11/12 sm:w-4/5 md:w-3/4 px-4">
             <div className="bg-black/30 rounded-xl p-6 sm:p-8 mb-6">
               <h2 className="m-auto text-center text-3xl sm:text-4xl">Contributors</h2>
-              <p className="text-sm sm:text-base mt-2">Aoba Client is fully open source and community-driven. Anyone can contribute, review the code, or fork the project on <a href="https://github.com/coltonk9043/Aoba-Client">GitHub</a>. A huge thank you to everyone who has helped make Aoba better. 💜</p>
+              <p className="text-sm sm:text-base mt-2">Aoba Client is fully open source and community-driven. Anyone can contribute, review the code, or fork the project on <a href="https://github.com/Cocolots/Aoba-Client">GitHub</a>. A huge thank you to everyone who has helped make Aoba better. 💜</p>
             </div>
             <ContributorWidget />
           </div>
@@ -146,7 +146,7 @@ export default function Home() {
 
         <SectionDivider color="#121215" seed={5} />
         <div className="bg-background text-center py-5 px-4">
-          <p className="text-sm sm:text-base">Website made by <a href="https://github.com/coltonk9043">coltonk9043</a>, <a href="https://github.com/cvs0">cvs0</a>, and <a href="https://github.com/BatchDebug">BatchDebug</a></p>
+          <p className="text-sm sm:text-base">Website made by <a href="https://github.com/Cocolots">Cocolots</a>, <a href="https://github.com/cvs0">cvs0</a>, and <a href="https://github.com/BatchDebug">BatchDebug</a></p>
         </div>
       </div>
     </main>

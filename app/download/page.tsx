@@ -147,7 +147,7 @@ const DownloadPane = ({ release }: { release: Release }) => {
 }
 
 const Releases = async () => {
-    const githubData = await fetch("https://api.github.com/repos/coltonk9043/Aoba-Client/releases", {
+    const githubData = await fetch("https://api.github.com/repos/Cocolots/Aoba-Client/releases", {
         next: { revalidate: 3600 },
         headers: { Accept: "application/vnd.github.html+json" },
     })
